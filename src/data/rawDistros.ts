@@ -24,8 +24,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Accès distant Linux sécurisé, jusqu’à 10 utilisateurs gratuits",
     usage: "VDI/Bureaux distants",
-    description: "Une solution serveur de haute performance pour délivrer des bureaux Linux à distance de manière fluide.",
-    forWho: "Administrateurs système et entreprises souhaitant centraliser leurs ressources Linux.",
+    description: "ThinLinc est basée sur RHEL/CentOS. Elle sert surtout pour vdi/bureaux distants.",
+    forWho: "Pour pro qui veulent accès distant linux sécurisé, jusqu’à 10 utilisateurs gratuits.",
     whyChoose: [
       "Excellente réactivité graphique",
       "Sécurité native renforcée",
@@ -53,12 +53,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Clone RHEL communautaire, très stable",
     usage: "Serveurs",
-    description: "Une alternative open-source et communautaire conçue pour offrir une compatibilité binaire totale avec RHEL.",
-    forWho: "Professionnels et entreprises cherchant une stabilité de classe entreprise sans frais de licence.",
+    description: "AlmaLinux est basée sur RHEL. Elle sert surtout pour serveurs.",
+    forWho: "Pour pro qui veulent clone rhel communautaire, très stable.",
     whyChoose: [
-      "Compatibilité RHEL parfaite",
+      "Compatibilité RHEL fiable",
       "Gouvernance communautaire transparente",
-      "Migration ultra-simple"
+      "Migration très simple"
     ],
     limitations: [
       "Orientée quasi exclusivement serveur",
@@ -82,12 +82,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Ultra-légère, musl, orientée sécurité",
     usage: "Containers/Minimal",
-    description: "Une distribution minimaliste et ultra-légère utilisant la bibliothèque musl et BusyBox.",
-    forWho: "Administrateurs cloud et développeurs cherchant une empreinte minimale pour leurs projets.",
+    description: "Alpine Linux est une distribution indépendante. Elle sert surtout pour containers/minimal.",
+    forWho: "Pour avancé qui veulent très légère, musl, orientée sécurité.",
     whyChoose: [
       "Taille minuscule idéale pour Docker",
       "Surface d'attaque réduite par défaut",
-      "Système de paquets ultra-rapide"
+      "Système de paquets très rapide"
     ],
     limitations: [
       "Utilise musl au lieu de glibc (incompatibilités)",
@@ -111,8 +111,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Interface proche de Windows",
     usage: "Migration Windows",
-    description: "Une distribution conçue pour faciliter la transition vers Linux en imitant l'ergonomie de Windows.",
-    forWho: "Utilisateurs venant de Windows souhaitant conserver un environnement de travail familier.",
+    description: "AnduinOS est basée sur Ubuntu. Elle sert surtout pour migration windows.",
+    forWho: "Pour débutant qui veulent interface proche de windows.",
     whyChoose: [
       "Apprentissage quasi nul pour ex-Windows",
       "Compatibilité logicielle Ubuntu",
@@ -140,12 +140,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant/Ancien matériel",
     points: "Sans systemd, très léger",
     usage: "PC anciens",
-    description: "Distribution basée sur Debian, extrêmement légère et dépourvue du système d'initialisation systemd.",
-    forWho: "Propriétaires de vieux ordinateurs souhaitant redonner une seconde vie à leur matériel.",
+    description: "antiX est basée sur Debian. Elle sert surtout pour pc anciens.",
+    forWho: "Pour débutant/ancien matériel qui veulent sans systemd, très léger.",
     whyChoose: [
       "Consommation RAM dérisoire",
       "Poids plume sur le disque",
-      "Réactivité impressionnante"
+      "Réactivité bonne"
     ],
     limitations: [
       "Interface visuelle datée",
@@ -169,11 +169,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Rolling release, KISS",
     usage: "Systèmes sur mesure",
-    description: "Une distribution minimaliste et flexible où l'utilisateur construit son système pièce par pièce.",
-    forWho: "Utilisateurs avertis souhaitant comprendre et contrôler chaque aspect de leur Linux.",
+    description: "Arch Linux est une distribution indépendante. Elle sert surtout pour systèmes sur mesure.",
+    forWho: "Pour expert qui veulent rolling release, kiss.",
     whyChoose: [
       "Dernières versions de logiciels disponibles",
-      "Une documentation (Wiki) inégalée",
+      "Une documentation (Wiki) complète",
       "Zéro superflu installé par défaut"
     ],
     limitations: [
@@ -198,10 +198,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Arch préconfiguré, esthétique",
     usage: "Desktop léger",
-    description: "Une version d'Arch Linux magnifiquement pré-configurée utilisant des gestionnaires de fenêtres légers.",
-    forWho: "Utilisateurs aimant l'esthétique soignée sans vouloir passer des heures à configurer leur bureau.",
+    description: "Archcraft est basée sur Arch. Elle sert surtout pour desktop léger.",
+    forWho: "Pour intermédiaire qui veulent arch préconfiguré, esthétique.",
     whyChoose: [
-      "Interface sublime 'out of the box'",
+      "Interface soignée 'out of the box'",
       "Très performant sur matériel modeste",
       "Base Arch complète et puissante"
     ],
@@ -227,8 +227,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Apprenant",
     points: "Distribution pédagogique Arch",
     usage: "Apprentissage",
-    description: "Un projet éducatif complet visant à apprendre aux utilisateurs comment installer et configurer Arch Linux.",
-    forWho: "Curieux souhaitant passer de débutant à expert via un parcours guidé sur Arch.",
+    description: "ArcoLinux est basée sur Arch. Elle sert surtout pour apprentissage.",
+    forWho: "Pour apprenant qui veulent distribution pédagogique arch.",
     whyChoose: [
       "Progression pédagogique structurée",
       "Outils de configuration simplifiés",
@@ -256,8 +256,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Arch sans systemd",
     usage: "Puristes",
-    description: "Une distribution basée sur Arch offrant le choix entre plusieurs systèmes d'initialisation alternatifs.",
-    forWho: "Puristes refusant l'utilisation de systemd sur un système de type Arch.",
+    description: "Artix Linux est basée sur Arch. Elle sert surtout pour puristes.",
+    forWho: "Pour avancé qui veulent arch sans systemd.",
     whyChoose: [
       "Liberté de choix de l'init (OpenRC, runit...)",
       "Performance brute optimisée",
@@ -285,11 +285,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Gamer",
     points: "Optimisé gaming, SteamOS-like",
     usage: "Jeux",
-    description: "Une image système optimisée pour le jeu vidéo, offrant une expérience proche de la Steam Deck sur PC.",
-    forWho: "Joueurs PC et possesseurs de consoles portables (ROG Ally, Legion Go).",
+    description: "Bazzite est basée sur Fedora. Elle sert surtout pour jeux.",
+    forWho: "Pour gamer qui veulent optimisé gaming, steamos-like.",
     whyChoose: [
       "Drivers et codecs pré-installés",
-      "Performance gaming maximisée",
+      "Performance gaming améliorée",
       "Interface Steam Game Mode disponible"
     ],
     limitations: [
@@ -314,8 +314,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Prêt à l’emploi, orienté desktop",
     usage: "Usage général",
-    description: "Distribution brésilienne basée sur Manjaro, axée sur la facilité d'utilisation et les outils intégrés.",
-    forWho: "Utilisateurs domestiques cherchant un système complet et beau sans effort configuratif.",
+    description: "BigLinux est basée sur Manjaro. Elle sert surtout pour usage général.",
+    forWho: "Pour débutant qui veulent prêt à l’emploi, orienté desktop.",
     whyChoose: [
       "Installation et réglages très simples",
       "Suite d'outils de maintenance intégrée",
@@ -343,10 +343,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Multi-distros via conteneurs",
     usage: "Expérimentation",
-    description: "Un système immuable capable d'installer des applications de n'importe quelle autre distribution Linux.",
-    forWho: "Utilisateurs avancés souhaitant mélanger les logiciels de Debian, Fedora et Arch sur un seul système.",
+    description: "blendOS est basée sur Arch. Elle sert surtout pour expérimentation.",
+    forWho: "Pour avancé qui veulent multi-distros via conteneurs.",
     whyChoose: [
-      "Universalité logicielle totale",
+      "Universalité logicielle large",
       "Stabilité d'un système immuable",
       "Support natif des applications Android"
     ],
@@ -372,8 +372,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Très léger, Enlightenment",
     usage: "PC faibles",
-    description: "Utilise le bureau Moksha (fork d'Enlightenment) pour offrir une interface unique et ultra-légère.",
-    forWho: "Utilisateurs de vieux ordinateurs cherchant un look original et une faible consommation de RAM.",
+    description: "Bodhi Linux est basée sur Ubuntu. Elle sert surtout pour pc faibles.",
+    forWho: "Pour débutant qui veulent très léger, enlightenment.",
     whyChoose: [
       "Consommation de ressources minimale",
       "Environnement de bureau unique et beau",
@@ -386,7 +386,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     useCases: [
       "Recyclage de matériel ancien",
       "Netbooks et portables limités",
-      "Système secondaire ultra-rapide"
+      "Système secondaire très rapide"
     ],
     technical: {
       base: "Ubuntu",
@@ -401,11 +401,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Minimaliste",
     points: "Openbox, stabilité",
     usage: "Productivité",
-    description: "Le successeur spirituel de CrunchBang, offrant un bureau Debian minimaliste piloté par Openbox.",
-    forWho: "Utilisateurs cherchant un système épuré pour se concentrer sur leur travail sans distractions.",
+    description: "BunsenLabs est basée sur Debian. Elle sert surtout pour productivité.",
+    forWho: "Pour minimaliste qui veulent openbox, stabilité.",
     whyChoose: [
-      "Vraiment ultra-léger et rapide",
-      "Stabilité légendaire de Debian",
+      "Vraiment très léger et rapide",
+      "Stabilité solide de Debian",
       "Script d'accueil facilitant l'installation"
     ],
     limitations: [
@@ -430,8 +430,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Optimisations CPU/performance",
     usage: "Desktop performant",
-    description: "Une distribution basée sur Arch optimisée au plus haut niveau pour la vitesse et la réactivité du CPU.",
-    forWho: "Utilisateurs cherchant à tirer le maximum de puissance brute de leur processeur moderne.",
+    description: "CachyOS est basée sur Arch. Elle sert surtout pour desktop performant.",
+    forWho: "Pour avancé qui veulent optimisations cpu/performance.",
     whyChoose: [
       "Noyaux optimisés sur mesure",
       "Vitesse de lancement accrue",
@@ -444,7 +444,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     useCases: [
       "Calcul intensif et compilation",
       "Station de travail haute performance",
-      "Usage desktop ultra-réactif"
+      "Usage desktop très réactif"
     ],
     technical: {
       base: "Arch Linux",
@@ -459,8 +459,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Branche upstream de RHEL",
     usage: "Tests serveurs",
-    description: "La plateforme de développement amont pour Red Hat Enterprise Linux, idéale pour tester les futures fonctions.",
-    forWho: "Développeurs et administrateurs souhaitant préparer l'avenir de leur infrastructure RHEL.",
+    description: "CentOS Stream est basée sur RHEL. Elle sert surtout pour tests serveurs.",
+    forWho: "Pour pro qui veulent branche upstream de rhel.",
     whyChoose: [
       "Accès anticipé aux nouveautés RHEL",
       "Excellent pour le test de compatibilité",
@@ -488,8 +488,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "musl + outils BSD",
     usage: "Systèmes alternatifs",
-    description: "Un système d'exploitation moderne qui combine le noyau Linux avec une architecture utilisateur non-GNU.",
-    forWho: "Experts Unix souhaitant une alternative technique alliant Linux et outils BSD.",
+    description: "Chimera Linux est une distribution indépendante. Elle sert surtout pour systèmes alternatifs.",
+    forWho: "Pour expert qui veulent musl + outils bsd.",
     whyChoose: [
       "Architecture propre et sans GNU",
       "Utilise LLVM au lieu de GCC par défaut",
@@ -517,10 +517,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Tous",
     points: "Très stable, universelle",
     usage: "Serveur/Desktop",
-    description: "Le système d'exploitation universel, reconnu pour sa stabilité à toute épreuve et son engagement libre.",
-    forWho: "Utilisateurs et administrateurs cherchant une base fiable et pérenne sur le long terme.",
+    description: "Debian est une distribution indépendante. Elle sert surtout pour serveur/desktop.",
+    forWho: "Pour tous qui veulent très stable, universelle.",
     whyChoose: [
-      "Stabilité légendaire prouvée",
+      "Stabilité solide prouvée",
       "Dépôts de logiciels immenses",
       "Support matériel exceptionnel"
     ],
@@ -546,8 +546,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Interface moderne et soignée",
     usage: "Desktop grand public",
-    description: "Distribution chinoise réputée pour son environnement de bureau (DDE) extrêmement élégant et intuitif.",
-    forWho: "Amoureux du design cherchant une interface moderne sans complexité technique.",
+    description: "Deepin est basée sur Debian. Elle sert surtout pour desktop grand public.",
+    forWho: "Pour débutant qui veulent interface moderne et soignée.",
     whyChoose: [
       "L'une des plus belles interfaces graphiques",
       "Bouton 'App Store' très fourni",
@@ -575,8 +575,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Debian sans systemd",
     usage: "Environnements maîtrisés",
-    description: "Un fork de Debian qui préserve la liberté de choix du système d'init, en évitant systemd.",
-    forWho: "Utilisateurs de Debian préférant les systèmes d'initialisation traditionnels comme SysVinit.",
+    description: "Devuan est basée sur Debian. Elle sert surtout pour environnements maîtrisés.",
+    forWho: "Pour avancé qui veulent debian sans systemd.",
     whyChoose: [
       "Alternative sérieuse sans systemd",
       "Conserve toute la robustesse de Debian",
@@ -604,11 +604,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "HAMMER FS, performance",
     usage: "Serveur spécialisé",
-    description: "Un système BSD axé sur le support massif du multicœur et sur son système de fichiers innovant HAMMER.",
-    forWho: "Experts Unix cherchant des performances de stockage et de scalabilité réseau exceptionnelles.",
+    description: "DragonFlyBSD est basée sur BSD. Elle sert surtout pour serveur spécialisé.",
+    forWho: "Pour expert qui veulent hammer fs, performance.",
     whyChoose: [
-      "Système de fichiers HAMMER ultra-performant",
-      "Gestion multicœur ultra-optimisée",
+      "Système de fichiers HAMMER très performant",
+      "Gestion multicœur très optimisée",
       "Clustering et haute disponibilité"
     ],
     limitations: [
@@ -633,8 +633,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Éducation",
     points: "Suite éducative",
     usage: "Écoles",
-    description: "Une variante officielle d'Ubuntu spécialement configurée pour l'apprentissage et les classes scolaires.",
-    forWho: "Écoles, universités et parents souhaitant un environnement éducatif sécurisé.",
+    description: "Edubuntu est basée sur Ubuntu. Elle sert surtout pour écoles.",
+    forWho: "Pour éducation qui veulent suite éducative.",
     whyChoose: [
       "Nombreux logiciels éducatifs inclus",
       "Configuration simplifiée pour les labos",
@@ -662,8 +662,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "UX inspirée macOS",
     usage: "Desktop personnel",
-    description: "Une distribution soignée mettant l'accent sur le design et la simplicité, avec un bureau maison nommé Pantheon.",
-    forWho: "Nouveaux venus venant de macOS privilégiant l'élégance et la facilité d'usage.",
+    description: "elementary OS est basée sur Ubuntu. Elle sert surtout pour desktop personnel.",
+    forWho: "Pour débutant qui veulent ux inspirée macos.",
     whyChoose: [
       "Interface épurée et cohérente",
       "Respect strict de la vie privée",
@@ -691,8 +691,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Arch simplifié",
     usage: "Desktop rolling",
-    description: "La meilleure porte d'entrée vers Arch Linux, offrant un installateur graphique et un système quasi-pure.",
-    forWho: "Utilisateurs lassés de Manjaro et voulant une expérience Arch propre mais accessible.",
+    description: "EndeavourOS est basée sur Arch. Elle sert surtout pour desktop rolling.",
+    forWho: "Pour intermédiaire qui veulent arch simplifié.",
     whyChoose: [
       "Installation d'Arch en 5 minutes",
       "Très peu de personnalisations par défaut",
@@ -720,8 +720,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Grand public",
     points: "Fonctionne hors-ligne",
     usage: "Éducation",
-    description: "Un système unique conçu pour être utilisable sans connexion internet grâce à des milliers d'articles pré-chargés.",
-    forWho: "Zones blanches, pays en développement et bibliothèques sans accès internet fiable.",
+    description: "Endless OS est basée sur Debian. Elle sert surtout pour éducation.",
+    forWho: "Pour grand public qui veulent fonctionne hors-ligne.",
     whyChoose: [
       "Contenu encyclopédique pré-installé",
       "Interface simple comme un smartphone",
@@ -749,8 +749,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Technologies récentes",
     usage: "Développement",
-    description: "La plateforme de pointe qui introduit les technologies Linux avant tout le monde tout en restant stable.",
-    forWho: "Développeurs et enthousiastes voulant le dernier cri de la technologie Linux avec rigueur.",
+    description: "Fedora est une distribution indépendante. Elle sert surtout pour développement.",
+    forWho: "Pour avancé qui veulent technologies récentes.",
     whyChoose: [
       "Toute première à sortir les nouveautés",
       "Stabilité surprenante pour du 'bleeding-edge'",
@@ -778,11 +778,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "ZFS natif, robustesse",
     usage: "Serveurs",
-    description: "Doyen des systèmes BSD, réputé pour sa pile réseau exemplaire et sa robustesse légendaire sur serveurs.",
-    forWho: "Administrateurs réseaux et système cherchant une alternative à Linux pour la sûreté et la cohérence.",
+    description: "FreeBSD est basée sur BSD. Elle sert surtout pour serveurs.",
+    forWho: "Pour expert qui veulent zfs natif, robustesse.",
     whyChoose: [
-      "Pile réseau ultra-performante",
-      "Gestion de stockage parfaite via ZFS",
+      "Pile réseau très performante",
+      "Gestion de stockage fiable via ZFS",
       "Documentation système exhaustive"
     ],
     limitations: [
@@ -807,8 +807,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Gamer",
     points: "Performance et gaming",
     usage: "Jeux",
-    description: "Une version d'Arch Linux survitaminée pour le jeu vidéo, avec un look néon agressif et des optimisations automatiques.",
-    forWho: "Joueurs voulant un système rapide et personnalisé pour le gaming sans passer par la configuration manuelle.",
+    description: "Garuda Linux est basée sur Arch. Elle sert surtout pour jeux.",
+    forWho: "Pour gamer qui veulent performance et gaming.",
     whyChoose: [
       "Noyau Linux Zen optimisé gaming",
       "Outils graphiques de configuration tout-en-un",
@@ -836,11 +836,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Compilation à la carte",
     usage: "Optimisation extrême",
-    description: "Distribution source où chaque paquet est compilé par l'utilisateur pour sa propre machine.",
-    forWho: "Experts cherchant le contrôle absolu et l'optimisation maximale de leur matériel.",
+    description: "Gentoo est une distribution indépendante. Elle sert surtout pour optimisation extrême.",
+    forWho: "Pour expert qui veulent compilation à la carte.",
     whyChoose: [
       "Performance optimisée au processeur",
-      "Flexibilité logicielle totale",
+      "Flexibilité logicielle large",
       "Connaissance profonde du système"
     ],
     limitations: [
@@ -865,8 +865,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Curieux",
     points: "OS alternatif moderne",
     usage: "Exploration",
-    description: "Le successeur libre de BeOS, léger, réactif et doté d'une architecture orientée bureau unique.",
-    forWho: "Curieux de systèmes d'exploitation exotiques en dehors du monde Linux/Windows.",
+    description: "Haiku est basée sur BeOS-like. Elle sert surtout pour exploration.",
+    forWho: "Pour curieux qui veulent os alternatif moderne.",
     whyChoose: [
       "Rapidité de lancement foudroyante",
       "Interface simple et unifiée",
@@ -894,12 +894,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Gamer",
     points: "Clone SteamOS",
     usage: "Console PC",
-    description: "Un projet visant à porter l'expérience logicielle de la Steam Deck sur n'importe quel ordinateur.",
-    forWho: "Propriétaires de consoles PC ou PC gaming cherchant l'interface de Steam Deck.",
+    description: "HoloISO est basée sur Arch. Elle sert surtout pour console pc.",
+    forWho: "Pour gamer qui veulent clone steamos.",
     whyChoose: [
       "Interface SteamOS console native",
       "Optimisé pour le jeu à la manette",
-      "Base Arch ultra-moderne"
+      "Base Arch très moderne"
     ],
     limitations: [
       "Compatible surtout avec les GPU AMD",
@@ -923,11 +923,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Utilisateurs KDE",
     points: "KDE très récent",
     usage: "Desktop KDE",
-    description: "Une base Ubuntu stable servant de vitrine aux toutes dernières versions du bureau KDE Plasma.",
-    forWho: "Fans de KDE voulant tester les fonctionnalités de Plasma avant tout le monde sur une base stable.",
+    description: "KDE Neon est basée sur Ubuntu. Elle sert surtout pour desktop kde.",
+    forWho: "Pour utilisateurs kde qui veulent kde très récent.",
     whyChoose: [
       "Premier à recevoir les mises à jour KDE",
-      "Compatibilité logicielle Ubuntu totale",
+      "Compatibilité logicielle Ubuntu large",
       "Bureau fluide et personnalisable"
     ],
     limitations: [
@@ -950,10 +950,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "KolibriOS",
     base: "Indépendante",
     audience: "Expert",
-    points: "OS ultra-minimal",
+    points: "OS très minimal",
     usage: "Démonstration technique",
-    description: "Un système d'exploitation incroyable écrit entièrement en assembleur, tenant sur une disquette.",
-    forWho: "Experts et passionnés par l'optimisation extrême et le code assembleur.",
+    description: "KolibriOS est une distribution indépendante. Elle sert surtout pour démonstration technique.",
+    forWho: "Pour expert qui veulent os très minimal.",
     whyChoose: [
       "Démarrage en moins de 3 secondes",
       "Performance CPU sans équivalent",
@@ -965,7 +965,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     useCases: [
       "Démonstration de performance",
-      "Système de secours ultra-léger",
+      "Système de secours très léger",
       "Apprentissage de l'assembleur"
     ],
     technical: {
@@ -981,8 +981,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Ubuntu + KDE",
     usage: "Desktop",
-    description: "La force de la base Ubuntu associée à la puissance et la beauté de l'environnement KDE Plasma.",
-    forWho: "Utilisateurs cherchant un système stable, complet et hautement personnalisable.",
+    description: "Kubuntu est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent ubuntu + kde.",
     whyChoose: [
       "Personnalisation visuelle sans limite",
       "Excellente logithèque intégrée",
@@ -1010,8 +1010,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Simple et léger",
     usage: "Ex-Windows",
-    description: "Une distribution légère utilisant XFCE, spécialement conçue pour ne pas dérouter les anciens utilisateurs de Windows.",
-    forWho: "Novices migrant depuis Windows 7 ou 10 sur une vieille machine.",
+    description: "Linux Lite est basée sur Ubuntu. Elle sert surtout pour ex-windows.",
+    forWho: "Pour débutant qui veulent simple et léger.",
     whyChoose: [
       "Interface simple et familière",
       "Rapidité sur petit processeur",
@@ -1039,8 +1039,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Ergonomique et stable",
     usage: "Desktop principal",
-    description: "Probablement la meilleure distribution pour débuter, offrant une expérience polie, stable et intuitive.",
-    forWho: "Tout utilisateur cherchant un système 'qui marche' dès l'installation.",
+    description: "Linux Mint est basée sur Ubuntu/Debian. Elle sert surtout pour desktop principal.",
+    forWho: "Pour débutant qui veulent ergonomique et stable.",
     whyChoose: [
       "Ergonomie exceptionnelle (Cinnamon)",
       "Gestionnaire de mises à jour sûr",
@@ -1068,8 +1068,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Mint sans Ubuntu",
     usage: "Desktop stable",
-    description: "La 'roue de secours' de Mint, basée directement sur Debian pour garantir l'indépendance vis-à-vis d'Ubuntu.",
-    forWho: "Utilisateurs de Mint souhaitant une base Debian plus pure tout en gardant le bureau Cinnamon.",
+    description: "Linux Mint Debian Edition est basée sur Debian. Elle sert surtout pour desktop stable.",
+    forWho: "Pour débutant qui veulent mint sans ubuntu.",
     whyChoose: [
       "Indépendance vis-à-vis de Canonical",
       "Robustesse du socle Debian stable",
@@ -1097,8 +1097,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "LXQt très léger",
     usage: "PC modestes",
-    description: "Une variante d'Ubuntu utilisant le bureau ultra-léger LXQt pour une rapidité maximale sur petit matériel.",
-    forWho: "Propriétaires de portables peu puissants ou de machines ayant peu de mémoire vive.",
+    description: "Lubuntu est basée sur Ubuntu. Elle sert surtout pour pc modestes.",
+    forWho: "Pour débutant qui veulent lxqt très léger.",
     whyChoose: [
       "Consommation RAM record",
       "Rapidité d'exécution fluide",
@@ -1126,8 +1126,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Classique et stable",
     usage: "Desktop",
-    description: "Le successeur communautaire de Mandriva, offrant un panneau de contrôle (MCC) centralisé très complet.",
-    forWho: "Utilisateurs aimant la tradition RPM française et les outils de configuration graphiques.",
+    description: "Mageia est basée sur Mandriva. Elle sert surtout pour desktop.",
+    forWho: "Pour intermédiaire qui veulent classique et stable.",
     whyChoose: [
       "Panneau de contrôle tout-en-un",
       "Stabilité exemplaire du système",
@@ -1155,8 +1155,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Arch user-friendly",
     usage: "Desktop rolling",
-    description: "Offre la puissance d'Arch Linux avec un installateur graphique, des drivers automatisés et des dépôts testés.",
-    forWho: "Utilisateurs voulant du rolling release sans la complexité de l'installation d'Arch.",
+    description: "Manjaro est basée sur Arch. Elle sert surtout pour desktop rolling.",
+    forWho: "Pour intermédiaire qui veulent arch user-friendly.",
     whyChoose: [
       "Derniers logiciels via dépôts testés",
       "Gestionnaire de drivers excellent",
@@ -1184,8 +1184,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Tous",
     points: "Rapide et stable",
     usage: "Desktop polyvalent",
-    description: "Une distribution remarquablement efficace qui combine un socle Debian Stable avec des outils maison (MX Tools) très utiles.",
-    forWho: "Utilisateurs fatigués de systemd cherchant un système fluide et complet sans tutoriel.",
+    description: "MX Linux est basée sur Debian. Elle sert surtout pour desktop polyvalent.",
+    forWho: "Pour tous qui veulent rapide et stable.",
     whyChoose: [
       "Outils de configuration géniaux",
       "Vraiment très rapide à l'usage",
@@ -1213,10 +1213,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Immutable, AppImage",
     usage: "Desktop moderne",
-    description: "Une distribution innovante basée sur Debian, utilisant Maui Shell et privilégiant le format AppImage.",
-    forWho: "Utilisateurs aimant l'esthétique futuriste et les nouveaux paradigmes de gestion logicielle.",
+    description: "Nitrux est basée sur Debian. Elle sert surtout pour desktop moderne.",
+    forWho: "Pour intermédiaire qui veulent immutable, appimage.",
     whyChoose: [
-      "Interface futuriste et magnifique",
+      "Interface futuriste et soignée",
       "Cœur du système immuable sûr",
       "Support natif des AppImages"
     ],
@@ -1242,12 +1242,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Configuration déclarative",
     usage: "Infra reproductible",
-    description: "Un système unique où toute la configuration est définie dans un fichier texte, permettant des rollbacks instantanés.",
-    forWho: "Administrateurs et développeurs cherchant une configuration système versionnable et reproductible.",
+    description: "NixOS est une distribution indépendante. Elle sert surtout pour infra reproductible.",
+    forWho: "Pour expert qui veulent configuration déclarative.",
     whyChoose: [
       "Possibilité de rollback garanti",
       "Configuration système centralisée",
-      "Isolation des dépendances parfaite"
+      "Isolation des dépendances fiable"
     ],
     limitations: [
       "Langage Nix difficile à apprendre",
@@ -1271,8 +1271,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Gamer",
     points: "Fedora optimisé jeux",
     usage: "Gaming",
-    description: "Une version de Fedora modifiée par GloriousEggroll (acteur majeur de Proton) pour le jeu vidéo.",
-    forWho: "Joueurs voulant le top des performances sur Steam et Wine sans bidouiller Fedora.",
+    description: "Nobara est basée sur Fedora. Elle sert surtout pour gaming.",
+    forWho: "Pour gamer qui veulent fedora optimisé jeux.",
     whyChoose: [
       "Patchs de performance pré-appliqués",
       "Drivers NVIDIA installés proprement",
@@ -1300,11 +1300,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "ZFS avancé",
     usage: "Stockage",
-    description: "Le successeur de l'OpenSolaris, héritant des fonctions de stockage et réseaux les plus pro (ZFS, DTrace).",
-    forWho: "Experts Unix ayant besoin d'une fiabilité de stockage de niveau professionnel.",
+    description: "OpenIndiana est basée sur Solaris. Elle sert surtout pour stockage.",
+    forWho: "Pour expert qui veulent zfs avancé.",
     whyChoose: [
       "Fonctions ZFS les plus matures",
-      "Environnement réseau ultra-sûr",
+      "Environnement réseau très sûr",
       "Outils d'inspection (DTrace) pro"
     ],
     limitations: [
@@ -1329,8 +1329,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "RPM moderne",
     usage: "Desktop",
-    description: "Une distribution moderne utilisant LLVM/Clang pour son build, offrant une variante optimisée pour processeurs récents.",
-    forWho: "Utilisateurs fidèles à l'épopée Mandrake cherchant un système RPM moderne.",
+    description: "OpenMandriva est basée sur Mandriva. Elle sert surtout pour desktop.",
+    forWho: "Pour intermédiaire qui veulent rpm moderne.",
     whyChoose: [
       "Hautes performances avec LLVM",
       "Outils de configuration Mandriva",
@@ -1358,8 +1358,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Tous",
     points: "Leap stable / Tumbleweed rolling",
     usage: "Desktop/Serveur",
-    description: "Une distribution allemande rigoureuse connue pour YaST, son centre de contrôle tout-en-un extrêmement puissant.",
-    forWho: "Professionnels et particuliers voulant de la robustesse et une administration simplifiée.",
+    description: "openSUSE est une distribution indépendante. Elle sert surtout pour desktop/serveur.",
+    forWho: "Pour tous qui veulent leap stable / tumbleweed rolling.",
     whyChoose: [
       "Centre de contrôle YaST unique",
       "Stabilité exemplaire (Leap)",
@@ -1387,8 +1387,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Rolling stable",
     usage: "Desktop",
-    description: "Une distribution atypique utilisant des paquets RPM mais via le gestionnaire APT, axée sur la facilité d'utilisation.",
-    forWho: "Utilisateurs cherchant du 'rolling' sans le côté effrayant, orienté pur desktop.",
+    description: "PCLinuxOS est une distribution indépendante. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent rolling stable.",
     whyChoose: [
       "Format 'installer une fois pour toujours'",
       "Très bons outils de configuration",
@@ -1416,10 +1416,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Léger, web apps",
     usage: "PC faibles",
-    description: "Spécialisée dans l'intégration transparente des applications Web (via Ice) au sein d'un bureau XFCE léger.",
-    forWho: "Utilisateurs de vieux portables passant beaucoup de temps sur le Web et les services Cloud.",
+    description: "PeppermintOS est basée sur Debian. Elle sert surtout pour pc faibles.",
+    forWho: "Pour débutant qui veulent léger, web apps.",
     whyChoose: [
-      "Intégration Web parfaite",
+      "Intégration Web fiable",
       "Consommation ressources légère",
       "Installation très rapide"
     ],
@@ -1445,8 +1445,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Dev/Gamer",
     points: "Optimisé GPU et workflow",
     usage: "Workstation",
-    description: "Créée par System76, elle offre une expérience GNOME améliorée (Pop Shell) et une gestion parfaite des drivers graphiques.",
-    forWho: "Développeurs et créateurs cherchant un environnement Linux productif et prêt pour la performance.",
+    description: "Pop!_OS est basée sur Ubuntu. Elle sert surtout pour workstation.",
+    forWho: "Pour dev/gamer qui veulent optimisé gpu et workflow.",
     whyChoose: [
       "Gestionnaire de fenêtres tiling inclus",
       "Version avec drivers NVIDIA pré-packagés",
@@ -1474,8 +1474,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Live USB modulaire",
     usage: "Dépannage",
-    description: "Une distribution portable hyper-rapide conçue pour fonctionner en RAM depuis une clé USB via des modules compressés.",
-    forWho: "Techniciens cherchant un système de secours ultra-rapide et personnalisable à l'infini.",
+    description: "Porteus est basée sur Slackware. Elle sert surtout pour dépannage.",
+    forWho: "Pour avancé qui veulent live usb modulaire.",
     whyChoose: [
       "Construction modulaire par fichiers",
       "Démarrage fulgurant (15s)",
@@ -1503,8 +1503,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Éducation",
     points: "Conçu pour enfants",
     usage: "Écoles",
-    description: "Une distribution française spécialement adaptée aux enfants de l'école primaire, avec des environnements par tranches d'âges.",
-    forWho: "Parents et instituteurs voulant un ordinateur sûr et ludique pour les écoliers.",
+    description: "PrimTux est basée sur Debian/Ubuntu. Elle sert surtout pour écoles.",
+    forWho: "Pour éducation qui veulent conçu pour enfants.",
     whyChoose: [
       "Menus simplifiés par âge (3 à 10 ans)",
       "Filtrage internet automatique inclus",
@@ -1532,8 +1532,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Ultra-léger, RAM-based",
     usage: "Dépannage",
-    description: "Légère à l'extrême, elle se charge entièrement en RAM pour transformer n'importe quel vieux PC en poste fonctionnel.",
-    forWho: "Utilisateurs ayant besoin d'un système vivant en RAM pour ranimer un PC sans disque dur ou très lent.",
+    description: "Puppy Linux est une distribution indépendante. Elle sert surtout pour dépannage.",
+    forWho: "Pour débutant qui veulent très léger, ram-based.",
     whyChoose: [
       "Ne demande presque pas de RAM",
       "Fonctionne sans disque dur si besoin",
@@ -1561,8 +1561,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Sécurité",
     points: "100% libre, privacy",
     usage: "Militants",
-    description: "Une distribution certifiée par la FSF, garantissant un logiciel 100% libre et une vie privée ultra-protégée.",
-    forWho: "Utilisateurs soucieux de leur éthique numérique refusant tout composant propriétaire.",
+    description: "PureOS est basée sur Debian. Elle sert surtout pour militants.",
+    forWho: "Pour sécurité qui veulent 100% libre, privacy.",
     whyChoose: [
       "Liberté logicielle garantie (FSF)",
       "Sécurité et vie privée par défaut",
@@ -1573,7 +1573,7 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Incompatible avec certains firmwares récents"
     ],
     useCases: [
-      "Usage personnel ultra-sécurisé",
+      "Usage personnel très sécurisé",
       "Poste de travail éthique",
       "Support pour PC Librem (System76/Purism)"
     ],
@@ -1590,10 +1590,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Très léger, Trinity",
     usage: "Vieux PC",
-    description: "Vise la rapidité sur vieux matériel en réutilisant l'environnement de bureau classique Trinity (fork de KDE 3).",
-    forWho: "Nostalgiques de l'ergonomie Windows XP/7 cherchant un Linux hyper-véloce.",
+    description: "Q4OS est basée sur Debian. Elle sert surtout pour vieux pc.",
+    forWho: "Pour débutant qui veulent très léger, trinity.",
     whyChoose: [
-      "Rapidité impressionnante sur vieux PC",
+      "Rapidité bonne sur vieux PC",
       "Interface classique familière",
       "Outils d'installation simplifiés"
     ],
@@ -1619,8 +1619,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Arch complet préinstallé",
     usage: "Desktop custom",
-    description: "Offre un installateur graphique extrêmement poussé permettant de choisir précisément ses environnements et services dès le départ.",
-    forWho: "Utilisateurs voulant choisir leur bureau personnalisé sans installer Arch à la main.",
+    description: "RebornOS est basée sur Arch. Elle sert surtout pour desktop custom.",
+    forWho: "Pour avancé qui veulent arch complet préinstallé.",
     whyChoose: [
       "Installateur extrêmement flexible",
       "Support Flatpak et AUR natif",
@@ -1648,8 +1648,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Clone RHEL communautaire",
     usage: "Serveurs",
-    description: "Née suite au changement de CentOS, elle vise à offrir un clone fidèle et gratuit de RHEL piloté par la communauté.",
-    forWho: "Administrateurs de serveurs pro cherchant la stabilité imperturbable de Red Hat sans frais.",
+    description: "Rocky Linux est basée sur RHEL. Elle sert surtout pour serveurs.",
+    forWho: "Pour pro qui veulent clone rhel communautaire.",
     whyChoose: [
       "Stabilité professionnelle garantie",
       "Compatibilité logicielle RHEL 100%",
@@ -1677,8 +1677,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Debian unstable maîtrisé",
     usage: "Desktop avancé",
-    description: "Une version domestiquée de Debian Unstable, permettant d'avoir les paquets les plus récents avec un filet de sécurité.",
-    forWho: "Utilisateurs aimant Debian mais voulant des versions de logiciels très récentes.",
+    description: "Siduction est basée sur Debian Sid. Elle sert surtout pour desktop avancé.",
+    forWho: "Pour avancé qui veulent debian unstable maîtrisé.",
     whyChoose: [
       "Paquets Debian les plus frais",
       "Installation simplifiée via Calamares",
@@ -1706,8 +1706,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Unix traditionnel",
     usage: "Puristes",
-    description: "La plus ancienne distribution Linux encore maintenue, gardant une philosophie très proche des systèmes Unix traditionnels.",
-    forWho: "Puristes et nostalgiques souhaitant un système qui n'automatise rien sans votre accord.",
+    description: "Slackware est une distribution indépendante. Elle sert surtout pour puristes.",
+    forWho: "Pour expert qui veulent unix traditionnel.",
     whyChoose: [
       "Simplicité et stabilité Unix",
       "Zéro dépendance logicielle automatique",
@@ -1735,8 +1735,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Live rapide",
     usage: "USB boot",
-    description: "Une distribution modulaire qui tient en poche, optimisée pour le lancement rapide en mode persistant sur clé USB.",
-    forWho: "Utilisateurs nomades ayant besoin d'un système complet et mémorisable sur n'importe quel PC.",
+    description: "Slax est basée sur Debian. Elle sert surtout pour usb boot.",
+    forWho: "Pour avancé qui veulent live rapide.",
     whyChoose: [
       "Prend très peu de place sur USB",
       "Gestionnaire de fenêtres Fluxbox réactif",
@@ -1764,8 +1764,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Extrêmement minimal",
     usage: "Très vieux matériel",
-    description: "Incroyable micromachine tenant dans 40 Mo et capable de tourner décemment sur des processeurs des années 90.",
-    forWho: "Férus d'optimisation et propriétaires de matériel jugé obsolète partout ailleurs.",
+    description: "SliTaz est une distribution indépendante. Elle sert surtout pour très vieux matériel.",
+    forWho: "Pour expert qui veulent extrêmement minimal.",
     whyChoose: [
       "Poids plume révolutionnaire",
       "Vraiment utilisable sur Pentium III",
@@ -1778,7 +1778,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     useCases: [
       "Ranimer des PC de muséum",
       "Serveur web minuscule",
-      "Système de secours ultra-léger"
+      "Système de secours très léger"
     ],
     technical: {
       base: "Indépendante",
@@ -1793,12 +1793,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Orienté desktop",
     usage: "Usage personnel",
-    description: "Une distribution indépendante curatée pour le bureau moderne, avec son propre environnement graphique Budgie.",
-    forWho: "Utilisateurs de bureau cherchant un système stable, esthétique et sans héritage serveur complexe.",
+    description: "Solus est une distribution indépendante. Elle sert surtout pour usage personnel.",
+    forWho: "Pour intermédiaire qui veulent orienté desktop.",
     whyChoose: [
       "Environnement Budgie très élégant",
       "Excellentes performances multimédia",
-      "Installation logicielle ultra-simple"
+      "Installation logicielle très simple"
     ],
     limitations: [
       "Nombre de paquets inférieur à Debian/Arch",
@@ -1822,8 +1822,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Léger et flexible",
     usage: "Desktop",
-    description: "Une base Debian polie offrant une multitude d'éditions (Gaming, Multimédia, Rescue) pour répondre à tous les besoins.",
-    forWho: "Utilisateurs voulant de la flexibilité Debian sans la difficulté de configuration initiale.",
+    description: "SparkyLinux est basée sur Debian. Elle sert surtout pour desktop.",
+    forWho: "Pour intermédiaire qui veulent léger et flexible.",
     whyChoose: [
       "Très nombreuses variantes d'usage",
       "Gestionnaire d'installations tiers APTus",
@@ -1851,8 +1851,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Debian prêt à l’emploi",
     usage: "Desktop stable",
-    description: "Prend Debian Stable et l'affine avec des réglages intelligents pour le rendre aussi facile qu'Ubuntu ou Mint.",
-    forWho: "Débutants voulant la fiabilité de Debian sans les obstacles à l'installation logicielle.",
+    description: "SpiralLinux est basée sur Debian. Elle sert surtout pour desktop stable.",
+    forWho: "Pour débutant qui veulent debian prêt à l’emploi.",
     whyChoose: [
       "Debian avec codecs pré-installés",
       "Drivers propriétaires configurés",
@@ -1880,8 +1880,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Sécurité",
     points: "Anonymat via Tor",
     usage: "Journalisme",
-    description: "Un système amnésique conçu pour ne laisser aucune trace et forcer tout le trafic internet via le réseau Tor.",
-    forWho: "Journalistes, lanceurs d'alerte et personnes cherchant un anonymat total temporaire.",
+    description: "Tails est basée sur Debian. Elle sert surtout pour journalisme.",
+    forWho: "Pour sécurité qui veulent anonymat via tor.",
     whyChoose: [
       "Anonymat internet automatique",
       "Ne laisse aucune trace sur le disque",
@@ -1909,8 +1909,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Minimal extrême",
     usage: "Embarqué",
-    description: "Un environnement graphique complet qui tient dans moins de 20 Mo, modulaire et hautement flexible.",
-    forWho: "Experts cherchant à construire une solution dédiée hyper-légère pour du matériel spécifique.",
+    description: "Tiny Core Linux est une distribution indépendante. Elle sert surtout pour embarqué.",
+    forWho: "Pour expert qui veulent minimal extrême.",
     whyChoose: [
       "Taille système ridiculement petite",
       "Chargement instantané en mémoire vive",
@@ -1922,7 +1922,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     useCases: [
       "Bornes tactiles et automates",
-      "Recyclage de PC ultra-vieux",
+      "Recyclage de PC très vieux",
       "Serveurs de services légers"
     ],
     technical: {
@@ -1938,8 +1938,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Libre",
     points: "100% logiciel libre",
     usage: "Institutions",
-    description: "Une version d'Ubuntu débarrassée de tout composant propriétaire, idéale pour l'éthique et les institutions publiques.",
-    forWho: "Militants du logiciel libre refusant les pilotes ou firmwares fermés.",
+    description: "Trisquel GNU/Linux est basée sur Ubuntu. Elle sert surtout pour institutions.",
+    forWho: "Pour libre qui veulent 100% logiciel libre.",
     whyChoose: [
       "Ethique logicielle irréprochable",
       "Excellente stabilité (LTS Ubuntu)",
@@ -1967,12 +1967,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Utilisateurs Tuxedo",
     points: "Optimisé matériel Tuxedo",
     usage: "Laptops Linux",
-    description: "Développée par le constructeur Tuxedo pour ses machines, mais utilisable sur n'importe quel ordinateur.",
-    forWho: "Utilisateurs de laptops Tuxedo ou utilisateurs cherchant un Plasma poli sur base Ubuntu.",
+    description: "Tuxedo OS est basée sur Ubuntu. Elle sert surtout pour laptops linux.",
+    forWho: "Pour utilisateurs tuxedo qui veulent optimisé matériel tuxedo.",
     whyChoose: [
       "Support matériel parfait pour Tuxedo",
       "Configuration KDE Plasma soignée",
-      "Base Ubuntu LTS ultra-fiable"
+      "Base Ubuntu LTS très fiable"
     ],
     limitations: [
       "Moins d'intérêt hors matériel Tuxedo",
@@ -1996,8 +1996,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Tous",
     points: "Distribution généraliste",
     usage: "Tous usages",
-    description: "La référence absolue de Linux, reconnue pour son énorme support matériel et sa facilité d'adoption.",
-    forWho: "Débutants comme professionnels cherchant le standard de l'industrie Linux.",
+    description: "Ubuntu est basée sur Debian. Elle sert surtout pour tous usages.",
+    forWho: "Pour tous qui veulent distribution généraliste.",
     whyChoose: [
       "Compatibilité matérielle gigantesque",
       "Support professionnel à long terme",
@@ -2025,8 +2025,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Budgie desktop",
     usage: "Desktop",
-    description: "Mélange le socle Ubuntu avec le bureau élégant et moderne Budgie de l'équipe Solus.",
-    forWho: "Utilisateurs cherchant un look moderne et léché sans sacrifier la stabilité.",
+    description: "Ubuntu Budgie est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent budgie desktop.",
     whyChoose: [
       "Interface vraiment belle et fluide",
       "Logithèque Ubuntu immense",
@@ -2054,8 +2054,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Cinnamon officiel",
     usage: "Desktop",
-    description: "Fournit l'excellent bureau Cinnamon sur une base Ubuntu officielle, offrant une expérience classique et familière.",
-    forWho: "Migrants Windows aimant l'interface classique mais préférant Ubuntu à Linux Mint.",
+    description: "Ubuntu Cinnamon est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent cinnamon officiel.",
     whyChoose: [
       "Ergonomie classique Windows-like",
       "Intégration officielle Ubuntu",
@@ -2083,15 +2083,15 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Grand public",
     points: "Orienté marché chinois",
     usage: "Desktop",
-    description: "L'édition officielle d'Ubuntu pour la Chine, avec son bureau UKUI très épuré imitant Windows 10/11.",
-    forWho: "Utilisateurs parlant chinois ou curieux de l'ergonomie visuelle moderne d'UKUI.",
+    description: "Ubuntu Kylin est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour grand public qui veulent orienté marché chinois.",
     whyChoose: [
       "Superbe bureau UKUI moderne",
       "Logithèque adaptée au marché chinois",
       "Intégrations locales fortes"
     ],
     limitations: [
-      "Traductions imparfaites en français",
+      "Traductions imfiables en français",
       "Services de recherche géolocalisés"
     ],
     useCases: [
@@ -2112,8 +2112,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Interface classique",
     usage: "Desktop",
-    description: "Fait revivre l'époque dorée de GNOME 2 avec une interface traditionnelle, légère et hyper-stable.",
-    forWho: "Utilisateurs préférant l'informatique 'classique' et les menus organisés.",
+    description: "Ubuntu MATE est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent interface classique.",
     whyChoose: [
       "Rapidité et faible consommation",
       "Menue traditionnel intuitif",
@@ -2141,8 +2141,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Créatifs",
     points: "Audio/vidéo pro",
     usage: "Production multimédia",
-    description: "Une station de travail spécialisée, livrée avec tous les outils nécessaires au montage vidéo, son et image.",
-    forWho: "Musiciens, monteurs et graphistes souhaitant un OS optimisé pour la création.",
+    description: "Ubuntu Studio est basée sur Ubuntu. Elle sert surtout pour production multimédia.",
+    forWho: "Pour créatifs qui veulent audio/vidéo pro.",
     whyChoose: [
       "Logiciels pro pré-configurés",
       "Noyau audio basse latence",
@@ -2170,8 +2170,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Nostalgique",
     points: "Interface Unity",
     usage: "Desktop",
-    description: "Le retour officiel du bureau Unity qui a fait la renommée d'Ubuntu pendant des années.",
-    forWho: "Nostalgiques de l'ergonomie Unity et du HUD (menu de recherche globale).",
+    description: "Ubuntu Unity est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour nostalgique qui veulent interface unity.",
     whyChoose: [
       "Workflow Unity unique et rapide",
       "Excellente gestion des écrans laptop",
@@ -2199,8 +2199,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "runit, rolling",
     usage: "Admins systèmes",
-    description: "Distribution indépendante hyper-rapide utilisant l'init runit au lieu de systemd.",
-    forWho: "Utilisateurs avancés et admins cherchant un système minimaliste et puriste.",
+    description: "Void Linux est une distribution indépendante. Elle sert surtout pour admins systèmes.",
+    forWho: "Pour avancé qui veulent runit, rolling.",
     whyChoose: [
       "Vitesse de boot foudroyante",
       "Gestionnaire de paquets XBPS génial",
@@ -2211,7 +2211,7 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Logithèque plus réduite qu'Arch"
     ],
     useCases: [
-      "Station serveur ultra-rapide",
+      "Station serveur très rapide",
       "Desktop minimaliste performant",
       "Configuration système fine"
     ],
@@ -2228,8 +2228,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "XFCE léger",
     usage: "PC modestes",
-    description: "Ubuntu avec le bureau XFCE, alliant légèreté, personnalisation et stabilité.",
-    forWho: "Utilisateurs cherchant le juste milieu entre performance et fonctionnalités.",
+    description: "Xubuntu est basée sur Ubuntu. Elle sert surtout pour pc modestes.",
+    forWho: "Pour débutant qui veulent xfce léger.",
     whyChoose: [
       "Très léger sur le processeur",
       "Hautement personnalisable visuellement",
@@ -2257,8 +2257,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "UX proche Windows",
     usage: "Migration Windows",
-    description: "La distribution avec le plus beau 'look and feel' pour rassurer les ex-utilisateurs de Windows.",
-    forWho: "Débutants complets et entreprises migrant vers Linux.",
+    description: "Zorin OS est basée sur Ubuntu. Elle sert surtout pour migration windows.",
+    forWho: "Pour débutant qui veulent ux proche windows.",
     whyChoose: [
       "Beauté visuelle incroyable",
       "Zorin Connect (intégration mobile)",
@@ -2286,8 +2286,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Pentest et audit sécurité (tooling préinstallé)",
     usage: "Sécurité",
-    description: "La plateforme de référence pour la cybersécurité, incluant des centaines d'outils de test d'intrusion.",
-    forWho: "Professionnels de la sécurité et étudiants en cybersécurité.",
+    description: "Kali Linux est basée sur Debian. Elle sert surtout pour sécurité.",
+    forWho: "Pour expert qui veulent pentest et audit sécurité (tooling préinstallé).",
     whyChoose: [
       "Plus de 600 outils de sécurité",
       "Mode 'Undercover' (look Windows)",
@@ -2315,8 +2315,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Sécurité offensive + desktop utilisable (tooling + privacy)",
     usage: "Sécurité",
-    description: "Une station de sécurité complète plus agréable au quotidien que Kali, orientée développement et vie privée.",
-    forWho: "Développeurs et experts en sécurité cherchant un desktop utilisable 24h/24.",
+    description: "Parrot OS est basée sur Debian. Elle sert surtout pour sécurité.",
+    forWho: "Pour avancé qui veulent sécurité offensive + desktop utilisable (tooling + privacy).",
     whyChoose: [
       "Outils de sécurité complets",
       "Navigateur et VPN vie privée",
@@ -2344,8 +2344,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Sécurité par isolation: apps séparées en VM (compartimentation)",
     usage: "Sécurité",
-    description: "Un système révolutionnaire où chaque application tourne dans sa propre machine virtuelle isolée.",
-    forWho: "Journalistes et cibles potentielles de cyberattaques étatiques.",
+    description: "Qubes OS est basée sur Xen. Elle sert surtout pour sécurité.",
+    forWho: "Pour expert qui veulent sécurité par isolation: apps séparées en vm (compartimentation).",
     whyChoose: [
       "Isolation quasi inviolable",
       "Compartimentage des données",
@@ -2356,7 +2356,7 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Workflow complexe au début"
     ],
     useCases: [
-      "Traitement de données ultra-sensibles",
+      "Traitement de données très sensibles",
       "Analyse de fichiers dangereux",
       "Travail confidentiel"
     ],
@@ -2373,8 +2373,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Compatibilité RHEL orientée entreprise (écosystème Oracle)",
     usage: "Serveurs",
-    description: "Distribution pro de Red Hat optimisée par Oracle, incluant le noyau 'Unbreakable Enterprise Kernel'.",
-    forWho: "Entreprises utilisant déjà des solutions Oracle ou cherchant une alternative à CentOS.",
+    description: "Oracle Linux est basée sur RHEL. Elle sert surtout pour serveurs.",
+    forWho: "Pour pro qui veulent compatibilité rhel orientée entreprise (écosystème oracle).",
     whyChoose: [
       "Noyau optimisé pour les bases Oracle",
       "Support pro disponible chez Oracle",
@@ -2402,11 +2402,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Sécurité by design, auditabilité, pf (firewall) réputé",
     usage: "Serveurs",
-    description: "Le système le plus sécurisé au monde, réputé pour sa relecture de code stricte et son pare-feu 'pf'.",
-    forWho: "Utilisateurs experts cherchant un système sécurisé et hautement auditable.",
+    description: "OpenBSD est basée sur BSD. Elle sert surtout pour serveurs.",
+    forWho: "Pour expert qui veulent sécurité by design, auditabilité, pf (firewall) réputé.",
     whyChoose: [
       "Sécurité proactive permanente",
-      "Code système ultra-propre",
+      "Code système très propre",
       "Pare-feu 'pf' exceptionnel"
     ],
     limitations: [
@@ -2431,8 +2431,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Optimisations performance CPU (stack pensée perf)",
     usage: "Performance",
-    description: "Une distribution créée par Intel pour offrir les meilleures performances possibles sur les processeurs modernes Intel.",
-    forWho: "Experts et passionnés voulant les meilleures benchmarks possibles sur leur station CPU.",
+    description: "Clear Linux est une distribution indépendante. Elle sert surtout pour performance.",
+    forWho: "Pour avancé qui veulent optimisations performance cpu (stack pensée perf).",
     whyChoose: [
       "Performance CPU sans égal",
       "Mises à jour atomiques",
@@ -2460,8 +2460,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Desktop immutable (OSTree) + dev via containers",
     usage: "Immutable",
-    description: "Une version immuable de Fedora où le système racine est en lecture seule pour une stabilité maximale.",
-    forWho: "Développeurs cherchant un système robuste et reproductible basé sur des conteneurs.",
+    description: "Fedora Silverblue est basée sur Fedora. Elle sert surtout pour immutable.",
+    forWho: "Pour avancé qui veulent desktop immutable (ostree) + dev via containers.",
     whyChoose: [
       "Mises à jour inaltérables et sûres",
       "Rollback facile en cas de bug",
@@ -2489,8 +2489,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Système immutable orienté serveurs/containers, MAJ atomiques",
     usage: "Immutable",
-    description: "Une plateforme immuable et auto-réparable conçue pour héberger des conteneurs de manière fiable.",
-    forWho: "Professionnels du DevOps et administrateurs cloud cherchant le zéro maintenance.",
+    description: "openSUSE MicroOS est basée sur openSUSE. Elle sert surtout pour immutable.",
+    forWho: "Pour pro qui veulent système immutable orienté serveurs/containers, maj atomiques.",
     whyChoose: [
       "Mises à jour atomiques garanties",
       "Auto-réparation après échec",
@@ -2518,11 +2518,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Grand public",
     points: "Immutable + hors-ligne (pédago / découverte)",
     usage: "Immutable",
-    description: "Cœur immuable d'Endless OS, alliant robustesse système et applications en Flatpak pour l'éducation.",
-    forWho: "Utilisateurs cherchant un outil de découverte numérique indestructible et orienté savoir.",
+    description: "Endless OS Core est basée sur Debian. Elle sert surtout pour immutable.",
+    forWho: "Pour grand public qui veulent immutable + hors-ligne (pédago / découverte).",
     whyChoose: [
       "Impossible de casser le système",
-      "Interface visuelle magnifique",
+      "Interface visuelle soignée",
       "Usage simplifié au maximum"
     ],
     limitations: [
@@ -2547,8 +2547,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Linux embarqué pour routeurs/switch/AP, réseau",
     usage: "Embarqué",
-    description: "La distribution de référence pour remplacer le firmware limité de votre routeur par un vrai système Linux.",
-    forWho: "Administrateurs réseaux et geeks souhaitant un contrôle total sur leur matériel réseau.",
+    description: "OpenWrt est une distribution indépendante. Elle sert surtout pour embarqué.",
+    forWho: "Pour expert qui veulent linux embarqué pour routeurs/switch/ap, réseau.",
     whyChoose: [
       "Fonctions réseaux pros sur routeurs",
       "Système de paquets Opkg modulaire",
@@ -2576,11 +2576,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Générateur de systèmes embarqués minimalistes (toolchain + rootfs)",
     usage: "Embarqué",
-    description: "Un outil pour générer un système Linux complet, sur mesure et minimal pour des micro-contrôleurs.",
-    forWho: "Développeurs embarqués créant des objets connectés ou des systèmes critiques.",
+    description: "Buildroot est une distribution indépendante. Elle sert surtout pour embarqué.",
+    forWho: "Pour expert qui veulent générateur de systèmes embarqués minimalistes (toolchain + rootfs).",
     whyChoose: [
       "Personnalisation bit par bit",
-      "Système ultra-fin sur mesure",
+      "Système très fin sur mesure",
       "Génération automatique d'image"
     ],
     limitations: [
@@ -2605,8 +2605,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Distribution officielle pour Raspberry Pi (pédago/DIY)",
     usage: "Éducation",
-    description: "Optimisée pour le matériel Raspberry Pi, c'est l'outil parfait pour apprendre l'électronique et la programmation.",
-    forWho: "Enfants, professeurs et bidouilleurs possédant une carte Raspberry Pi.",
+    description: "Raspberry Pi OS est basée sur Debian. Elle sert surtout pour éducation.",
+    forWho: "Pour débutant qui veulent distribution officielle pour raspberry pi (pédago/diy).",
     whyChoose: [
       "Support matériel Raspberry parfait",
       "Logiciels pédagogiques préchargés",
@@ -2634,8 +2634,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Pro",
     points: "Édition serveur officielle (cloud/infra)",
     usage: "Serveurs",
-    description: "La version serveur la plus déployée au monde, servant de socle à la majorité du Cloud moderne.",
-    forWho: "Administrateurs cloud et développeurs cherchant un standard stable et bien documenté.",
+    description: "Ubuntu Server est basée sur Debian. Elle sert surtout pour serveurs.",
+    forWho: "Pour pro qui veulent édition serveur officielle (cloud/infra).",
     whyChoose: [
       "Support Cloud Public exceptionnel",
       "Cycle de vie LTS de 5 à 10 ans",
@@ -2663,8 +2663,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "KDE-first (sélection resserrée), rolling contrôlée",
     usage: "Desktop",
-    description: "Une distribution indépendante qui se concentre uniquement sur KDE Plasma et les applications Qt.",
-    forWho: "Utilisateurs de KDE cherchant un système pur, focalisé sur une seule interface de qualité.",
+    description: "KaOS est une distribution indépendante. Elle sert surtout pour desktop.",
+    forWho: "Pour intermédiaire qui veulent kde-first (sélection resserrée), rolling contrôlée.",
     whyChoose: [
       "Optimisation Qt exemplaire",
       "Mises à jour rolling réfléchies",
@@ -2692,11 +2692,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Orientée vieux PC (très léger)",
     usage: "PC anciens",
-    description: "Reprend Ubuntu LTS avec un bureau LXDE poli, pour faire revivre des machines ayant plus de 10 ans.",
-    forWho: "Propriétaires de vieux ordinateurs voulant un système moderne utilisable sans ralentissements.",
+    description: "LXLE est basée sur Ubuntu. Elle sert surtout pour pc anciens.",
+    forWho: "Pour débutant qui veulent orientée vieux pc (très léger).",
     whyChoose: [
       "Faible poids sur le processeur",
-      "Fonds d'écran magnifiques inclus",
+      "Fonds d'écran soignées inclus",
       "Scripts de maintenance automatiques"
     ],
     limitations: [
@@ -2721,8 +2721,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Distribution indépendante",
     usage: "Usage général",
-    description: "Une distribution légère et personnalisable cherchant à offrir une expérience utilisateur fluide et moderne.",
-    forWho: "Utilisateurs curieux de tester une alternative aux bases classiques comme Debian ou Arch.",
+    description: "AerynOS est une distribution indépendante. Elle sert surtout pour usage général.",
+    forWho: "Pour avancé qui veulent distribution indépendante.",
     whyChoose: [
       "Conception originale et fluide",
       "Environnement bureau réactif",
@@ -2750,8 +2750,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Clone macOS",
     usage: "Desktop",
-    description: "Une distribution basée sur Ubuntu qui reproduit presque parfaitement l'apparence et l'ergonomie de macOS.",
-    forWho: "Amoureux du look Apple souhaitant profiter de la liberté de Linux à moindre coût.",
+    description: "pearOS est basée sur Ubuntu. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent clone macos.",
     whyChoose: [
       "Beauté visuelle proche de Mac",
       "Ergonomie simple et intuitive",
@@ -2779,8 +2779,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Gamer",
     points: "Orienté gaming",
     usage: "Jeux",
-    description: "Focalisée sur les performances de jeu, elle inclut tous les patchs et drivers nécessaires dès l'installation.",
-    forWho: "Joueurs voulant brancher leur manette et jouer sur Steam sans configurer Linux.",
+    description: "PikaOS est basée sur Ubuntu. Elle sert surtout pour jeux.",
+    forWho: "Pour gamer qui veulent orienté gaming.",
     whyChoose: [
       "Drivers GPU pré-installés",
       "Noyau optimisé basse latence",
@@ -2808,11 +2808,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Curieux",
     points: "Clone Windows",
     usage: "Expérimentation",
-    description: "Le projet fou de réécrire Windows de zéro pour faire tourner les logiciels et drivers Windows nativement.",
-    forWho: "Curieux et développeurs système voulant un Windows open-source pour des logiciels legacy.",
+    description: "ReactOS est une distribution indépendante. Elle sert surtout pour expérimentation.",
+    forWho: "Pour curieux qui veulent clone windows.",
     whyChoose: [
       "Compatibilité Windows native",
-      "Système ultra-léger et rapide",
+      "Système très léger et rapide",
       "Open-source sans code Microsoft"
     ],
     limitations: [
@@ -2837,8 +2837,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Expert",
     points: "Écrit en Rust",
     usage: "Expérimentation",
-    description: "Système d'exploitation de type Unix écrit entièrement en Rust pour une sécurité et une robustesse maximales au niveau mémoire.",
-    forWho: "Enthousiastes du langage Rust et chercheurs en sécurité informatique.",
+    description: "Redox OS est une distribution indépendante. Elle sert surtout pour expérimentation.",
+    forWho: "Pour expert qui veulent écrit en rust.",
     whyChoose: [
       "Sécurité mémoire native (Rust)",
       "Architecture micro-noyau moderne",
@@ -2866,12 +2866,12 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Intermédiaire",
     points: "Immutable, GNOME pur",
     usage: "Desktop moderne",
-    description: "Un bureau GNOME pur et immuable utilisant 'Apx' pour installer des applications Debian, Fedora ou Arch.",
-    forWho: "Utilisateurs voulant un système indestructible utilisant les meilleures technologies de demain.",
+    description: "VanillaOS est basée sur Debian/Ubuntu. Elle sert surtout pour desktop moderne.",
+    forWho: "Pour intermédiaire qui veulent immutable, gnome pur.",
     whyChoose: [
       "Cœur du système incassable",
       "Installe apps de n'importe quelle distro",
-      "Look GNOME pur magnifique"
+      "Look GNOME pur soignée"
     ],
     limitations: [
       "Concept complexe à assimiler",
@@ -2895,11 +2895,11 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Esthétique soignée",
     usage: "Desktop",
-    description: "Une création française reconnue pour ses scripts d'automatisation et sa personnalisation graphique sublime dès le départ.",
-    forWho: "Utilisateurs cherchant un Linux prêt à l'emploi avec une âme artistique et des gadgets intégrés.",
+    description: "Voyager Live est basée sur Ubuntu/Debian. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent esthétique soignée.",
     whyChoose: [
-      "Look magnifique out of the box",
-      "Scripts de configuration ultra-pratiques",
+      "Look soignée out of the box",
+      "Scripts de configuration très pratiques",
       "Base robuste Ubuntu ou Debian"
     ],
     limitations: [
