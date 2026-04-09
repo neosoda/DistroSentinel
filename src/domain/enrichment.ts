@@ -143,29 +143,29 @@ export function generateFiche(d: RawDistro, family: string, level: string, stren
       ? "Exigeante. Requiert une bonne connaissance de la ligne de commande, voire une configuration et installation 100% manuelles." 
       : "Modérée. Des bases sous Linux aident, mais le système propose des outils semi-automatisés et une bonne documentation.";
 
-  return \`### 🧠 Présentation rapide
-\${d.distro} est une distribution basée sur \${d.base || "indépendante"}. Elle est conçue autour d'un objectif de \${d.points || 'stabilité et de performance'}.
+  return `### 🧠 Présentation rapide
+${d.distro} est une distribution basée sur ${d.base || "indépendante"}. Elle est conçue autour d'un objectif de ${d.points || 'stabilité et de performance'}.
 
 ### 🎯 Pour qui ?
-Ce système s'adresse idéalement à : **\${d.audience}**.
+Ce système s'adresse idéalement à : **${d.audience}**.
 
 ### 💡 Pourquoi la choisir ?
-\${strengths.map(s => \`- \${s}\`).join("\\n")}
+${strengths.map(s => `- ${s}`).join("\n")}
 
 ### ⚠️ À savoir
-\${weakness}
+${weakness}
 
 ### 🧪 Cas d’usage typiques
-\${d.usage.split(',').map(u => \`- \${u.trim()}\`).join("\\n")}
+${d.usage.split(',').map(u => `- ${u.trim()}`).join("\n")}
 
 ### ⚙️ Niveau technique
-**\${level}**: \${diffTexte}
+**${level}**: ${diffTexte}
 
 ### 🧬 ADN technique
-- **Base** : \${d.base || 'Indépendante'}
-- **Gestionnaire de paquets** : \${pkgManager}
-- **Modèle release** : \${releaseModel}
-- **Philosophie** : \${philo}\`;
+- **Base** : ${d.base || 'Indépendante'}
+- **Gestionnaire de paquets** : ${pkgManager}
+- **Modèle release** : ${releaseModel}
+- **Philosophie** : ${philo}`;
 }
 
 export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
