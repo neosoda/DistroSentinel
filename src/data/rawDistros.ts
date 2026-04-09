@@ -1,18 +1,51 @@
-import { RawDistro } from "../types";
+export type EnrichedDistro = {
+  distro: string;
+  base: string;
+  audience: string;
+  points: string;
+  usage: string;
+  description: string;
+  forWho: string;
+  whyChoose: string[];
+  limitations: string[];
+  useCases: string[];
+  technical: {
+    base: string;
+    packageManager: string;
+    releaseModel: string;
+    difficulty: string;
+  };
+};
 
-export const rawData: RawDistro[] = [
+export const rawData: EnrichedDistro[] = [
   {
     distro: "ThinLinc",
     base: "RHEL/CentOS",
     audience: "Pro",
     points: "Accès distant Linux sécurisé, jusqu’à 10 utilisateurs gratuits",
     usage: "VDI/Bureaux distants",
-    description: "Solution serveur permettant de délivrer des bureaux Linux distants avec une haute réactivité.",
-    forWho: "Administrateurs IT cherchant une alternative à Citrix pour environnements Linux.",
-    whyChoose: ["Performance graphique", "Sécurité native", "Gratuit jusqu'à 10 users"],
-    limitations: ["Propriétaire", "Nécessite serveur dédié"],
-    useCases: ["Télétravail", "Centralisation ressources", "VDI"],
-    technical: { base: "RHEL/CentOS", packageManager: "dnf", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Une solution serveur de haute performance pour délivrer des bureaux Linux à distance de manière fluide.",
+    forWho: "Administrateurs système et entreprises souhaitant centraliser leurs ressources Linux.",
+    whyChoose: [
+      "Excellente réactivité graphique",
+      "Sécurité native renforcée",
+      "Gratuit pour les petites structures"
+    ],
+    limitations: [
+      "Logiciel propriétaire",
+      "Demande une infrastructure serveur dédiée"
+    ],
+    useCases: [
+      "Télétravail sécurisé",
+      "Centralisation de ressources",
+      "Infrastructure VDI"
+    ],
+    technical: {
+      base: "Red Hat Enterprise Linux / CentOS",
+      packageManager: "dnf",
+      releaseModel: "stable / LTS",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "AlmaLinux",
@@ -20,12 +53,28 @@ export const rawData: RawDistro[] = [
     audience: "Pro",
     points: "Clone RHEL communautaire, très stable",
     usage: "Serveurs",
-    description: "Alternative open-source et communautaire à RHEL, offrant une compatibilité binaire totale.",
-    forWho: "Professionnels cherchant une stabilité de classe entreprise sans licence.",
-    whyChoose: ["Compatibilité RHEL 1:1", "Gouvernance communautaire", "Migration facile"],
-    limitations: ["Orienté serveur uniquement", "Cycle de vie lié à RHEL"],
-    useCases: ["Production critique", "Hébergement Web", "Cloud"],
-    technical: { base: "RHEL", packageManager: "dnf", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Une alternative open-source et communautaire conçue pour offrir une compatibilité binaire totale avec RHEL.",
+    forWho: "Professionnels et entreprises cherchant une stabilité de classe entreprise sans frais de licence.",
+    whyChoose: [
+      "Compatibilité RHEL parfaite",
+      "Gouvernance communautaire transparente",
+      "Migration ultra-simple"
+    ],
+    limitations: [
+      "Orientée quasi exclusivement serveur",
+      "Cycle calqué sur les sorties RHEL"
+    ],
+    useCases: [
+      "Serveurs de production critiques",
+      "Hébergement Web",
+      "Infrastructure Cloud"
+    ],
+    technical: {
+      base: "Red Hat Enterprise Linux",
+      packageManager: "dnf",
+      releaseModel: "stable / LTS",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Alpine Linux",
@@ -33,12 +82,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Ultra-légère, musl, orientée sécurité",
     usage: "Containers/Minimal",
-    description: "Alpine Linux est une distribution ultra-légère basée sur musl et BusyBox.",
-    forWho: "Utilisateurs avancés cherchant une distribution extrêmement légère.",
-    whyChoose: ["Taille minuscule (moins de 5MB)", "Sécurité renforcée avec musl", "Idéal pour les conteneurs"],
-    limitations: ["Peu de logiciels disponibles", "Nécessite une connaissance approfondie des systèmes Unix-like"],
-    useCases: ["Conteneurs Docker et Kubernetes", "Serveurs minimalistes", "Systèmes embarqués"],
-    technical: { base: "Indépendante", packageManager: "apk", releaseModel: "rolling", difficulty: "Avancé" }
+    description: "Une distribution minimaliste et ultra-légère utilisant la bibliothèque musl et BusyBox.",
+    forWho: "Administrateurs cloud et développeurs cherchant une empreinte minimale pour leurs projets.",
+    whyChoose: [
+      "Taille minuscule idéale pour Docker",
+      "Surface d'attaque réduite par défaut",
+      "Système de paquets ultra-rapide"
+    ],
+    limitations: [
+      "Utilise musl au lieu de glibc (incompatibilités)",
+      "Configuration manuelle exigeante"
+    ],
+    useCases: [
+      "Microservices et containers",
+      "Pare-feu et routeurs légers",
+      "Systèmes embarqués"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "apk",
+      releaseModel: "rolling",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "AnduinOS",
@@ -46,12 +111,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Interface proche de Windows",
     usage: "Migration Windows",
-    description: "AnduinOS est une distribution Linux conçue pour faciliter la transition des utilisateurs de Windows.",
-    forWho: "Nouveaux utilisateurs de Linux cherchant une interface familière.",
-    whyChoose: ["Interface proche de Windows", "Simplifie la migration des utilisateurs de Windows", "Compatible Ubuntu"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Transition vers Linux pour les familles et petites entreprises", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution conçue pour faciliter la transition vers Linux en imitant l'ergonomie de Windows.",
+    forWho: "Utilisateurs venant de Windows souhaitant conserver un environnement de travail familier.",
+    whyChoose: [
+      "Apprentissage quasi nul pour ex-Windows",
+      "Compatibilité logicielle Ubuntu",
+      "Installation simplifiée"
+    ],
+    limitations: [
+      "Personnalisation limitée par défaut",
+      "Support communautaire plus restreint"
+    ],
+    useCases: [
+      "Usage domestique quotidien",
+      "Bureautique simple",
+      "Découverte de Linux"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "antiX",
@@ -59,12 +140,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant/Ancien matériel",
     points: "Sans systemd, très léger",
     usage: "PC anciens",
-    description: "antiX est une distribution Debian sans systemd conçue pour être extrêmement légère.",
-    forWho: "Utilisateurs cherchant une distribution facile à utiliser sur des PC anciens.",
-    whyChoose: ["Système léger et rapide", "Compatible avec de vieux matériel", "Sans systemd"],
-    limitations: ["Peut manquer certaines fonctionnalités avancées modernes", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["PC anciens et limités en ressources", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Distribution basée sur Debian, extrêmement légère et dépourvue du système d'initialisation systemd.",
+    forWho: "Propriétaires de vieux ordinateurs souhaitant redonner une seconde vie à leur matériel.",
+    whyChoose: [
+      "Consommation RAM dérisoire",
+      "Poids plume sur le disque",
+      "Réactivité impressionnante"
+    ],
+    limitations: [
+      "Interface visuelle datée",
+      "Nécessite parfois des réglages post-install"
+    ],
+    useCases: [
+      "Recyclage de vieux PC",
+      "Poste de travail minimaliste",
+      "Live USB persistant"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Arch Linux",
@@ -72,12 +169,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Rolling release, KISS",
     usage: "Systèmes sur mesure",
-    description: "Arch Linux est une distribution rolling release minimaliste conçue pour être flexible.",
-    forWho: "Utilisateurs experts cherchant un contrôle total de leur système.",
-    whyChoose: ["Flexibilité maximale avec un système minimaliste", "Rolling release toujours à jour", "KISS (Keep It Simple, Stupid)"],
-    limitations: ["Nécessite une connaissance approfondie des systèmes Unix-like", "Peut ne pas être adapté aux utilisateurs débutants"],
-    useCases: ["Configuration personnalisée de systèmes", "Serveurs avec des exigences spécifiques", "Éducation sur les systèmes Linux"],
-    technical: { base: "Indépendante", packageManager: "pacman", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Une distribution minimaliste et flexible où l'utilisateur construit son système pièce par pièce.",
+    forWho: "Utilisateurs avertis souhaitant comprendre et contrôler chaque aspect de leur Linux.",
+    whyChoose: [
+      "Dernières versions de logiciels disponibles",
+      "Une documentation (Wiki) inégalée",
+      "Zéro superflu installé par défaut"
+    ],
+    limitations: [
+      "Installation uniquement en ligne de commande",
+      "Risque de casse lors des mises à jour majeures"
+    ],
+    useCases: [
+      "Station de travail personnalisée",
+      "Développement logiciel avancé",
+      "Système de bureau sur mesure"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Archcraft",
@@ -85,12 +198,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Arch préconfiguré, esthétique",
     usage: "Desktop léger",
-    description: "Archcraft est une distribution Arch Linux préconfigurée avec un look esthétique.",
-    forWho: "Utilisateurs intermédiaires cherchant un bureau léger et bien configuré.",
-    whyChoose: ["Bureau léger et rapide", "Design modern et esthétique", "Basé sur Arch"],
-    limitations: ["Peut nécessiter certaines connaissances d'Arch pour des configurations avancées", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Une version d'Arch Linux magnifiquement pré-configurée utilisant des gestionnaires de fenêtres légers.",
+    forWho: "Utilisateurs aimant l'esthétique soignée sans vouloir passer des heures à configurer leur bureau.",
+    whyChoose: [
+      "Interface sublime 'out of the box'",
+      "Très performant sur matériel modeste",
+      "Base Arch complète et puissante"
+    ],
+    limitations: [
+      "Configuration basée sur des fichiers texte",
+      "Logithèque graphique moins évidente"
+    ],
+    useCases: [
+      "Configuration de bureau design",
+      "Usage quotidien stylé",
+      "Apprentissage des Tiling Window Managers"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "ArcoLinux",
@@ -98,12 +227,28 @@ export const rawData: RawDistro[] = [
     audience: "Apprenant",
     points: "Distribution pédagogique Arch",
     usage: "Apprentissage",
-    description: "ArcoLinux est une distribution Arch Linux conçue pour l'apprentissage et l'enseignement.",
-    forWho: "Étudiants et apprenants cherchant à comprendre Arch Linux.",
-    whyChoose: ["Distribution pédagogique avec des ressources d'apprentissage", "Basé sur Arch mais plus accessible", "Compatible avec Arch"],
-    limitations: ["Peut manquer certaines fonctionnalités avancées d'Arch pour certains utilisateurs experts", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Apprentissage des systèmes Linux", "Éducation sur Arch Linux", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Un projet éducatif complet visant à apprendre aux utilisateurs comment installer et configurer Arch Linux.",
+    forWho: "Curieux souhaitant passer de débutant à expert via un parcours guidé sur Arch.",
+    whyChoose: [
+      "Progression pédagogique structurée",
+      "Outils de configuration simplifiés",
+      "Accès aux dépôts AUR"
+    ],
+    limitations: [
+      "Peut paraître complexe au premier abord",
+      "Nombreuses versions pouvant dérouter"
+    ],
+    useCases: [
+      "Apprentissage des systèmes Linux",
+      "Transition vers Arch pure",
+      "Découverte d'environnements variés"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Artix Linux",
@@ -111,12 +256,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Arch sans systemd",
     usage: "Puristes",
-    description: "Artix Linux est une distribution Arch sans systemd conçue pour les puristes.",
-    forWho: "Utilisateurs avancés cherchant un système minimaliste et flexible.",
-    whyChoose: ["Système minimaliste sans systemd", "Flexibilité maximale avec Arch", "Compatible avec Arch"],
-    limitations: ["Nécessite une connaissance approfondie des systèmes Unix-like", "Peut ne pas être adapté aux utilisateurs débutants"],
-    useCases: ["Configuration personnalisée de systèmes", "Serveurs avec des exigences spécifiques", "Éducation sur les systèmes Linux"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Avancé" }
+    description: "Une distribution basée sur Arch offrant le choix entre plusieurs systèmes d'initialisation alternatifs.",
+    forWho: "Puristes refusant l'utilisation de systemd sur un système de type Arch.",
+    whyChoose: [
+      "Liberté de choix de l'init (OpenRC, runit...)",
+      "Performance brute optimisée",
+      "Puissance de l'écosystème Arch"
+    ],
+    limitations: [
+      "Incomptabilités logicielles liées à systemd",
+      "Dépôts spécifiques à maintenir"
+    ],
+    useCases: [
+      "Installation minimaliste sans systemd",
+      "Poste de développement performant",
+      "Expérimentation système"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Bazzite",
@@ -124,12 +285,28 @@ export const rawData: RawDistro[] = [
     audience: "Gamer",
     points: "Optimisé gaming, SteamOS-like",
     usage: "Jeux",
-    description: "Bazzite est une distribution Fedora optimisée pour les gamers.",
-    forWho: "Utilisateurs de jeux cherchant un système performant et spécialisé.",
-    whyChoose: ["Optimisé pour les performances en jeu", "Compatible avec SteamOS", "Basé sur Fedora"],
-    limitations: ["Peut ne pas être adapté aux utilisateurs non-gamers", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Jeux et performances élevées", "Streams en direct", "Utilisation personnelle"],
-    technical: { base: "Fedora", packageManager: "dnf", releaseModel: "release régulière", difficulty: "Intermédiaire" }
+    description: "Une image système optimisée pour le jeu vidéo, offrant une expérience proche de la Steam Deck sur PC.",
+    forWho: "Joueurs PC et possesseurs de consoles portables (ROG Ally, Legion Go).",
+    whyChoose: [
+      "Drivers et codecs pré-installés",
+      "Performance gaming maximisée",
+      "Interface Steam Game Mode disponible"
+    ],
+    limitations: [
+      "Modèle immuable déroutant pour certains",
+      "Moins orienté bureautique traditionnelle"
+    ],
+    useCases: [
+      "Station de jeu principale",
+      "Bazzite pour consoles portables",
+      "Home-cinéma multimédia"
+    ],
+    technical: {
+      base: "Fedora",
+      packageManager: "dnf",
+      releaseModel: "release régulière",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "BigLinux",
@@ -137,12 +314,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Prêt à l’emploi, orienté desktop",
     usage: "Usage général",
-    description: "BigLinux est une distribution Manjaro basée sur Arch Linux.",
-    forWho: "Nouveaux utilisateurs cherchant une distribution facile à utiliser.",
-    whyChoose: ["Prêt à l'emploi avec une interface conviviale", "Compatible desktop", "Basé sur Manjaro"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Usage général quotidien", "Bureau personnel", "Utilisation personnelle"],
-    technical: { base: "Manjaro", packageManager: "pacman", releaseModel: "rolling", difficulty: "Débutant" }
+    description: "Distribution brésilienne basée sur Manjaro, axée sur la facilité d'utilisation et les outils intégrés.",
+    forWho: "Utilisateurs domestiques cherchant un système complet et beau sans effort configuratif.",
+    whyChoose: [
+      "Installation et réglages très simples",
+      "Suite d'outils de maintenance intégrée",
+      "Optimisations pour le cloud et les webapps"
+    ],
+    limitations: [
+      "Traductions parfois incomplètes",
+      "Cible principale centrée sur le Brésil"
+    ],
+    useCases: [
+      "Usage personnel polyvalent",
+      "Bureautique et Web",
+      "Poste de travail multimédia"
+    ],
+    technical: {
+      base: "Manjaro / Arch",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "blendOS",
@@ -150,12 +343,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Multi-distros via conteneurs",
     usage: "Expérimentation",
-    description: "blendOS est une distribution Arch permettant l'utilisation de multiples distributions via des conteneurs.",
-    forWho: "Utilisateurs avancés cherchant à expérimenter différentes distributions.",
-    whyChoose: ["Permet d'utiliser plusieurs distributions simultanément", "Compatible avec Arch", "Technologie basée sur des conteneurs"],
-    limitations: ["Nécessite une connaissance approfondie de la gestion des conteneurs", "Peut ne pas être adapté aux utilisateurs débutants"],
-    useCases: ["Expérimentation avec différentes distributions", "Développement multi-environnement", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Avancé" }
+    description: "Un système immuable capable d'installer des applications de n'importe quelle autre distribution Linux.",
+    forWho: "Utilisateurs avancés souhaitant mélanger les logiciels de Debian, Fedora et Arch sur un seul système.",
+    whyChoose: [
+      "Universalité logicielle totale",
+      "Stabilité d'un système immuable",
+      "Support natif des applications Android"
+    ],
+    limitations: [
+      "Gestion complexe des conteneurs isolés",
+      "Concept très novateur et parfois instable"
+    ],
+    useCases: [
+      "Environnement de test multi-distro",
+      "Poste de travail hybride",
+      "Expérimentation technologique"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Bodhi Linux",
@@ -163,12 +372,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Très léger, Enlightenment",
     usage: "PC faibles",
-    description: "Bodhi Linux est une distribution très légère basée sur Ubuntu.",
-    forWho: "Utilisateurs cherchant un système léger et rapide.",
-    whyChoose: ["Système très léger", "Compatible avec Enlightenment", "Basé sur Ubuntu"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["PC faibles et limités en ressources", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Utilise le bureau Moksha (fork d'Enlightenment) pour offrir une interface unique et ultra-légère.",
+    forWho: "Utilisateurs de vieux ordinateurs cherchant un look original et une faible consommation de RAM.",
+    whyChoose: [
+      "Consommation de ressources minimale",
+      "Environnement de bureau unique et beau",
+      "Basée sur la stabilité d'Ubuntu LTS"
+    ],
+    limitations: [
+      "Interface déroutante au début",
+      "Logiciels pré-installés réduits au minimum"
+    ],
+    useCases: [
+      "Recyclage de matériel ancien",
+      "Netbooks et portables limités",
+      "Système secondaire ultra-rapide"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "BunsenLabs",
@@ -176,12 +401,28 @@ export const rawData: RawDistro[] = [
     audience: "Minimaliste",
     points: "Openbox, stabilité",
     usage: "Productivité",
-    description: "BunsenLabs est une distribution Debian minimaliste avec Openbox.",
-    forWho: "Utilisateurs cherchant un bureau minimaliste et stable.",
-    whyChoose: ["Bureau minimaliste avec Openbox", "Stabilité accrue sur des PC anciens", "Basé sur Debian"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Productivité", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Le successeur spirituel de CrunchBang, offrant un bureau Debian minimaliste piloté par Openbox.",
+    forWho: "Utilisateurs cherchant un système épuré pour se concentrer sur leur travail sans distractions.",
+    whyChoose: [
+      "Vraiment ultra-léger et rapide",
+      "Stabilité légendaire de Debian",
+      "Script d'accueil facilitant l'installation"
+    ],
+    limitations: [
+      "Absence de menu 'Démarrer' traditionnel",
+      "Configuration reposant sur des fichiers texte"
+    ],
+    useCases: [
+      "Poste de productivité sans distraction",
+      "Ordinateurs aux ressources limitées",
+      "Usage via raccourcis clavier (power-user)"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "CachyOS",
@@ -189,12 +430,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Optimisations CPU/performance",
     usage: "Desktop performant",
-    description: "CachyOS est une distribution Arch optimisée pour les performances.",
-    forWho: "Utilisateurs avancés cherchant un bureau performant et spécialisé.",
-    whyChoose: ["Optimisations CPU et performance", "Compatible avec Arch", "Basé sur Arch"],
-    limitations: ["Nécessite une connaissance approfondie des systèmes Unix-like", "Peut ne pas être adapté aux utilisateurs débutants"],
-    useCases: ["Utilisation quotidienne performante", "Bureau personnel", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Avancé" }
+    description: "Une distribution basée sur Arch optimisée au plus haut niveau pour la vitesse et la réactivité du CPU.",
+    forWho: "Utilisateurs cherchant à tirer le maximum de puissance brute de leur processeur moderne.",
+    whyChoose: [
+      "Noyaux optimisés sur mesure",
+      "Vitesse de lancement accrue",
+      "Outils de configuration très puissants"
+    ],
+    limitations: [
+      "Bénéfices moins visibles sur vieux matériel",
+      "Nécessite de comprendre les réglages système"
+    ],
+    useCases: [
+      "Calcul intensif et compilation",
+      "Station de travail haute performance",
+      "Usage desktop ultra-réactif"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "CentOS Stream",
@@ -202,12 +459,28 @@ export const rawData: RawDistro[] = [
     audience: "Pro",
     points: "Branche upstream de RHEL",
     usage: "Tests serveurs",
-    description: "CentOS Stream est une branche upstream de RHEL conçue pour les tests serveurs.",
-    forWho: "Professionnels nécessitant un test avant un déploiement sur RHEL.",
-    whyChoose: ["Branche upstream de RHEL", "Compatible avec RHEL", "Très stable"],
-    limitations: ["Peut ne pas avoir toutes les fonctionnalités de RHEL", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Tests serveurs avant déploiement sur RHEL", "Infrastructure cloud", "Environnements de test et développement"],
-    technical: { base: "RHEL", packageManager: "dnf", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "La plateforme de développement amont pour Red Hat Enterprise Linux, idéale pour tester les futures fonctions.",
+    forWho: "Développeurs et administrateurs souhaitant préparer l'avenir de leur infrastructure RHEL.",
+    whyChoose: [
+      "Accès anticipé aux nouveautés RHEL",
+      "Excellent pour le test de compatibilité",
+      "Stabilité de niveau entreprise"
+    ],
+    limitations: [
+      "Pas un clone stable de RHEL pure",
+      "Usage production critique débattue"
+    ],
+    useCases: [
+      "Hébergement de services Web",
+      "Lab de test pour infrastructure PRO",
+      "Développement Cloud"
+    ],
+    technical: {
+      base: "Red Hat Enterprise Linux",
+      packageManager: "dnf",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Chimera Linux",
@@ -215,12 +488,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "musl + outils BSD",
     usage: "Systèmes alternatifs",
-    description: "Chimera Linux est une distribution indépendante basée sur musl et outils BSD.",
-    forWho: "Utilisateurs experts cherchant un système alternatif.",
-    whyChoose: ["Basé sur musl pour la performance", "Inclut des outils BSD pour diversité", "Indépendant"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apk comme gestionnaire de paquets"],
-    useCases: ["Systèmes alternatifs", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "apk", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Un système d'exploitation moderne qui combine le noyau Linux avec une architecture utilisateur non-GNU.",
+    forWho: "Experts Unix souhaitant une alternative technique alliant Linux et outils BSD.",
+    whyChoose: [
+      "Architecture propre et sans GNU",
+      "Utilise LLVM au lieu de GCC par défaut",
+      "Haute performance grâce à musl"
+    ],
+    limitations: [
+      "Logithèque limitée par l'absence de glibc",
+      "Courbe d'apprentissage très raide"
+    ],
+    useCases: [
+      "Serveur minimaliste spécialisé",
+      "Recherche en architecture système",
+      "Système de bureau non conventionnel"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "apk",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Debian",
@@ -228,12 +517,28 @@ export const rawData: RawDistro[] = [
     audience: "Tous",
     points: "Très stable, universelle",
     usage: "Serveur/Desktop",
-    description: "Debian est une distribution très stable et universelle.",
-    forWho: "Utilisateurs cherchant fiabilité et stabilité sur des serveurs et bureaux.",
-    whyChoose: ["Très stable avec des versions LTS", "Universellement compatible", "Indépendant"],
-    limitations: ["Peut ne pas offrir les dernières fonctionnalités avant leur intégration dans une version LTS", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Bureaux professionnels", "Environnements de test et développement"],
-    technical: { base: "Indépendante", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Le système d'exploitation universel, reconnu pour sa stabilité à toute épreuve et son engagement libre.",
+    forWho: "Utilisateurs et administrateurs cherchant une base fiable et pérenne sur le long terme.",
+    whyChoose: [
+      "Stabilité légendaire prouvée",
+      "Dépôts de logiciels immenses",
+      "Support matériel exceptionnel"
+    ],
+    limitations: [
+      "Versions logicielles parfois anciennes",
+      "Installation moins guidée que chez la concurrence"
+    ],
+    useCases: [
+      "Serveur de production critique",
+      "Station de travail stable",
+      "Base pour d'autres distributions"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Deepin",
@@ -241,12 +546,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Interface moderne et soignée",
     usage: "Desktop grand public",
-    description: "Deepin est une distribution Debian avec une interface moderne et soignée.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale.",
-    whyChoose: ["Interface moderne et intuitive", "Compatible avec Debian", "Idéal pour le bureau grand public"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Distribution chinoise réputée pour son environnement de bureau (DDE) extrêmement élégant et intuitif.",
+    forWho: "Amoureux du design cherchant une interface moderne sans complexité technique.",
+    whyChoose: [
+      "L'une des plus belles interfaces graphiques",
+      "Bouton 'App Store' très fourni",
+      "Excellente expérience utilisateur"
+    ],
+    limitations: [
+      "Lourdeur relative de l'interface",
+      "Collecte de données parfois critiquée"
+    ],
+    useCases: [
+      "Station de bureau média",
+      "Usage familial et Web",
+      "Ordinateur personnel esthétique"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Devuan",
@@ -254,12 +575,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Debian sans systemd",
     usage: "Environnements maîtrisés",
-    description: "Devuan est une distribution Debian sans systemd conçue pour les environnements maîtrisés.",
-    forWho: "Utilisateurs avancés cherchant un système minimaliste et stable.",
-    whyChoose: ["Système sans systemd", "Compatible avec Debian", "Environnement maîtrisé"],
-    limitations: ["Nécessite une connaissance approfondie des systèmes Unix-like", "Peut ne pas être adapté aux utilisateurs débutants"],
-    useCases: ["Configuration personnalisée de systèmes", "Serveurs avec des exigences spécifiques", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Un fork de Debian qui préserve la liberté de choix du système d'init, en évitant systemd.",
+    forWho: "Utilisateurs de Debian préférant les systèmes d'initialisation traditionnels comme SysVinit.",
+    whyChoose: [
+      "Alternative sérieuse sans systemd",
+      "Conserve toute la robustesse de Debian",
+      "Plus léger sur les services système"
+    ],
+    limitations: [
+      "Certains logiciels (GNOME) plus durs à installer",
+      "Peut demander de la configuration manuelle"
+    ],
+    useCases: [
+      "Serveur traditionnel sans systemd",
+      "Systèmes embarqués fiables",
+      "Desktop minimaliste contrôlé"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "DragonFlyBSD",
@@ -267,12 +604,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "HAMMER FS, performance",
     usage: "Serveur spécialisé",
-    description: "DragonFlyBSD est une distribution BSD avec un système de fichiers HAMMER.",
-    forWho: "Utilisateurs experts cherchant des performances élevées sur des serveurs spécifiques.",
-    whyChoose: ["Système de fichiers HAMMER pour les performances", "Compatible avec BSD", "Idéal pour les serveurs spécialisés"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à pkg comme gestionnaire de paquets"],
-    useCases: ["Serveurs spécifiques", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "BSD", packageManager: "pkg", releaseModel: "stable", difficulty: "Expert" }
+    description: "Un système BSD axé sur le support massif du multicœur et sur son système de fichiers innovant HAMMER.",
+    forWho: "Experts Unix cherchant des performances de stockage et de scalabilité réseau exceptionnelles.",
+    whyChoose: [
+      "Système de fichiers HAMMER ultra-performant",
+      "Gestion multicœur ultra-optimisée",
+      "Clustering et haute disponibilité"
+    ],
+    limitations: [
+      "Support matériel Wifi/Audio limité",
+      "Port de logiciels moins large que Linux"
+    ],
+    useCases: [
+      "Serveur de stockage haute densité",
+      "Infrastructures réseau lourdes",
+      "Recherche en architecture noyau"
+    ],
+    technical: {
+      base: "BSD (indépendant de Linux)",
+      packageManager: "pkg",
+      releaseModel: "stable",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Edubuntu",
@@ -280,12 +633,28 @@ export const rawData: RawDistro[] = [
     audience: "Éducation",
     points: "Suite éducative",
     usage: "Écoles",
-    description: "Edubuntu est une distribution Ubuntu conçue pour l'education.",
-    forWho: "Établissements scolaires cherchant des solutions éducatives.",
-    whyChoose: ["Suite éducative complète", "Compatible avec Ubuntu", "Idéal pour les écoles"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Environnements scolaires", "Laboratoires informatiques", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une variante officielle d'Ubuntu spécialement configurée pour l'apprentissage et les classes scolaires.",
+    forWho: "Écoles, universités et parents souhaitant un environnement éducatif sécurisé.",
+    whyChoose: [
+      "Nombreux logiciels éducatifs inclus",
+      "Configuration simplifiée pour les labos",
+      "Base Ubuntu archi-stable"
+    ],
+    limitations: [
+      "Surcharge logicielle pour d'autres usages",
+      "Moins pertinente pour un usage pro"
+    ],
+    useCases: [
+      "Équipement de classes d'école",
+      "Ordinateur familial éducatif",
+      "Laboratoires informatiques publics"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "elementary OS",
@@ -293,12 +662,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "UX inspirée macOS",
     usage: "Desktop personnel",
-    description: "elementary OS est une distribution Ubuntu avec une interface inspirée de macOS.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale et moderne.",
-    whyChoose: ["Interface moderne inspirée de macOS", "Compatible avec Ubuntu", "Idéal pour le bureau personnel"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution soignée mettant l'accent sur le design et la simplicité, avec un bureau maison nommé Pantheon.",
+    forWho: "Nouveaux venus venant de macOS privilégiant l'élégance et la facilité d'usage.",
+    whyChoose: [
+      "Interface épurée et cohérente",
+      "Respect strict de la vie privée",
+      "Applications natives très fluides"
+    ],
+    limitations: [
+      "Système assez fermé par défaut",
+      "Personnalisation visuelle complexe"
+    ],
+    useCases: [
+      "Bureautique et usage quotidien",
+      "Navigation Web et multimédia",
+      "Transition douce depuis Mac"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "EndeavourOS",
@@ -306,12 +691,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Arch simplifié",
     usage: "Desktop rolling",
-    description: "EndeavourOS est une distribution Arch Linux simplifiée pour les utilisateurs intermédiaires.",
-    forWho: "Utilisateurs intermédiaires cherchant un bureau basé sur Arch avec des outils de facilité d'utilisation.",
-    whyChoose: ["Arch simplifié et plus facile à utiliser", "Compatible avec Arch", "Basé sur Arch"],
-    limitations: ["Peut nécessiter certaines connaissances d'Arch pour des configurations avancées", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "La meilleure porte d'entrée vers Arch Linux, offrant un installateur graphique et un système quasi-pure.",
+    forWho: "Utilisateurs lassés de Manjaro et voulant une expérience Arch propre mais accessible.",
+    whyChoose: [
+      "Installation d'Arch en 5 minutes",
+      "Très peu de personnalisations par défaut",
+      "Communauté d'aide exceptionnelle"
+    ],
+    limitations: [
+      "Nécessite de connaître un peu pacman",
+      "Moins automatisé qu'Ubuntu ou Mint"
+    ],
+    useCases: [
+      "Station de travail moderne",
+      "Développement web/logiciel",
+      "Usage quotidien toujours à jour"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Endless OS",
@@ -319,12 +720,28 @@ export const rawData: RawDistro[] = [
     audience: "Grand public",
     points: "Fonctionne hors-ligne",
     usage: "Éducation",
-    description: "Endless OS est une distribution Debian conçue pour fonctionner hors-ligne.",
-    forWho: "Utilisateurs cherchant un système fonctionnel même en absence de connexion internet.",
-    whyChoose: ["Fonctionne hors-ligne avec des contenus pédagogiques", "Compatible avec Debian", "Idéal pour l'éducation"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Écoles et établissements scolaires", "Environnements sans connexion internet", "Utilisation personnelle"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Un système unique conçu pour être utilisable sans connexion internet grâce à des milliers d'articles pré-chargés.",
+    forWho: "Zones blanches, pays en développement et bibliothèques sans accès internet fiable.",
+    whyChoose: [
+      "Contenu encyclopédique pré-installé",
+      "Interface simple comme un smartphone",
+      "Robuste grâce au système immuable"
+    ],
+    limitations: [
+      "Installation logicielle bridée aux Flatpaks",
+      "Consommation d'espace disque élevée par défaut"
+    ],
+    useCases: [
+      "Éducation hors-ligne",
+      "Usage débutant en zone blanche",
+      "Premier ordinateur pour enfants"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "flatpak / ostree",
+      releaseModel: "immutable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Fedora",
@@ -332,12 +749,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Technologies récentes",
     usage: "Développement",
-    description: "Fedora est une distribution indépendante proposant les dernières technologies.",
-    forWho: "Utilisateurs experts cherchant des fonctionnalités avancées et innovantes.",
-    whyChoose: ["Dernières technologies avant leur intégration dans d'autres distributions", "Indépendant", "Idéal pour le développement"],
-    limitations: ["Peut ne pas être stable en raison de la préférence des fonctionnalités avancées", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Développement et tests avant intégration dans d'autres distributions", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "dnf", releaseModel: "release régulière", difficulty: "Avancé" }
+    description: "La plateforme de pointe qui introduit les technologies Linux avant tout le monde tout en restant stable.",
+    forWho: "Développeurs et enthousiastes voulant le dernier cri de la technologie Linux avec rigueur.",
+    whyChoose: [
+      "Toute première à sortir les nouveautés",
+      "Stabilité surprenante pour du 'bleeding-edge'",
+      "Excellente intégration de GNOME"
+    ],
+    limitations: [
+      "Cycle de vie court (9 mois)",
+      "Gestion des codecs par défaut restrictive"
+    ],
+    useCases: [
+      "Poste de développement pro",
+      "Déploiement de serveurs tests RHEL",
+      "Exploration graphique Linux"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "dnf",
+      releaseModel: "release régulière",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "FreeBSD",
@@ -345,12 +778,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "ZFS natif, robustesse",
     usage: "Serveurs",
-    description: "FreeBSD est une distribution BSD très robuste avec ZFS.",
-    forWho: "Utilisateurs experts cherchant des performances élevées et une robustesse accrue sur des serveurs.",
-    whyChoose: ["ZFS natif pour la gestion de stockage", "Compatibilité avec BSD", "Robustesse accrue"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à pkg comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Stockage professionnel", "Utilisation personnelle"],
-    technical: { base: "BSD", packageManager: "pkg", releaseModel: "stable", difficulty: "Expert" }
+    description: "Doyen des systèmes BSD, réputé pour sa pile réseau exemplaire et sa robustesse légendaire sur serveurs.",
+    forWho: "Administrateurs réseaux et système cherchant une alternative à Linux pour la sûreté et la cohérence.",
+    whyChoose: [
+      "Pile réseau ultra-performante",
+      "Gestion de stockage parfaite via ZFS",
+      "Documentation système exhaustive"
+    ],
+    limitations: [
+      "Hardware Wifi parfois mal supporté",
+      "Passage obligatoire par la commande"
+    ],
+    useCases: [
+      "Serveur de fichiers professionnel",
+      "Pare-feu haute sécurité",
+      "Hébergement Web haute performance"
+    ],
+    technical: {
+      base: "FreeBSD (indépendant de Linux)",
+      packageManager: "pkg",
+      releaseModel: "stable",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Garuda Linux",
@@ -358,12 +807,28 @@ export const rawData: RawDistro[] = [
     audience: "Gamer",
     points: "Performance et gaming",
     usage: "Jeux",
-    description: "Garuda Linux est une distribution Arch optimisée pour les performances en jeu.",
-    forWho: "Utilisateurs de jeux cherchant un système performant et spécialisé.",
-    whyChoose: ["Optimisé pour les performances en jeu", "Compatible avec Arch", "Basé sur Arch"],
-    limitations: ["Peut ne pas être adapté aux utilisateurs non-gamers", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Jeux et performances élevées", "Streams en direct", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Une version d'Arch Linux survitaminée pour le jeu vidéo, avec un look néon agressif et des optimisations automatiques.",
+    forWho: "Joueurs voulant un système rapide et personnalisé pour le gaming sans passer par la configuration manuelle.",
+    whyChoose: [
+      "Noyau Linux Zen optimisé gaming",
+      "Outils graphiques de configuration tout-en-un",
+      "Système de snapshots automatiques Btrfs"
+    ],
+    limitations: [
+      "Consommation RAM élevée au repos",
+      "Design très marqué pouvant lasser"
+    ],
+    useCases: [
+      "Machine de jeu dédiée",
+      "Traitement vidéo et streaming",
+      "Station desktop performante"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Gentoo",
@@ -371,12 +836,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Compilation à la carte",
     usage: "Optimisation extrême",
-    description: "Gentoo est une distribution indépendante permettant une compilation personnalisée.",
-    forWho: "Utilisateurs experts cherchant un contrôle total de leur système et des performances optimales.",
-    whyChoose: ["Compilation à la carte pour une personnalisation maximale", "Indépendant", "Optimisation extrême"],
-    limitations: ["Peut nécessiter un temps considérable pour l'installation et la configuration", "Dépendance à emerge comme gestionnaire de paquets"],
-    useCases: ["Serveurs avec des exigences spécifiques", "Bureaux personnalisés", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "emerge", releaseModel: "rolling source-based", difficulty: "Expert" }
+    description: "Distribution source où chaque paquet est compilé par l'utilisateur pour sa propre machine.",
+    forWho: "Experts cherchant le contrôle absolu et l'optimisation maximale de leur matériel.",
+    whyChoose: [
+      "Performance optimisée au processeur",
+      "Flexibilité logicielle totale",
+      "Connaissance profonde du système"
+    ],
+    limitations: [
+      "Installation extrêmement longue",
+      "Maintenance gourmande en temps"
+    ],
+    useCases: [
+      "Calcul scientifique et industriel",
+      "Serveurs haute performance",
+      "Station de travail pour puristes"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "emerge",
+      releaseModel: "rolling source-based",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Haiku",
@@ -384,12 +865,28 @@ export const rawData: RawDistro[] = [
     audience: "Curieux",
     points: "OS alternatif moderne",
     usage: "Exploration",
-    description: "Haiku est une distribution OS alternative moderne basée sur BeOS.",
-    forWho: "Utilisateurs curieux cherchant des systèmes alternatives modernes.",
-    whyChoose: ["Système d'exploitation alternatif moderne", "Idéal pour l'exploration et la découverte", "Base sur BeOS"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à pkgman comme gestionnaire de paquets"],
-    useCases: ["Exploration et découverte des systèmes d'exploitation alternatives", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "BeOS-like", packageManager: "pkgman", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Le successeur libre de BeOS, léger, réactif et doté d'une architecture orientée bureau unique.",
+    forWho: "Curieux de systèmes d'exploitation exotiques en dehors du monde Linux/Windows.",
+    whyChoose: [
+      "Rapidité de lancement foudroyante",
+      "Interface simple et unifiée",
+      "Philosophie orientée bureau"
+    ],
+    limitations: [
+      "Support matériel limité",
+      "Peu d'applications professionnelles"
+    ],
+    useCases: [
+      "Exploration système",
+      "Anciens PC peu puissants",
+      "Loisir et développement alternatif"
+    ],
+    technical: {
+      base: "Indépendante (BeOS-like)",
+      packageManager: "pkgman",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "HoloISO",
@@ -397,12 +894,28 @@ export const rawData: RawDistro[] = [
     audience: "Gamer",
     points: "Clone SteamOS",
     usage: "Console PC",
-    description: "HoloISO est une distribution Arch inspirée de SteamOS conçue pour les consoles PC.",
-    forWho: "Utilisateurs de jeux cherchant une expérience similaire à la console.",
-    whyChoose: ["Inspiré de SteamOS pour une expérience similaire à la console", "Compatible avec Arch", "Basé sur Arch"],
-    limitations: ["Peut ne pas être adapté aux utilisateurs non-gamers", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Console PC", "Jeux et performances élevées", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Un projet visant à porter l'expérience logicielle de la Steam Deck sur n'importe quel ordinateur.",
+    forWho: "Propriétaires de consoles PC ou PC gaming cherchant l'interface de Steam Deck.",
+    whyChoose: [
+      "Interface SteamOS console native",
+      "Optimisé pour le jeu à la manette",
+      "Base Arch ultra-moderne"
+    ],
+    limitations: [
+      "Compatible surtout avec les GPU AMD",
+      "Stabilité inégale sur certains matériels"
+    ],
+    useCases: [
+      "PC Gaming de salon",
+      "Consoles portables alternatives",
+      "Machine arcade moderne"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "KDE Neon",
@@ -410,12 +923,28 @@ export const rawData: RawDistro[] = [
     audience: "Utilisateurs KDE",
     points: "KDE très récent",
     usage: "Desktop KDE",
-    description: "KDE Neon est une distribution Ubuntu basée sur KDE Plasma.",
-    forWho: "Utilisateurs de KDE cherchant la dernière version du bureau.",
-    whyChoose: ["KDE Plasma très récent", "Compatible avec Ubuntu", "Idéal pour le bureau KDE"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel KDE", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une base Ubuntu stable servant de vitrine aux toutes dernières versions du bureau KDE Plasma.",
+    forWho: "Fans de KDE voulant tester les fonctionnalités de Plasma avant tout le monde sur une base stable.",
+    whyChoose: [
+      "Premier à recevoir les mises à jour KDE",
+      "Compatibilité logicielle Ubuntu totale",
+      "Bureau fluide et personnalisable"
+    ],
+    limitations: [
+      "Nigthly builds parfois instables",
+      "Orientée exclusivement vers KDE"
+    ],
+    useCases: [
+      "Travail desktop moderne",
+      "Showcase technologique KDE",
+      "Développement Plasma"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "KolibriOS",
@@ -423,12 +952,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "OS ultra-minimal",
     usage: "Démonstration technique",
-    description: "KolibriOS est une distribution OS ultra-minimal conçue pour la démonstration technique.",
-    forWho: "Utilisateurs experts cherchant un système minimaliste et techniquement intéressant.",
-    whyChoose: ["Système ultra-minimal", "Idéal pour les démonstrations techniques", "Indépendant"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Gestionnaire spécifique"],
-    useCases: ["Démonstrations techniques", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "non standard", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Un système d'exploitation incroyable écrit entièrement en assembleur, tenant sur une disquette.",
+    forWho: "Experts et passionnés par l'optimisation extrême et le code assembleur.",
+    whyChoose: [
+      "Démarrage en moins de 3 secondes",
+      "Performance CPU sans équivalent",
+      "Poids plume (moins de 2 Mo)"
+    ],
+    limitations: [
+      "Applications utilitaires basiques",
+      "Presque aucun driver moderne"
+    ],
+    useCases: [
+      "Démonstration de performance",
+      "Système de secours ultra-léger",
+      "Apprentissage de l'assembleur"
+    ],
+    technical: {
+      base: "Indépendante (ASM)",
+      packageManager: "spécifique",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Kubuntu",
@@ -436,12 +981,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Ubuntu + KDE",
     usage: "Desktop",
-    description: "Kubuntu est une distribution Ubuntu basée sur KDE Plasma.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale avec KDE.",
-    whyChoose: ["Ubuntu + KDE Plasma", "Compatible avec Ubuntu", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "La force de la base Ubuntu associée à la puissance et la beauté de l'environnement KDE Plasma.",
+    forWho: "Utilisateurs cherchant un système stable, complet et hautement personnalisable.",
+    whyChoose: [
+      "Personnalisation visuelle sans limite",
+      "Excellente logithèque intégrée",
+      "Stabilité et support Ubuntu"
+    ],
+    limitations: [
+      "Plus gourmande que Lubuntu ou Xubuntu",
+      "Trop d'options pour un novice total"
+    ],
+    useCases: [
+      "Poste de bureautique avancé",
+      "Poste de travail personnel",
+      "Machine multimédia"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Linux Lite",
@@ -449,12 +1010,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Simple et léger",
     usage: "Ex-Windows",
-    description: "Linux Lite est une distribution Ubuntu simple et légère.",
-    forWho: "Nouveaux utilisateurs cherchant une transition facile à partir de Windows.",
-    whyChoose: ["Simple et facile à utiliser", "Compatible avec Ubuntu", "Idéal pour l'usage général"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Usage général quotidien", "Bureau personnel", "Utilisation personnelle"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution légère utilisant XFCE, spécialement conçue pour ne pas dérouter les anciens utilisateurs de Windows.",
+    forWho: "Novices migrant depuis Windows 7 ou 10 sur une vieille machine.",
+    whyChoose: [
+      "Interface simple et familière",
+      "Rapidité sur petit processeur",
+      "Outils graphiques de bienvenue"
+    ],
+    limitations: [
+      "Design un peu austère par défaut",
+      "Vise uniquement le 64-bit désormais"
+    ],
+    useCases: [
+      "Migration Windows réussie",
+      "Bureautique légère",
+      "Surf web sécurisé"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Linux Mint",
@@ -462,12 +1039,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Ergonomique et stable",
     usage: "Desktop principal",
-    description: "Linux Mint est une distribution Ubuntu/Debian ergonomique et stable.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale et une stabilité accrue.",
-    whyChoose: ["Interface ergonomique et intuitive", "Compatible avec Ubuntu/Debian", "Idéal pour le bureau principal"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu/Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Probablement la meilleure distribution pour débuter, offrant une expérience polie, stable et intuitive.",
+    forWho: "Tout utilisateur cherchant un système 'qui marche' dès l'installation.",
+    whyChoose: [
+      "Ergonomie exceptionnelle (Cinnamon)",
+      "Gestionnaire de mises à jour sûr",
+      "Grande communauté d'entraide"
+    ],
+    limitations: [
+      "Vraiment conservatrice sur les versions",
+      "Peut paraître monotone pour les technophiles"
+    ],
+    useCases: [
+      "Ordinateur principal familial",
+      "Bureautique quotidienne",
+      "Poste de travail fiable"
+    ],
+    technical: {
+      base: "Ubuntu ou Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Linux Mint Debian Edition",
@@ -475,12 +1068,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Mint sans Ubuntu",
     usage: "Desktop stable",
-    description: "Linux Mint Debian Edition est une distribution Debian basée sur Linux Mint.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale et une stabilité accrue.",
-    whyChoose: ["Interface ergonomique et intuitive sans dépendance à Ubuntu", "Compatible avec Debian", "Idéal pour le bureau stable"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "La 'roue de secours' de Mint, basée directement sur Debian pour garantir l'indépendance vis-à-vis d'Ubuntu.",
+    forWho: "Utilisateurs de Mint souhaitant une base Debian plus pure tout en gardant le bureau Cinnamon.",
+    whyChoose: [
+      "Indépendance vis-à-vis de Canonical",
+      "Robustesse du socle Debian stable",
+      "Même interface que Mint standard"
+    ],
+    limitations: [
+      "Drivers un peu moins variés qu'Ubuntu",
+      "Installation de PPAs moins directe"
+    ],
+    useCases: [
+      "Station desktop robuste",
+      "Alternative Debian polie",
+      "Usage quotidien au long cours"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Lubuntu",
@@ -488,12 +1097,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "LXQt très léger",
     usage: "PC modestes",
-    description: "Lubuntu est une distribution Ubuntu basée sur LXQt.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale et un système léger.",
-    whyChoose: ["Interface LXQt très légère", "Compatible avec Ubuntu", "Idéal pour les PC modestes"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une variante d'Ubuntu utilisant le bureau ultra-léger LXQt pour une rapidité maximale sur petit matériel.",
+    forWho: "Propriétaires de portables peu puissants ou de machines ayant peu de mémoire vive.",
+    whyChoose: [
+      "Consommation RAM record",
+      "Rapidité d'exécution fluide",
+      "Base logicielle Ubuntu immense"
+    ],
+    limitations: [
+      "Interface visuelle assez basique",
+      "Moins d'effets graphiques par défaut"
+    ],
+    useCases: [
+      "Netbooks et machines de poche",
+      "Usage Web sur vieux PC",
+      "Station légère pour serveurs"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Mageia",
@@ -501,12 +1126,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Classique et stable",
     usage: "Desktop",
-    description: "Mageia est une distribution Mageia classique et stable.",
-    forWho: "Utilisateurs intermédiaires cherchant une distribution classique et fiable.",
-    whyChoose: ["Distribution classique et stable", "Compatible avec Mandriva", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Mandriva", packageManager: "dnf", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Le successeur communautaire de Mandriva, offrant un panneau de contrôle (MCC) centralisé très complet.",
+    forWho: "Utilisateurs aimant la tradition RPM française et les outils de configuration graphiques.",
+    whyChoose: [
+      "Panneau de contrôle tout-en-un",
+      "Stabilité exemplaire du système",
+      "Installation hautement personnalisable"
+    ],
+    limitations: [
+      "Communauté moins large qu'autrefois",
+      "Cycle de sortie assez lent"
+    ],
+    useCases: [
+      "Usage desktop généraliste",
+      "Bureautique en administration",
+      "Station de travail fidèle"
+    ],
+    technical: {
+      base: "Mandriva (Indépendante)",
+      packageManager: "dnf",
+      releaseModel: "stable",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Manjaro",
@@ -514,12 +1155,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Arch user-friendly",
     usage: "Desktop rolling",
-    description: "Manjaro est une distribution Arch Linux améliorée pour la facilité d'utilisation.",
-    forWho: "Utilisateurs intermédiaires cherchant un bureau basé sur Arch avec des outils de facilité d'utilisation.",
-    whyChoose: ["Arch user-friendly", "Compatible avec Arch", "Basé sur Arch"],
-    limitations: ["Peut nécessiter certaines connaissances d'Arch pour des configurations avancées", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Offre la puissance d'Arch Linux avec un installateur graphique, des drivers automatisés et des dépôts testés.",
+    forWho: "Utilisateurs voulant du rolling release sans la complexité de l'installation d'Arch.",
+    whyChoose: [
+      "Derniers logiciels via dépôts testés",
+      "Gestionnaire de drivers excellent",
+      "Accès facilité à l'Arch User Repository"
+    ],
+    limitations: [
+      "Délai de mise à jour par rapport à Arch",
+      "Personnalisations parfois encombrantes"
+    ],
+    useCases: [
+      "Usage quotidien performant",
+      "Développement et Web design",
+      "Station gaming performante"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "MX Linux",
@@ -527,12 +1184,28 @@ export const rawData: RawDistro[] = [
     audience: "Tous",
     points: "Rapide et stable",
     usage: "Desktop polyvalent",
-    description: "MX Linux est une distribution Debian rapide et stable.",
-    forWho: "Utilisateurs cherchant une distribution rapide et fiable pour diverses utilisations.",
-    whyChoose: ["Rapide et stable", "Compatible avec Debian", "Idéal pour le bureau polyvalent"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution remarquablement efficace qui combine un socle Debian Stable avec des outils maison (MX Tools) très utiles.",
+    forWho: "Utilisateurs fatigués de systemd cherchant un système fluide et complet sans tutoriel.",
+    whyChoose: [
+      "Outils de configuration géniaux",
+      "Vraiment très rapide à l'usage",
+      "Stabilité exceptionnelle approuvée"
+    ],
+    limitations: [
+      "Design XFCE un peu daté par défaut",
+      "Mélange Debian stable et paquets récents"
+    ],
+    useCases: [
+      "Poste de travail polyvalent",
+      "Usage quotidien tout-en-un",
+      "Machines aux performances modestes"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Nitrux",
@@ -540,12 +1213,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Immutable, AppImage",
     usage: "Desktop moderne",
-    description: "Nitrux est une distribution Debian immutable avec un modèle basé sur AppImage.",
-    forWho: "Utilisateurs intermédiaires cherchant un système moderne et facile à utiliser.",
-    whyChoose: ["Modèle d'application immutable avec AppImage", "Compatible avec Debian", "Idéal pour le bureau moderne"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "immutable", difficulty: "Intermédiaire" }
+    description: "Une distribution innovante basée sur Debian, utilisant Maui Shell et privilégiant le format AppImage.",
+    forWho: "Utilisateurs aimant l'esthétique futuriste et les nouveaux paradigmes de gestion logicielle.",
+    whyChoose: [
+      "Interface futuriste et magnifique",
+      "Cœur du système immuable sûr",
+      "Support natif des AppImages"
+    ],
+    limitations: [
+      "Flux de travail inhabituel",
+      "Support matériel récent parfois omis"
+    ],
+    useCases: [
+      "Desktop moderne et design",
+      "Ordinateur portable multimédia",
+      "Expérimentation graphique"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt + appimage",
+      releaseModel: "immutable / hybride",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "NixOS",
@@ -553,12 +1242,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Configuration déclarative",
     usage: "Infra reproductible",
-    description: "NixOS est une distribution indépendante avec une configuration déclarative.",
-    forWho: "Utilisateurs experts cherchant un système de configuration déclaratif pour l'infrastructure reproducible.",
-    whyChoose: ["Configuration déclarative", "Indépendant", "Idéal pour l'infra reproductible"],
-    limitations: ["Peut nécessiter une connaissance approfondie des systèmes Unix-like", "Dépendance à nix comme gestionnaire de paquets"],
-    useCases: ["Infrastructure cloud", "Serveurs spécifiques", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "nix", releaseModel: "immutable", difficulty: "Expert" }
+    description: "Un système unique où toute la configuration est définie dans un fichier texte, permettant des rollbacks instantanés.",
+    forWho: "Administrateurs et développeurs cherchant une configuration système versionnable et reproductible.",
+    whyChoose: [
+      "Possibilité de rollback garanti",
+      "Configuration système centralisée",
+      "Isolation des dépendances parfaite"
+    ],
+    limitations: [
+      "Langage Nix difficile à apprendre",
+      "Arborescence système non standard"
+    ],
+    useCases: [
+      "Développement en cloud natif",
+      "Infrastructures reproductibles",
+      "Système de bureau inaltérable"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "nix",
+      releaseModel: "immutable",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Nobara",
@@ -566,12 +1271,28 @@ export const rawData: RawDistro[] = [
     audience: "Gamer",
     points: "Fedora optimisé jeux",
     usage: "Gaming",
-    description: "Nobara est une distribution Fedora optimisée pour les gamers.",
-    forWho: "Utilisateurs de jeux cherchant un système performant et spécialisé.",
-    whyChoose: ["Optimisé pour les performances en jeu", "Compatible avec Fedora", "Basé sur Fedora"],
-    limitations: ["Peut ne pas être adapté aux utilisateurs non-gamers", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Jeux et performances élevées", "Streams en direct", "Utilisation personnelle"],
-    technical: { base: "Fedora", packageManager: "dnf", releaseModel: "release régulière", difficulty: "Intermédiaire" }
+    description: "Une version de Fedora modifiée par GloriousEggroll (acteur majeur de Proton) pour le jeu vidéo.",
+    forWho: "Joueurs voulant le top des performances sur Steam et Wine sans bidouiller Fedora.",
+    whyChoose: [
+      "Patchs de performance pré-appliqués",
+      "Drivers NVIDIA installés proprement",
+      "Optimisé pour Wine et Proton"
+    ],
+    limitations: [
+      "Dépôts tiers moins contrôlés",
+      "Maintenance par une seule personne"
+    ],
+    useCases: [
+      "Station de jeux principale",
+      "Streaming et création Web",
+      "Usage desktop moderne réactif"
+    ],
+    technical: {
+      base: "Fedora",
+      packageManager: "dnf",
+      releaseModel: "release régulière",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "OpenIndiana",
@@ -579,12 +1300,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "ZFS avancé",
     usage: "Stockage",
-    description: "OpenIndiana est une distribution basée sur Solaris avec ZFS avancé.",
-    forWho: "Utilisateurs experts cherchant des fonctionnalités de stockage avancées.",
-    whyChoose: ["ZFS avancé pour la gestion de stockage", "Compatible avec Solaris", "Idéal pour le stockage"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à pkg comme gestionnaire de paquets"],
-    useCases: ["Stockage professionnel", "Serveurs spécifiques", "Utilisation personnelle"],
-    technical: { base: "Solaris", packageManager: "pkg", releaseModel: "stable", difficulty: "Expert" }
+    description: "Le successeur de l'OpenSolaris, héritant des fonctions de stockage et réseaux les plus pro (ZFS, DTrace).",
+    forWho: "Experts Unix ayant besoin d'une fiabilité de stockage de niveau professionnel.",
+    whyChoose: [
+      "Fonctions ZFS les plus matures",
+      "Environnement réseau ultra-sûr",
+      "Outils d'inspection (DTrace) pro"
+    ],
+    limitations: [
+      "Support matériel très restreint",
+      "Logithèque desktop anémique"
+    ],
+    useCases: [
+      "Serveur de stockage critique",
+      "Appliance réseau spécialisée",
+      "Lab Unix traditionnel"
+    ],
+    technical: {
+      base: "Illumos (Solaris-like)",
+      packageManager: "pkg",
+      releaseModel: "stable",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "OpenMandriva",
@@ -592,12 +1329,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "RPM moderne",
     usage: "Desktop",
-    description: "OpenMandriva est une distribution Mandriva avec un gestionnaire de paquets RPM moderne.",
-    forWho: "Utilisateurs intermédiaires cherchant une distribution basée sur Mandriva avec des fonctionnalités modernes.",
-    whyChoose: ["RPM moderne pour la gestion des paquets", "Compatible avec Mandriva", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Mandriva", packageManager: "dnf", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Une distribution moderne utilisant LLVM/Clang pour son build, offrant une variante optimisée pour processeurs récents.",
+    forWho: "Utilisateurs fidèles à l'épopée Mandrake cherchant un système RPM moderne.",
+    whyChoose: [
+      "Hautes performances avec LLVM",
+      "Outils de configuration Mandriva",
+      "Support natif pour processeurs modernes"
+    ],
+    limitations: [
+      "Petite équipe de développement",
+      "Documentation un peu éparpillée"
+    ],
+    useCases: [
+      "Usage desktop polyvalent",
+      "Multimédia et bureautique",
+      "Expérimentation RPM"
+    ],
+    technical: {
+      base: "Mandriva (Indépendante)",
+      packageManager: "dnf",
+      releaseModel: "stable",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "openSUSE",
@@ -605,12 +1358,28 @@ export const rawData: RawDistro[] = [
     audience: "Tous",
     points: "Leap stable / Tumbleweed rolling",
     usage: "Desktop/Serveur",
-    description: "openSUSE est une distribution indépendante offrant des versions stables et rouollantes.",
-    forWho: "Utilisateurs cherchant une stabilité accrue ou des fonctionnalités les plus récentes.",
-    whyChoose: ["Versions Leap stable et Tumbleweed rolling", "Indépendant", "Idéal pour le bureau et les serveurs"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à zypper comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Serveurs critiques", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "zypper", releaseModel: "Leap stable / Tumbleweed rolling", difficulty: "Intermédiaire" }
+    description: "Une distribution allemande rigoureuse connue pour YaST, son centre de contrôle tout-en-un extrêmement puissant.",
+    forWho: "Professionnels et particuliers voulant de la robustesse et une administration simplifiée.",
+    whyChoose: [
+      "Centre de contrôle YaST unique",
+      "Stabilité exemplaire (Leap)",
+      "Excellente gestion du système Btrfs"
+    ],
+    limitations: [
+      "Configuration par défaut très bavarde",
+      "Interface YaST parfois intimidante"
+    ],
+    useCases: [
+      "Poste de bureautique robuste",
+      "Serveur d'entreprise polyvalent",
+      "Machine de test rolling (Tumbleweed)"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "zypper",
+      releaseModel: "Leap stable / Tumbleweed rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "PCLinuxOS",
@@ -618,12 +1387,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Rolling stable",
     usage: "Desktop",
-    description: "PCLinuxOS est une distribution indépendante avec un modèle de release rolling stable.",
-    forWho: "Nouveaux utilisateurs cherchant une distribution facile à utiliser et toujours à jour.",
-    whyChoose: ["Modèle de release rolling stable", "Indépendant", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt-rpm comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Indépendante", packageManager: "apt-rpm", releaseModel: "rolling stable", difficulty: "Débutant" }
+    description: "Une distribution atypique utilisant des paquets RPM mais via le gestionnaire APT, axée sur la facilité d'utilisation.",
+    forWho: "Utilisateurs cherchant du 'rolling' sans le côté effrayant, orienté pur desktop.",
+    whyChoose: [
+      "Format 'installer une fois pour toujours'",
+      "Très bons outils de configuration",
+      "Drivers propriétaires intégrés"
+    ],
+    limitations: [
+      "Communauté restreinte et vieillissante",
+      "Pas de support 32-bit récent"
+    ],
+    useCases: [
+      "Usage personnel domestique",
+      "Bureautique principale",
+      "Poste multimédia simple"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "apt-rpm",
+      releaseModel: "rolling stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "PeppermintOS",
@@ -631,12 +1416,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Léger, web apps",
     usage: "PC faibles",
-    description: "PeppermintOS est une distribution Debian légère avec des applications web.",
-    forWho: "Nouveaux utilisateurs cherchant un système léger et basé sur des applications web.",
-    whyChoose: ["Système léger", "Compatible avec Debian", "Applications web incluses"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["PC faibles et limités en ressources", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Spécialisée dans l'intégration transparente des applications Web (via Ice) au sein d'un bureau XFCE léger.",
+    forWho: "Utilisateurs de vieux portables passant beaucoup de temps sur le Web et les services Cloud.",
+    whyChoose: [
+      "Intégration Web parfaite",
+      "Consommation ressources légère",
+      "Installation très rapide"
+    ],
+    limitations: [
+      "Logithèque locale limitée par défaut",
+      "Design un peu sommaire"
+    ],
+    useCases: [
+      "Transformation vieux PC en Chromebook",
+      "Usage Web quotidien léger",
+      "Machine secondaire nomade"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Pop!_OS",
@@ -644,12 +1445,28 @@ export const rawData: RawDistro[] = [
     audience: "Dev/Gamer",
     points: "Optimisé GPU et workflow",
     usage: "Workstation",
-    description: "Pop!_OS est une distribution Ubuntu optimisée pour les développeurs et les gamers.",
-    forWho: "Utilisateurs de développement ou de jeux cherchant un système performant.",
-    whyChoose: ["Optimisé pour le GPU et le workflow", "Compatible avec Ubuntu", "Idéal pour la workstation"],
-    limitations: ["Peut ne pas être adapté aux utilisateurs non-développeurs/non-gamers", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Développement et tests", "Jeux et performances élevées", "Utilisation personnelle"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Créée par System76, elle offre une expérience GNOME améliorée (Pop Shell) et une gestion parfaite des drivers graphiques.",
+    forWho: "Développeurs et créateurs cherchant un environnement Linux productif et prêt pour la performance.",
+    whyChoose: [
+      "Gestionnaire de fenêtres tiling inclus",
+      "Version avec drivers NVIDIA pré-packagés",
+      "Chiffrement disque par défaut soigné"
+    ],
+    limitations: [
+      "Plus lourde en ressources que la moyenne",
+      "Design très sombre imposé"
+    ],
+    useCases: [
+      "Station de développement moderne",
+      "PC portable de travail intensif",
+      "Poste de jeu performant"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Porteus",
@@ -657,12 +1474,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Live USB modulaire",
     usage: "Dépannage",
-    description: "Porteus est une distribution Slackware modulaire pour les live USB.",
-    forWho: "Utilisateurs experts cherchant un système modulaire pour le dépannage et les live USB.",
-    whyChoose: ["Système modulaire pour les live USB", "Compatible avec Slackware", "Idéal pour le dépannage"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à slackpkg"],
-    useCases: ["Dépannage de systèmes", "Création de live USB personnalisés", "Utilisation personnelle"],
-    technical: { base: "Slackware", packageManager: "slackpkg", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Une distribution portable hyper-rapide conçue pour fonctionner en RAM depuis une clé USB via des modules compressés.",
+    forWho: "Techniciens cherchant un système de secours ultra-rapide et personnalisable à l'infini.",
+    whyChoose: [
+      "Construction modulaire par fichiers",
+      "Démarrage fulgurant (15s)",
+      "Changements sauvegardables ou éphémères"
+    ],
+    limitations: [
+      "Pas idéale pour une installation disque",
+      "Configuration typée Slackware complexe"
+    ],
+    useCases: [
+      "Système de secours pour clé USB",
+      "Borne internet publique sécurisée",
+      "Diagnostic matériel rapide"
+    ],
+    technical: {
+      base: "Slackware",
+      packageManager: "slackpkg",
+      releaseModel: "stable",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "PrimTux",
@@ -670,12 +1503,28 @@ export const rawData: RawDistro[] = [
     audience: "Éducation",
     points: "Conçu pour enfants",
     usage: "Écoles",
-    description: "PrimTux est une distribution Debian/Ubuntu conçue pour les enfants.",
-    forWho: "Établissements scolaires cherchant des solutions éducatives pour les jeunes.",
-    whyChoose: ["Conçu spécifiquement pour les enfants", "Compatible avec Debian/Ubuntu", "Idéal pour les écoles"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Environnements scolaires", "Laboratoires informatiques", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian/Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution française spécialement adaptée aux enfants de l'école primaire, avec des environnements par tranches d'âges.",
+    forWho: "Parents et instituteurs voulant un ordinateur sûr et ludique pour les écoliers.",
+    whyChoose: [
+      "Menus simplifiés par âge (3 à 10 ans)",
+      "Filtrage internet automatique inclus",
+      "Enorme banque de jeux pédagogiques"
+    ],
+    limitations: [
+      "Interface enfantine impropre aux ados",
+      "Consommation espace disque pour les jeux"
+    ],
+    useCases: [
+      "PC recyclé pour école primaire",
+      "Ordinateur familial sécurisé",
+      "Apprentissage de l'informatique enfants"
+    ],
+    technical: {
+      base: "Debian / Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Puppy Linux",
@@ -683,12 +1532,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Ultra-léger, RAM-based",
     usage: "Dépannage",
-    description: "Puppy Linux est une distribution indépendante ultra-légère basée sur la RAM.",
-    forWho: "Nouveaux utilisateurs cherchant un système extrêmement léger et rapide.",
-    whyChoose: ["Ultra-léger, fonctionne principalement en RAM", "Indépendant", "Idéal pour le dépannage"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Nécessite suffisamment de RAM disponible"],
-    useCases: ["Dépannage de systèmes", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "ppm", releaseModel: "rolling", difficulty: "Débutant" }
+    description: "Légère à l'extrême, elle se charge entièrement en RAM pour transformer n'importe quel vieux PC en poste fonctionnel.",
+    forWho: "Utilisateurs ayant besoin d'un système vivant en RAM pour ranimer un PC sans disque dur ou très lent.",
+    whyChoose: [
+      "Ne demande presque pas de RAM",
+      "Fonctionne sans disque dur si besoin",
+      "Outils de configuration simplifiés"
+    ],
+    limitations: [
+      "Interface graphique très datée",
+      "Gestion de paquets un peu confuse"
+    ],
+    useCases: [
+      "Sauver des données sur PC crashé",
+      "Usage Web sur matériel antique",
+      "Poste de voyage sur clé USB"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "ppm",
+      releaseModel: "rolling",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "PureOS",
@@ -696,12 +1561,28 @@ export const rawData: RawDistro[] = [
     audience: "Sécurité",
     points: "100% libre, privacy",
     usage: "Militants",
-    description: "PureOS est une distribution Debian 100% libre avec des priorités en matière de vie privée.",
-    forWho: "Utilisateurs militants cherchant un système totalement libre et respectueux de la vie privée.",
-    whyChoose: ["100% logiciel libre", "Compatibilité haute avec Debian", "Focus sur la vie privée"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Utilisation personnelle", "Éducation sur les systèmes Linux", "Environnements militants et libertaires"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution certifiée par la FSF, garantissant un logiciel 100% libre et une vie privée ultra-protégée.",
+    forWho: "Utilisateurs soucieux de leur éthique numérique refusant tout composant propriétaire.",
+    whyChoose: [
+      "Liberté logicielle garantie (FSF)",
+      "Sécurité et vie privée par défaut",
+      "Excellente intégration GNOME"
+    ],
+    limitations: [
+      "Support matériel limité (pas de drivers non-libres)",
+      "Incompatible avec certains firmwares récents"
+    ],
+    useCases: [
+      "Usage personnel ultra-sécurisé",
+      "Poste de travail éthique",
+      "Support pour PC Librem (System76/Purism)"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Q4OS",
@@ -709,12 +1590,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Très léger, Trinity",
     usage: "Vieux PC",
-    description: "Q4OS est une distribution Debian très légère basée sur Trinity.",
-    forWho: "Nouveaux utilisateurs cherchant un système léger et convivial sur des PC anciens.",
-    whyChoose: ["Système très léger", "Interface Trinity intuitive", "Compatible avec Debian"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["PC anciens et limités en ressources", "Bureau personnel", "Utilisation personnelle"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Vise la rapidité sur vieux matériel en réutilisant l'environnement de bureau classique Trinity (fork de KDE 3).",
+    forWho: "Nostalgiques de l'ergonomie Windows XP/7 cherchant un Linux hyper-véloce.",
+    whyChoose: [
+      "Rapidité impressionnante sur vieux PC",
+      "Interface classique familière",
+      "Outils d'installation simplifiés"
+    ],
+    limitations: [
+      "Look visuel daté (époques 2000)",
+      "Moins d'applications modernes intégrées"
+    ],
+    useCases: [
+      "Bureautique sur matériel ancien",
+      "Usage Web journalier sécurisé",
+      "Ordinateur de secours rapide"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "RebornOS",
@@ -722,12 +1619,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Arch complet préinstallé",
     usage: "Desktop custom",
-    description: "RebornOS est une distribution Arch complète préinstallée.",
-    forWho: "Utilisateurs avancés cherchant un système Arch complet et personnalisable.",
-    whyChoose: ["Arch complet préinstallé", "Compatible avec Arch", "Idéal pour le bureau personnalisé"],
-    limitations: ["Nécessite une connaissance approfondie des systèmes Unix-like", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Configuration personnalisée de systèmes", "Serveurs avec des exigences spécifiques", "Éducation sur les systèmes Linux"],
-    technical: { base: "Arch", packageManager: "pacman", releaseModel: "rolling", difficulty: "Avancé" }
+    description: "Offre un installateur graphique extrêmement poussé permettant de choisir précisément ses environnements et services dès le départ.",
+    forWho: "Utilisateurs voulant choisir leur bureau personnalisé sans installer Arch à la main.",
+    whyChoose: [
+      "Installateur extrêmement flexible",
+      "Support Flatpak et AUR natif",
+      "Accès aux dernières pépites Arch"
+    ],
+    limitations: [
+      "Complexité des options d'install",
+      "Demande une bonne connexion internet"
+    ],
+    useCases: [
+      "Station Desktop multisupport",
+      "Machine personnalisée pour dev",
+      "Exploration de multiples bureaux"
+    ],
+    technical: {
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Rocky Linux",
@@ -735,12 +1648,28 @@ export const rawData: RawDistro[] = [
     audience: "Pro",
     points: "Clone RHEL communautaire",
     usage: "Serveurs",
-    description: "Rocky Linux est un clone de RHEL conçu pour être libre et gratuit.",
-    forWho: "Professionnels nécessitant une stabilité accrue sur des serveurs.",
-    whyChoose: ["Clone de RHEL sans licence payante", "Très stable pour les serveurs critiques", "Compatibilité haute avec l'écosystème RHEL"],
-    limitations: ["Peut ne pas avoir toutes les dernières fonctionnalités de RHEL", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Serveurs web et applications critiques", "Infrastructure cloud", "Environnements de test et développement"],
-    technical: { base: "RHEL", packageManager: "dnf", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Née suite au changement de CentOS, elle vise à offrir un clone fidèle et gratuit de RHEL piloté par la communauté.",
+    forWho: "Administrateurs de serveurs pro cherchant la stabilité imperturbable de Red Hat sans frais.",
+    whyChoose: [
+      "Stabilité professionnelle garantie",
+      "Compatibilité logicielle RHEL 100%",
+      "Cycle de vie long terme rassurant"
+    ],
+    limitations: [
+      "Pas d'usage desktop multimédia",
+      "Dépôts officiels conservateurs"
+    ],
+    useCases: [
+      "Serveur Web d'entreprise",
+      "Hébergement bases de données",
+      "Infrastructure critique Cloud"
+    ],
+    technical: {
+      base: "Red Hat Enterprise Linux",
+      packageManager: "dnf",
+      releaseModel: "stable / LTS",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Siduction",
@@ -748,12 +1677,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Debian unstable maîtrisé",
     usage: "Desktop avancé",
-    description: "Siduction est une distribution Debian Sid maîtrisée pour le bureau.",
-    forWho: "Utilisateurs avancés cherchant des fonctionnalités les plus récentes sur un système stable.",
-    whyChoose: ["Debian unstable maîtrisé", "Compatible avec Debian", "Idéal pour le bureau avancé"],
-    limitations: ["Peut ne pas offrir une stabilité totale en raison du modèle de release SID", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian Sid", packageManager: "apt", releaseModel: "rolling unstable", difficulty: "Avancé" }
+    description: "Une version domestiquée de Debian Unstable, permettant d'avoir les paquets les plus récents avec un filet de sécurité.",
+    forWho: "Utilisateurs aimant Debian mais voulant des versions de logiciels très récentes.",
+    whyChoose: [
+      "Paquets Debian les plus frais",
+      "Installation simplifiée via Calamares",
+      "Communtauté experte très réactive"
+    ],
+    limitations: [
+      "Risque inhérent au dépôt Unstable",
+      "Mises à jour quotidiennes volumineuses"
+    ],
+    useCases: [
+      "Station desktop pour passionnés",
+      "Développement logiciel récent",
+      "Exploration des nouveautés Debian"
+    ],
+    technical: {
+      base: "Debian Sid",
+      packageManager: "apt",
+      releaseModel: "rolling unstable",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Slackware",
@@ -761,12 +1706,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Unix traditionnel",
     usage: "Puristes",
-    description: "Slackware est une distribution indépendante respectant les traditions Unix.",
-    forWho: "Utilisateurs experts cherchant un système minimaliste et puriste.",
-    whyChoose: ["Système minimaliste respectant les traditions Unix", "Indépendant", "Idéal pour les puristes"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à slackpkg"],
-    useCases: ["Configuration personnalisée de systèmes", "Serveurs avec des exigences spécifiques", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "slackpkg", releaseModel: "stable", difficulty: "Expert" }
+    description: "La plus ancienne distribution Linux encore maintenue, gardant une philosophie très proche des systèmes Unix traditionnels.",
+    forWho: "Puristes et nostalgiques souhaitant un système qui n'automatise rien sans votre accord.",
+    whyChoose: [
+      "Simplicité et stabilité Unix",
+      "Zéro dépendance logicielle automatique",
+      "Parfaite pour apprendre le système"
+    ],
+    limitations: [
+      "Pas de gestionnaire de dépendances natif",
+      "Configuration manuelle par fichiers scripts"
+    ],
+    useCases: [
+      "Serveur minimaliste hyper-stable",
+      "Apprentissage profond de Linux",
+      "Station pour puristes barbus"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "slackpkg",
+      releaseModel: "stable",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Slax",
@@ -774,12 +1735,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Live rapide",
     usage: "USB boot",
-    description: "Slax est une distribution Debian livrée rapidement sur USB.",
-    forWho: "Utilisateurs avancés cherchant un système léger et facile à démarrer depuis USB.",
-    whyChoose: ["Livré rapidement sur USB", "Compatible avec Debian", "Idéal pour le démarrage via USB"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Démarrage via USB", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Une distribution modulaire qui tient en poche, optimisée pour le lancement rapide en mode persistant sur clé USB.",
+    forWho: "Utilisateurs nomades ayant besoin d'un système complet et mémorisable sur n'importe quel PC.",
+    whyChoose: [
+      "Prend très peu de place sur USB",
+      "Gestionnaire de fenêtres Fluxbox réactif",
+      "Mises à jour via dépôts Debian"
+    ],
+    limitations: [
+      "Moins riche qu'une install standard",
+      "Configurable via modules spécifiques"
+    ],
+    useCases: [
+      "Bureau portable de poche",
+      "Dépannage rapide en déplacement",
+      "Surf anonyme sur PC public"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "slackpkg",
+      releaseModel: "stable",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "SliTaz",
@@ -787,12 +1764,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Extrêmement minimal",
     usage: "Très vieux matériel",
-    description: "SliTaz est une distribution indépendante extrêmement minimale.",
-    forWho: "Utilisateurs experts cherchant un système minimaliste sur des ordinateurs très anciens.",
-    whyChoose: ["Extrêmement minimal pour les ordinateurs très anciens", "Indépendant", "Idéal pour les ordinateurs très anciens"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Nécessite une connaissance approfondie des systèmes Unix-like"],
-    useCases: ["Ordinateurs très anciens", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "tazpkg", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Incroyable micromachine tenant dans 40 Mo et capable de tourner décemment sur des processeurs des années 90.",
+    forWho: "Férus d'optimisation et propriétaires de matériel jugé obsolète partout ailleurs.",
+    whyChoose: [
+      "Poids plume révolutionnaire",
+      "Vraiment utilisable sur Pentium III",
+      "Outils système maison ingénieux"
+    ],
+    limitations: [
+      "Dépôts de logiciels limités",
+      "Incompatible avec les besoins modernes lourds"
+    ],
+    useCases: [
+      "Ranimer des PC de muséum",
+      "Serveur web minuscule",
+      "Système de secours ultra-léger"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "tazpkg",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Solus",
@@ -800,12 +1793,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Orienté desktop",
     usage: "Usage personnel",
-    description: "Solus est une distribution indépendante orientée bureau.",
-    forWho: "Utilisateurs intermédiaires cherchant un système convivial et orienté bureau.",
-    whyChoose: ["Orienté bureau convivial", "Indépendant", "Idéal pour l'usage personnel"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à eopkg comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Indépendante", packageManager: "eopkg", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Une distribution indépendante curatée pour le bureau moderne, avec son propre environnement graphique Budgie.",
+    forWho: "Utilisateurs de bureau cherchant un système stable, esthétique et sans héritage serveur complexe.",
+    whyChoose: [
+      "Environnement Budgie très élégant",
+      "Excellentes performances multimédia",
+      "Installation logicielle ultra-simple"
+    ],
+    limitations: [
+      "Nombre de paquets inférieur à Debian/Arch",
+      "Pas adaptée pour un usage serveur"
+    ],
+    useCases: [
+      "Usage personnel multimédia",
+      "Bureautique design",
+      "Station Web et Streaming"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "eopkg",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "SparkyLinux",
@@ -813,12 +1822,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Léger et flexible",
     usage: "Desktop",
-    description: "SparkyLinux est une distribution Debian légère et flexible.",
-    forWho: "Utilisateurs intermédiaires cherchant un système léger et facile à utiliser.",
-    whyChoose: ["Système léger et flexible", "Compatible avec Debian", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Une base Debian polie offrant une multitude d'éditions (Gaming, Multimédia, Rescue) pour répondre à tous les besoins.",
+    forWho: "Utilisateurs voulant de la flexibilité Debian sans la difficulté de configuration initiale.",
+    whyChoose: [
+      "Très nombreuses variantes d'usage",
+      "Gestionnaire d'installations tiers APTus",
+      "Légèreté générale de l'interface"
+    ],
+    limitations: [
+      "Interface un peu hétéroclite",
+      "Documentation parfois juste en français"
+    ],
+    useCases: [
+      "Usage desktop polyvalent",
+      "Dépannage système (version Rescue)",
+      "Jeux Linux sur matériel modeste"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "SpiralLinux",
@@ -826,12 +1851,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Debian prêt à l’emploi",
     usage: "Desktop stable",
-    description: "SpiralLinux est une distribution Debian pré-configurée et prête à l'emploi.",
-    forWho: "Nouveaux utilisateurs cherchant un système facile à utiliser et fiable.",
-    whyChoose: ["Debian prêt à l’emploi", "Compatible avec Debian", "Idéal pour le bureau stable"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Prend Debian Stable et l'affine avec des réglages intelligents pour le rendre aussi facile qu'Ubuntu ou Mint.",
+    forWho: "Débutants voulant la fiabilité de Debian sans les obstacles à l'installation logicielle.",
+    whyChoose: [
+      "Debian avec codecs pré-installés",
+      "Drivers propriétaires configurés",
+      "Snapshots Btrfs activés par défaut"
+    ],
+    limitations: [
+      "Peu de différence avec Debian pur",
+      "Communauté plus petite"
+    ],
+    useCases: [
+      "Usage bureautique fiable",
+      "Transition vers Debian facile",
+      "Ordinateur de travail durable"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Tails",
@@ -839,12 +1880,28 @@ export const rawData: RawDistro[] = [
     audience: "Sécurité",
     points: "Anonymat via Tor",
     usage: "Journalisme",
-    description: "Tails est une distribution Debian conçue pour l'anonymat et la sécurité.",
-    forWho: "Utilisateurs cherchant un système sécurisé avec anonymat sur internet.",
-    whyChoose: ["Anonymat via Tor", "Compatible avec Debian", "Idéal pour le journalisme"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Journalisme et activites de sécurité", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Un système amnésique conçu pour ne laisser aucune trace et forcer tout le trafic internet via le réseau Tor.",
+    forWho: "Journalistes, lanceurs d'alerte et personnes cherchant un anonymat total temporaire.",
+    whyChoose: [
+      "Anonymat internet automatique",
+      "Ne laisse aucune trace sur le disque",
+      "Sécurisé contre l'espionnage"
+    ],
+    limitations: [
+      "Perte des données au redémarrage",
+      "Navigation internet ralentie par Tor"
+    ],
+    useCases: [
+      "Activisme et journalisme sensible",
+      "Surf confidentiel en voyage",
+      "Audit de sécurité réseau"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Tiny Core Linux",
@@ -852,12 +1909,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Minimal extrême",
     usage: "Embarqué",
-    description: "Tiny Core Linux est une distribution indépendante extrêmement minimale.",
-    forWho: "Utilisateurs experts cherchant un système minimaliste pour des applications embarquées.",
-    whyChoose: ["Extrêmement minimal pour des applications embarquées", "Indépendant", "Idéal pour les applications embarquées"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Nécessite une connaissance approfondie des systèmes Unix-like"],
-    useCases: ["Applications embarquées", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "tce", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Un environnement graphique complet qui tient dans moins de 20 Mo, modulaire et hautement flexible.",
+    forWho: "Experts cherchant à construire une solution dédiée hyper-légère pour du matériel spécifique.",
+    whyChoose: [
+      "Taille système ridiculement petite",
+      "Chargement instantané en mémoire vive",
+      "Architecture modulaire unique"
+    ],
+    limitations: [
+      "Installation très peu intuitive",
+      "Dépôts de paquets restreints"
+    ],
+    useCases: [
+      "Bornes tactiles et automates",
+      "Recyclage de PC ultra-vieux",
+      "Serveurs de services légers"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "tce",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Trisquel GNU/Linux",
@@ -865,12 +1938,28 @@ export const rawData: RawDistro[] = [
     audience: "Libre",
     points: "100% logiciel libre",
     usage: "Institutions",
-    description: "Trisquel GNU/Linux est une distribution Ubuntu 100% libre.",
-    forWho: "Institutions cherchant des solutions complètement libres.",
-    whyChoose: ["100% logiciel libre", "Compatible avec Ubuntu", "Idéal pour les institutions"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Institutions éducatives", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une version d'Ubuntu débarrassée de tout composant propriétaire, idéale pour l'éthique et les institutions publiques.",
+    forWho: "Militants du logiciel libre refusant les pilotes ou firmwares fermés.",
+    whyChoose: [
+      "Ethique logicielle irréprochable",
+      "Excellente stabilité (LTS Ubuntu)",
+      "Simple pour la bureautique scolaire"
+    ],
+    limitations: [
+      "Risque d'écrans noirs sans pilotes",
+      "Wifi moderne souvent non détecté"
+    ],
+    useCases: [
+      "Équipement d'écoles éthiques",
+      "Usage personnel 100% libre",
+      "Sensibilisation au logiciel libre"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Tuxedo OS",
@@ -878,12 +1967,28 @@ export const rawData: RawDistro[] = [
     audience: "Utilisateurs Tuxedo",
     points: "Optimisé matériel Tuxedo",
     usage: "Laptops Linux",
-    description: "Tuxedo OS est une distribution Ubuntu optimisée pour les laptops Tuxedo.",
-    forWho: "Utilisateurs de laptops Tuxedo cherchant un système performant et spécialisé.",
-    whyChoose: ["Optimisé pour les laptops Tuxedo", "Compatible avec Ubuntu", "Idéal pour les laptops Linux"],
-    limitations: ["Peut ne pas être adapté aux utilisateurs non-Tuxedo", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Laptops Tuxedo", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Développée par le constructeur Tuxedo pour ses machines, mais utilisable sur n'importe quel ordinateur.",
+    forWho: "Utilisateurs de laptops Tuxedo ou utilisateurs cherchant un Plasma poli sur base Ubuntu.",
+    whyChoose: [
+      "Support matériel parfait pour Tuxedo",
+      "Configuration KDE Plasma soignée",
+      "Base Ubuntu LTS ultra-fiable"
+    ],
+    limitations: [
+      "Moins d'intérêt hors matériel Tuxedo",
+      "Outils propriétaires de gestion batterie"
+    ],
+    useCases: [
+      "Usage professionnel sur portable",
+      "Poste desktop moderne et fiable",
+      "Machine officielle de constructeur"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Ubuntu",
@@ -891,12 +1996,28 @@ export const rawData: RawDistro[] = [
     audience: "Tous",
     points: "Distribution généraliste",
     usage: "Tous usages",
-    description: "Ubuntu est une distribution Linux généraliste très populaire.",
-    forWho: "Utilisateurs cherchant un système polyvalent et facile à utiliser.",
-    whyChoose: ["Distribution générale pour tous les usages", "Compatible avec Debian", "Très populaire"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Serveurs critiques", "Utilisation personnelle"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable/LTS", difficulty: "Débutant" }
+    description: "La référence absolue de Linux, reconnue pour son énorme support matériel et sa facilité d'adoption.",
+    forWho: "Débutants comme professionnels cherchant le standard de l'industrie Linux.",
+    whyChoose: [
+      "Compatibilité matérielle gigantesque",
+      "Support professionnel à long terme",
+      "Documentation disponible partout"
+    ],
+    limitations: [
+      "Utilisation forcée du format Snap",
+      "Système parfois jugé trop commercial"
+    ],
+    useCases: [
+      "Ordinateur de bureau à la maison",
+      "Serveur Web et Cloud pro",
+      "Développement logiciel Cloud"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Ubuntu Budgie",
@@ -904,12 +2025,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Budgie desktop",
     usage: "Desktop",
-    description: "Ubuntu Budgie est une distribution Ubuntu basée sur le bureau Budgie.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale avec Budgie.",
-    whyChoose: ["Bureau Budgie convivial", "Compatible avec Ubuntu", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Mélange le socle Ubuntu avec le bureau élégant et moderne Budgie de l'équipe Solus.",
+    forWho: "Utilisateurs cherchant un look moderne et léché sans sacrifier la stabilité.",
+    whyChoose: [
+      "Interface vraiment belle et fluide",
+      "Logithèque Ubuntu immense",
+      "Installation guidée et simple"
+    ],
+    limitations: [
+      "Moins personnalisable que KDE/XFCE",
+      "Performances modestes sur PC lents"
+    ],
+    useCases: [
+      "Ordinateur de bureau élégant",
+      "Usage personnel multimédia",
+      "Bureautique quotidienne fluide"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Ubuntu Cinnamon",
@@ -917,12 +2054,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Cinnamon officiel",
     usage: "Desktop",
-    description: "Ubuntu Cinnamon est une distribution Ubuntu basée sur le bureau Cinnamon.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale avec Cinnamon.",
-    whyChoose: ["Bureau Cinnamon officiel", "Compatible avec Ubuntu", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Fournit l'excellent bureau Cinnamon sur une base Ubuntu officielle, offrant une expérience classique et familière.",
+    forWho: "Migrants Windows aimant l'interface classique mais préférant Ubuntu à Linux Mint.",
+    whyChoose: [
+      "Ergonomie classique Windows-like",
+      "Intégration officielle Ubuntu",
+      "Gestionnaire de fichiers Nemo pro"
+    ],
+    limitations: [
+      "Doublon relatif avec Linux Mint",
+      "Moins d'outils maison que Mint"
+    ],
+    useCases: [
+      "Migration Windows douce",
+      "Usage bureautique classique",
+      "Poste de travail fiable"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Ubuntu Kylin",
@@ -930,12 +2083,28 @@ export const rawData: RawDistro[] = [
     audience: "Grand public",
     points: "Orienté marché chinois",
     usage: "Desktop",
-    description: "Ubuntu Kylin est une distribution Ubuntu orientée vers le marché chinois.",
-    forWho: "Utilisateurs cherchant un système adapté au marché chinois.",
-    whyChoose: ["Orienté marché chinois", "Compatible avec Ubuntu", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "L'édition officielle d'Ubuntu pour la Chine, avec son bureau UKUI très épuré imitant Windows 10/11.",
+    forWho: "Utilisateurs parlant chinois ou curieux de l'ergonomie visuelle moderne d'UKUI.",
+    whyChoose: [
+      "Superbe bureau UKUI moderne",
+      "Logithèque adaptée au marché chinois",
+      "Intégrations locales fortes"
+    ],
+    limitations: [
+      "Traductions imparfaites en français",
+      "Services de recherche géolocalisés"
+    ],
+    useCases: [
+      "Usage desktop en Chine",
+      "Bureautique design sobre",
+      "Exploration d'interface innovante"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Ubuntu MATE",
@@ -943,12 +2112,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Interface classique",
     usage: "Desktop",
-    description: "Ubuntu MATE est une distribution Ubuntu basée sur le bureau MATE.",
-    forWho: "Nouveaux utilisateurs cherchant une interface conviviale avec MATE.",
-    whyChoose: ["Bureau MATE convivial", "Compatible avec Ubuntu", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Fait revivre l'époque dorée de GNOME 2 avec une interface traditionnelle, légère et hyper-stable.",
+    forWho: "Utilisateurs préférant l'informatique 'classique' et les menus organisés.",
+    whyChoose: [
+      "Rapidité et faible consommation",
+      "Menue traditionnel intuitif",
+      "Grande maturité logicielle"
+    ],
+    limitations: [
+      "Look qui peut paraître ancien",
+      "Moins spectaculaire que GNOME 40+"
+    ],
+    useCases: [
+      "Usage professionnel stable",
+      "Recyclage de matériel productif",
+      "Bureautique quotidienne efficace"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Ubuntu Studio",
@@ -956,12 +2141,28 @@ export const rawData: RawDistro[] = [
     audience: "Créatifs",
     points: "Audio/vidéo pro",
     usage: "Production multimédia",
-    description: "Ubuntu Studio est une distribution Ubuntu spécialisée pour la production multimédia.",
-    forWho: "Utilisateurs créatifs cherchant un système spécialisé en audio et vidéo.",
-    whyChoose: ["Specialisé en audio/vidéo", "Compatible avec Ubuntu", "Idéal pour la production multimédia"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Production audio et vidéo", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Une station de travail spécialisée, livrée avec tous les outils nécessaires au montage vidéo, son et image.",
+    forWho: "Musiciens, monteurs et graphistes souhaitant un OS optimisé pour la création.",
+    whyChoose: [
+      "Logiciels pro pré-configurés",
+      "Noyau audio basse latence",
+      "Gain de temps à l'installation"
+    ],
+    limitations: [
+      "Système lourd et encombré",
+      "Config matérielle minimale requise"
+    ],
+    useCases: [
+      "Production musicale et studio",
+      "Montage vidéo et animation",
+      "DAO et design graphique"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Ubuntu Unity",
@@ -969,12 +2170,28 @@ export const rawData: RawDistro[] = [
     audience: "Nostalgique",
     points: "Interface Unity",
     usage: "Desktop",
-    description: "Ubuntu Unity est une distribution Ubuntu basée sur le bureau Unity.",
-    forWho: "Utilisateurs cherchant une interface conviviale avec Unity.",
-    whyChoose: ["Bureau Unity convivial", "Compatible avec Ubuntu", "Idéal pour le bureau"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Le retour officiel du bureau Unity qui a fait la renommée d'Ubuntu pendant des années.",
+    forWho: "Nostalgiques de l'ergonomie Unity et du HUD (menu de recherche globale).",
+    whyChoose: [
+      "Workflow Unity unique et rapide",
+      "Excellente gestion des écrans laptop",
+      "Base logicielle Ubuntu robuste"
+    ],
+    limitations: [
+      "Interface qui divise les foules",
+      "Nécessite de l'apprentissage moteur"
+    ],
+    useCases: [
+      "Productivité desktop intense",
+      "Usage sur écrans 16:9 étroits",
+      "Poste de travail personnel"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Void Linux",
@@ -982,12 +2199,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "runit, rolling",
     usage: "Admins systèmes",
-    description: "Void Linux est une distribution indépendante basée sur runit.",
-    forWho: "Utilisateurs experts cherchant un système minimaliste et performant pour les administrateurs de systèmes.",
-    whyChoose: ["Base sur runit pour la gestion des services", "Indépendant", "Idéal pour les administrateurs de systèmes"],
-    limitations: ["Peut nécessiter une connaissance approfondie des systèmes Unix-like", "Dépendance à xbps comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Configuration personnalisée de systèmes", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "xbps", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Distribution indépendante hyper-rapide utilisant l'init runit au lieu de systemd.",
+    forWho: "Utilisateurs avancés et admins cherchant un système minimaliste et puriste.",
+    whyChoose: [
+      "Vitesse de boot foudroyante",
+      "Gestionnaire de paquets XBPS génial",
+      "Pas de systemd (init runit)"
+    ],
+    limitations: [
+      "Installation en ligne de commande",
+      "Logithèque plus réduite qu'Arch"
+    ],
+    useCases: [
+      "Station serveur ultra-rapide",
+      "Desktop minimaliste performant",
+      "Configuration système fine"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "xbps",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Xubuntu",
@@ -995,12 +2228,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "XFCE léger",
     usage: "PC modestes",
-    description: "Xubuntu est une distribution Ubuntu basée sur le bureau XFCE.",
-    forWho: "Nouveaux utilisateurs cherchant un système léger et convivial.",
-    whyChoose: ["Bureau XFCE très léger", "Compatible avec Ubuntu", "Idéal pour les PC modestes"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Ubuntu avec le bureau XFCE, alliant légèreté, personnalisation et stabilité.",
+    forWho: "Utilisateurs cherchant le juste milieu entre performance et fonctionnalités.",
+    whyChoose: [
+      "Très léger sur le processeur",
+      "Hautement personnalisable visuellement",
+      "Base logicielle géante Ubuntu"
+    ],
+    limitations: [
+      "Interface austère par défaut",
+      "Moins d'automatisme que Mint"
+    ],
+    useCases: [
+      "Bureautique sur matériel modeste",
+      "Usage quotidien stable",
+      "Ordinateur portable de voyage"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Zorin OS",
@@ -1008,12 +2257,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "UX proche Windows",
     usage: "Migration Windows",
-    description: "Zorin OS est une distribution Ubuntu conçue pour faciliter la transition des utilisateurs de Windows.",
-    forWho: "Nouveaux utilisateurs cherchant une interface familière et facile à utiliser.",
-    whyChoose: ["Interface proche de Windows", "Compatible avec Ubuntu", "Idéal pour la migration vers Linux"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Transition vers Linux pour les familles et petites entreprises", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "La distribution avec le plus beau 'look and feel' pour rassurer les ex-utilisateurs de Windows.",
+    forWho: "Débutants complets et entreprises migrant vers Linux.",
+    whyChoose: [
+      "Beauté visuelle incroyable",
+      "Zorin Connect (intégration mobile)",
+      "Installation logicielle One-Click"
+    ],
+    limitations: [
+      "Versions Pro payantes pour le design",
+      "Base Ubuntu un peu datée en version Lite"
+    ],
+    useCases: [
+      "Premier ordinateur sous Linux",
+      "Ordinateur portable personnel",
+      "Transition Windows vers Linux"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Kali Linux",
@@ -1021,12 +2286,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Pentest et audit sécurité (tooling préinstallé)",
     usage: "Sécurité",
-    description: "Kali Linux est une distribution Debian conçue pour les pentests et audits de sécurité.",
-    forWho: "Utilisateurs experts cherchant des outils spécialisés en sécurité.",
-    whyChoose: ["Outils de pentest et audit de sécurité préinstallés", "Compatible avec Debian", "Idéal pour la sécurité"],
-    limitations: ["Pas pour usage quotidien", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Pentests et audits de sécurité", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "rolling", difficulty: "Expert" }
+    description: "La plateforme de référence pour la cybersécurité, incluant des centaines d'outils de test d'intrusion.",
+    forWho: "Professionnels de la sécurité et étudiants en cybersécurité.",
+    whyChoose: [
+      "Plus de 600 outils de sécurité",
+      "Mode 'Undercover' (look Windows)",
+      "Vitesse de boot et live USB au top"
+    ],
+    limitations: [
+      "Pas faite pour un usage quotidien",
+      "Inappropriée pour les débutants"
+    ],
+    useCases: [
+      "Audit de sécurité informatique",
+      "Tests d'intrusion (Pentest)",
+      "Apprentissage cybersécurité"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Parrot OS",
@@ -1034,12 +2315,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Sécurité offensive + desktop utilisable (tooling + privacy)",
     usage: "Sécurité",
-    description: "Parrot OS est une distribution Debian conçue pour la sécurité offensive et le bureau.",
-    forWho: "Utilisateurs experts cherchant des outils de sécurité et un bureau convivial.",
-    whyChoose: ["Outils de sécurité offensive et bureau utilisable", "Compatible avec Debian", "Idéal pour la sécurité"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Sécurité offensive", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "rolling", difficulty: "Avancé" }
+    description: "Une station de sécurité complète plus agréable au quotidien que Kali, orientée développement et vie privée.",
+    forWho: "Développeurs et experts en sécurité cherchant un desktop utilisable 24h/24.",
+    whyChoose: [
+      "Outils de sécurité complets",
+      "Navigateur et VPN vie privée",
+      "Environnement de bureau léger"
+    ],
+    limitations: [
+      "Configuration complexe parfois",
+      "Dépôts moins axés stabilité"
+    ],
+    useCases: [
+      "Développement sécurisé",
+      "Pentest et audit réseau",
+      "Usage desktop privé quotidien"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "rolling",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Qubes OS",
@@ -1047,12 +2344,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Sécurité par isolation: apps séparées en VM (compartimentation)",
     usage: "Sécurité",
-    description: "Qubes OS est une distribution conçue pour la sécurité par compartimentation avec des applications isolées.",
-    forWho: "Utilisateurs experts cherchant une solution de sécurité avancée basée sur l'isolation.",
-    whyChoose: ["Compartimentation des applications avec des VM", "Idéal pour la sécurité", "Sécurité par isolation"],
-    limitations: ["Nécessite machine puissante", "Gestionnaire dnf/apt selon templates"],
-    useCases: ["Utilisation personnelle", "Éducation sur les systèmes Linux", "Sécurité avancée"],
-    technical: { base: "Xen", packageManager: "dnf/apt", releaseModel: "stable", difficulty: "Expert" }
+    description: "Un système révolutionnaire où chaque application tourne dans sa propre machine virtuelle isolée.",
+    forWho: "Journalistes et cibles potentielles de cyberattaques étatiques.",
+    whyChoose: [
+      "Isolation quasi inviolable",
+      "Compartimentage des données",
+      "Gestionnaire de copies inter-VM"
+    ],
+    limitations: [
+      "Matériel très puissant requis",
+      "Workflow complexe au début"
+    ],
+    useCases: [
+      "Traitement de données ultra-sensibles",
+      "Analyse de fichiers dangereux",
+      "Travail confidentiel"
+    ],
+    technical: {
+      base: "Xen (Hyperviseur)",
+      packageManager: "dnf/apt selon templates",
+      releaseModel: "stable orientée sécurité",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Oracle Linux",
@@ -1060,12 +2373,28 @@ export const rawData: RawDistro[] = [
     audience: "Pro",
     points: "Compatibilité RHEL orientée entreprise (écosystème Oracle)",
     usage: "Serveurs",
-    description: "Oracle Linux est une distribution compatible avec RHEL orientée vers l'entreprise.",
-    forWho: "Professionnels nécessitant une compatibilité haute avec RHEL et l'écosystème Oracle.",
-    whyChoose: ["Compatibilité avec RHEL", "Compatible avec Oracle", "Idéal pour les serveurs"],
-    limitations: ["Peut ne pas offrir toutes les fonctionnalités avancées de Linux", "Dépendance à dnf comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Infrastructure cloud", "Environnements de test et développement"],
-    technical: { base: "RHEL", packageManager: "dnf", releaseModel: "stable", difficulty: "Avancé" }
+    description: "Distribution pro de Red Hat optimisée par Oracle, incluant le noyau 'Unbreakable Enterprise Kernel'.",
+    forWho: "Entreprises utilisant déjà des solutions Oracle ou cherchant une alternative à CentOS.",
+    whyChoose: [
+      "Noyau optimisé pour les bases Oracle",
+      "Support pro disponible chez Oracle",
+      "Gratuit à l'utilisation sans support"
+    ],
+    limitations: [
+      "Traces marketing Oracle présentes",
+      "Inadaptée à l'usage personnel"
+    ],
+    useCases: [
+      "Serveur de bases de données",
+      "Infrastructure cloud d'entreprise",
+      "Migration depuis CentOS"
+    ],
+    technical: {
+      base: "Red Hat Enterprise Linux",
+      packageManager: "dnf",
+      releaseModel: "stable / LTS",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "OpenBSD",
@@ -1073,12 +2402,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Sécurité by design, auditabilité, pf (firewall) réputé",
     usage: "Serveurs",
-    description: "OpenBSD est une distribution BSD connue pour sa sécurité par conception.",
+    description: "Le système le plus sécurisé au monde, réputé pour sa relecture de code stricte et son pare-feu 'pf'.",
     forWho: "Utilisateurs experts cherchant un système sécurisé et hautement auditable.",
-    whyChoose: ["Sécurité by design", "Compatibilité avec BSD", "pf (firewall) réputé"],
-    limitations: ["Support matériel restreint", "Dépendance à pkg comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Stockage professionnel", "Utilisation personnelle"],
-    technical: { base: "BSD", packageManager: "pkg", releaseModel: "stable", difficulty: "Expert" }
+    whyChoose: [
+      "Sécurité proactive permanente",
+      "Code système ultra-propre",
+      "Pare-feu 'pf' exceptionnel"
+    ],
+    limitations: [
+      "Performances multicœurs en retrait",
+      "Hardware récent mal supporté"
+    ],
+    useCases: [
+      "Passerelle et pare-feu réseau",
+      "Serveur de courrier sécurisé",
+      "Station de travail Unix sécurisée"
+    ],
+    technical: {
+      base: "OpenBSD (indépendant de Linux)",
+      packageManager: "pkg_add",
+      releaseModel: "stable",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Clear Linux",
@@ -1086,12 +2431,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Optimisations performance CPU (stack pensée perf)",
     usage: "Performance",
-    description: "Clear Linux est une distribution indépendante conçue pour les performances de CPU.",
-    forWho: "Utilisateurs experts cherchant des performances élevées de CPU.",
-    whyChoose: ["Optimisations spécifiques pour les performances de CPU", "Indépendant", "Idéal pour les performances"],
-    limitations: ["Documentation limitée", "Dépendance à swupd comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Indépendante", packageManager: "swupd", releaseModel: "immutable", difficulty: "Expert" }
+    description: "Une distribution créée par Intel pour offrir les meilleures performances possibles sur les processeurs modernes Intel.",
+    forWho: "Experts et passionnés voulant les meilleures benchmarks possibles sur leur station CPU.",
+    whyChoose: [
+      "Performance CPU sans égal",
+      "Mises à jour atomiques",
+      "Zéro logiciel inutile"
+    ],
+    limitations: [
+      "Support matériel non-Intel en retrait",
+      "Dépôts d'applications limités"
+    ],
+    useCases: [
+      "Calcul scientifique et Big Data",
+      "Station de travail haute puissance",
+      "Serveur cloud optimisé"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "swupd",
+      releaseModel: "immutable",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "Fedora Silverblue",
@@ -1099,12 +2460,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Desktop immutable (OSTree) + dev via containers",
     usage: "Immutable",
-    description: "Fedora Silverblue est une version immuable de Fedora conçue pour le développement via des conteneurs.",
-    forWho: "Utilisateurs experts cherchant un bureau et des outils de développement immuables.",
-    whyChoose: ["Desktop immutable avec OSTree", "Compatible avec Fedora", "Développement via conteneurs"],
-    limitations: ["Gestion logicielle inhabituelle", "Dépendance à dnf/flatpak"],
-    useCases: ["Développement et tests", "Utilisation personnelle", "Éducation sur les systèmes Linux"],
-    technical: { base: "Fedora", packageManager: "dnf", releaseModel: "immutable", difficulty: "Avancé" }
+    description: "Une version immuable de Fedora où le système racine est en lecture seule pour une stabilité maximale.",
+    forWho: "Développeurs cherchant un système robuste et reproductible basé sur des conteneurs.",
+    whyChoose: [
+      "Mises à jour inaltérables et sûres",
+      "Rollback facile en cas de bug",
+      "Workflow basé sur les conteneurs"
+    ],
+    limitations: [
+      "Gestion logicielle complexe (Dnf)",
+      "Incompatible avec de vieux paradigmes"
+    ],
+    useCases: [
+      "Station de travail pour dev",
+      "Test de logiciels isolés",
+      "Système de bureau incassable"
+    ],
+    technical: {
+      base: "Fedora",
+      packageManager: "dnf",
+      releaseModel: "immutable",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "openSUSE MicroOS",
@@ -1112,12 +2489,28 @@ export const rawData: RawDistro[] = [
     audience: "Pro",
     points: "Système immutable orienté serveurs/containers, MAJ atomiques",
     usage: "Immutable",
-    description: "openSUSE MicroOS est une version immuable de openSUSE conçue pour les serveurs et containers.",
-    forWho: "Professionnels nécessitant un système immutable pour les serveurs et containers.",
-    whyChoose: ["Système immutable orienté serveurs/containers", "Compatibilité avec openSUSE", "Mises à jour atomiques"],
-    limitations: ["Configuration rigide", "Dépendance à zypper comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Infrastructure cloud", "Environnements de test et développement"],
-    technical: { base: "openSUSE", packageManager: "zypper", releaseModel: "immutable", difficulty: "Intermédiaire" }
+    description: "Une plateforme immuable et auto-réparable conçue pour héberger des conteneurs de manière fiable.",
+    forWho: "Professionnels du DevOps et administrateurs cloud cherchant le zéro maintenance.",
+    whyChoose: [
+      "Mises à jour atomiques garanties",
+      "Auto-réparation après échec",
+      "Optimisé pour Docker/Podman"
+    ],
+    limitations: [
+      "Configuration système via Ignition",
+      "Pas un desktop classique"
+    ],
+    useCases: [
+      "Hôte de clusters Kubernetes",
+      "Microservices en production",
+      "Serveur d'apps conteneurisées"
+    ],
+    technical: {
+      base: "openSUSE",
+      packageManager: "zypper",
+      releaseModel: "immutable",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Endless OS Core",
@@ -1125,12 +2518,28 @@ export const rawData: RawDistro[] = [
     audience: "Grand public",
     points: "Immutable + hors-ligne (pédago / découverte)",
     usage: "Immutable",
-    description: "Endless OS Core est une version immuable d'Endless OS conçue pour l'éducation et la découverte.",
-    forWho: "Utilisateurs cherchant un système immutable avec des contenus pédagogiques hors-ligne.",
-    whyChoose: ["Immutable", "Contenus pédagogiques hors-ligne", "Compatible avec Debian"],
-    limitations: ["Moins de flexibilité système", "Dépendance à apt/flatpak"],
-    useCases: ["Écoles et établissements scolaires", "Environnements sans connexion internet", "Utilisation personnelle"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "immutable", difficulty: "Débutant" }
+    description: "Cœur immuable d'Endless OS, alliant robustesse système et applications en Flatpak pour l'éducation.",
+    forWho: "Utilisateurs cherchant un outil de découverte numérique indestructible et orienté savoir.",
+    whyChoose: [
+      "Impossible de casser le système",
+      "Interface visuelle magnifique",
+      "Usage simplifié au maximum"
+    ],
+    limitations: [
+      "Flexibilité système quasi nulle",
+      "Poids des images applicatives"
+    ],
+    useCases: [
+      "Apprentissage scolaire",
+      "Ordinateur public en accès libre",
+      "Découverte informatique débutant"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "flatpak / ostree",
+      releaseModel: "immutable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "OpenWrt",
@@ -1138,12 +2547,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Linux embarqué pour routeurs/switch/AP, réseau",
     usage: "Embarqué",
-    description: "OpenWrt est une distribution Linux embarquée conçue pour les routeurs et switchs.",
-    forWho: "Utilisateurs experts cherchant un système embarqué pour la configuration des réseaux.",
-    whyChoose: ["Conçu spécifiquement pour les routeurs et switchs", "Indépendant", "Idéal pour la configuration des réseaux"],
-    limitations: ["Pas d'interface desktop", "Dépendance à opkg comme gestionnaire de paquets"],
-    useCases: ["Configuration de routeurs", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "opkg", releaseModel: "embarqué", difficulty: "Expert" }
+    description: "La distribution de référence pour remplacer le firmware limité de votre routeur par un vrai système Linux.",
+    forWho: "Administrateurs réseaux et geeks souhaitant un contrôle total sur leur matériel réseau.",
+    whyChoose: [
+      "Fonctions réseaux pros sur routeurs",
+      "Système de paquets Opkg modulaire",
+      "Consommation mémoire insignifiante"
+    ],
+    limitations: [
+      "Installation risquée ('bricking')",
+      "Interface Web (LuCI) technique"
+    ],
+    useCases: [
+      "Routeur VPN haute performance",
+      "Point d'accès Wifi sécurisé",
+      "Passerelle réseau domestique"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "opkg",
+      releaseModel: "spécialisé embarqué",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Buildroot",
@@ -1151,12 +2576,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Générateur de systèmes embarqués minimalistes (toolchain + rootfs)",
     usage: "Embarqué",
-    description: "Buildroot est un générateur de systèmes embarqués minimalistes.",
-    forWho: "Utilisateurs experts cherchant à créer des systèmes embarqués personnalisés.",
-    whyChoose: ["Générateur de systèmes embarqués minimalistes", "Indépendant", "Idéal pour la création de systèmes embarqués"],
-    limitations: ["Aucun gestionnaire binaire", "Connaissances compilation requises"],
-    useCases: ["Création de systèmes embarqués", "Utilisation personnelle", "Éducation sur les systèmes Unix-like"],
-    technical: { base: "Indépendante", packageManager: "aucun", releaseModel: "embarqué", difficulty: "Expert" }
+    description: "Un outil pour générer un système Linux complet, sur mesure et minimal pour des micro-contrôleurs.",
+    forWho: "Développeurs embarqués créant des objets connectés ou des systèmes critiques.",
+    whyChoose: [
+      "Personnalisation bit par bit",
+      "Système ultra-fin sur mesure",
+      "Génération automatique d'image"
+    ],
+    limitations: [
+      "Zéro gestionnaire de paquets final",
+      "Courbe d'apprentissage industrielle"
+    ],
+    useCases: [
+      "Objets connectés (IoT)",
+      "Automates industriels",
+      "Remplacement firmware compact"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "aucun gestionnaire classique utilisateur",
+      releaseModel: "spécialisé embarqué",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Raspberry Pi OS",
@@ -1164,12 +2605,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Distribution officielle pour Raspberry Pi (pédago/DIY)",
     usage: "Éducation",
-    description: "Raspberry Pi OS est la distribution officielle Debian pour les Raspberry Pi.",
-    forWho: "Nouveaux utilisateurs cherchant une distribution facile à utiliser sur des Raspberry Pi.",
-    whyChoose: ["Distribution officielle pour Raspberry Pi", "Compatible avec Debian", "Idéal pour l'éducation et le DIY"],
-    limitations: ["Optimisé pour ARM uniquement", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Écoles", "Projets DIY", "Utilisation personnelle"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Optimisée pour le matériel Raspberry Pi, c'est l'outil parfait pour apprendre l'électronique et la programmation.",
+    forWho: "Enfants, professeurs et bidouilleurs possédant une carte Raspberry Pi.",
+    whyChoose: [
+      "Support matériel Raspberry parfait",
+      "Logiciels pédagogiques préchargés",
+      "Base stable Debian robuste"
+    ],
+    limitations: [
+      "Interface visuelle un peu simple",
+      "Performance limitée au CPU ARM"
+    ],
+    useCases: [
+      "Apprendre la programmation Python",
+      "Contrôle de robots (GPIO)",
+      "Serveur domestique léger"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "Ubuntu Server",
@@ -1177,12 +2634,28 @@ export const rawData: RawDistro[] = [
     audience: "Pro",
     points: "Édition serveur officielle (cloud/infra)",
     usage: "Serveurs",
-    description: "Ubuntu Server est l'édition serveur officielle de Ubuntu.",
-    forWho: "Professionnels nécessitant une édition serveur robuste et fiable.",
-    whyChoose: ["Édition serveur officielle", "Compatible avec Debian", "Idéal pour le cloud et l'infrastructure"],
-    limitations: ["Plus lourd que Debian nu", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["Serveurs critiques", "Infrastructure cloud", "Environnements de test et développement"],
-    technical: { base: "Debian", packageManager: "apt", releaseModel: "stable/LTS", difficulty: "Avancé" }
+    description: "La version serveur la plus déployée au monde, servant de socle à la majorité du Cloud moderne.",
+    forWho: "Administrateurs cloud et développeurs cherchant un standard stable et bien documenté.",
+    whyChoose: [
+      "Support Cloud Public exceptionnel",
+      "Cycle de vie LTS de 5 à 10 ans",
+      "Large choix de tutoriels en ligne"
+    ],
+    limitations: [
+      "Un peu plus lourde que Debian Nu",
+      "Installation forcée des Snaps"
+    ],
+    useCases: [
+      "Serveur Web en production",
+      "Hébergeur de bases de données",
+      "Noeud pour cluster Kubernetes"
+    ],
+    technical: {
+      base: "Debian",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Avancé"
+    }
   },
   {
     distro: "KaOS",
@@ -1190,12 +2663,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "KDE-first (sélection resserrée), rolling contrôlée",
     usage: "Desktop",
-    description: "KaOS est une distribution indépendante basée sur KDE avec une sélection resserrée de logiciels.",
-    forWho: "Utilisateurs intermédiaires cherchant un bureau basé sur KDE avec une sélection de logiciels contrôlée.",
-    whyChoose: ["KDE-first avec une sélection resserrée", "Optimisation Qt", "Idéal pour le bureau"],
-    limitations: ["Logithèque restreinte", "Dépendance à pacman comme gestionnaire de paquets"],
-    useCases: ["Bureau personnel", "Éducation sur les systèmes Linux", "Utilisation personnelle"],
-    technical: { base: "Indépendante", packageManager: "pacman", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Une distribution indépendante qui se concentre uniquement sur KDE Plasma et les applications Qt.",
+    forWho: "Utilisateurs de KDE cherchant un système pur, focalisé sur une seule interface de qualité.",
+    whyChoose: [
+      "Optimisation Qt exemplaire",
+      "Mises à jour rolling réfléchies",
+      "Design original et soigné"
+    ],
+    limitations: [
+      "Pas de support des apps GTK/Gnome",
+      "Logithèque volontairement réduite"
+    ],
+    useCases: [
+      "Poste desktop Qt pur",
+      "Station multimédia design",
+      "Usage quotidien cohérent"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "pacman",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "LXLE",
@@ -1203,12 +2692,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Orientée vieux PC (très léger)",
     usage: "PC anciens",
-    description: "LXLE est une distribution Ubuntu très légère orientée pour les anciens PC.",
-    forWho: "Nouveaux utilisateurs cherchant un système extrêmement léger sur des PC anciens.",
-    whyChoose: ["Orientée vieux PC très légère", "Compatible avec Ubuntu", "Idéal pour les PC anciens"],
-    limitations: ["Logiciels parfois anciens", "Dépendance à apt comme gestionnaire de paquets"],
-    useCases: ["PC anciens et limités en ressources", "Bureau personnel", "Utilisation personnelle"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Reprend Ubuntu LTS avec un bureau LXDE poli, pour faire revivre des machines ayant plus de 10 ans.",
+    forWho: "Propriétaires de vieux ordinateurs voulant un système moderne utilisable sans ralentissements.",
+    whyChoose: [
+      "Faible poids sur le processeur",
+      "Fonds d'écran magnifiques inclus",
+      "Scripts de maintenance automatiques"
+    ],
+    limitations: [
+      "Dépôts logiciels parfois anciens",
+      "Look visuel classique basique"
+    ],
+    useCases: [
+      "Ressusciter un vieux PC portable",
+      "Station Web pour séniors",
+      "Usage bureautique économe"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "AerynOS",
@@ -1216,12 +2721,28 @@ export const rawData: RawDistro[] = [
     audience: "Avancé",
     points: "Distribution indépendante",
     usage: "Usage général",
-    description: "AerynOS est une distribution Linux légère et personnalisable.",
-    forWho: "Utilisateurs cherchant une expérience unique.",
-    whyChoose: ["Design unique", "Légère"],
-    limitations: ["Communauté restreinte"],
-    useCases: ["Bureau personnel"],
-    technical: { base: "Indépendante", packageManager: "inconnu", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Une distribution légère et personnalisable cherchant à offrir une expérience utilisateur fluide et moderne.",
+    forWho: "Utilisateurs curieux de tester une alternative aux bases classiques comme Debian ou Arch.",
+    whyChoose: [
+      "Conception originale et fluide",
+      "Environnement bureau réactif",
+      "Philosophie orientée performance"
+    ],
+    limitations: [
+      "Support communautaire naissant",
+      "Logithèque spécifique restreinte"
+    ],
+    useCases: [
+      "Exploration système",
+      "Usage desktop journalier",
+      "Station légère pour laptop"
+    ],
+    technical: {
+      base: "Indépendante",
+      packageManager: "spécifique",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "pearOS",
@@ -1229,12 +2750,28 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Clone macOS",
     usage: "Desktop",
-    description: "pearOS offre une interface très proche de macOS, basée sur Ubuntu.",
-    forWho: "Utilisateurs venant de l'écosystème Apple.",
-    whyChoose: ["Interface macOS", "Base Ubuntu robuste"],
-    limitations: ["Plus maintenu ou maintenance irrégulière"],
-    useCases: ["Bureau personnel", "Migration macOS"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une distribution basée sur Ubuntu qui reproduit presque parfaitement l'apparence et l'ergonomie de macOS.",
+    forWho: "Amoureux du look Apple souhaitant profiter de la liberté de Linux à moindre coût.",
+    whyChoose: [
+      "Beauté visuelle proche de Mac",
+      "Ergonomie simple et intuitive",
+      "Grande compatibilité Ubuntu"
+    ],
+    limitations: [
+      "Maintenance parfois irrégulière",
+      "Simplement une 'couche' cosmétique"
+    ],
+    useCases: [
+      "Station desktop esthétique",
+      "Migration douce depuis Mac",
+      "Navigation Web stylée"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   },
   {
     distro: "PikaOS",
@@ -1242,12 +2779,28 @@ export const rawData: RawDistro[] = [
     audience: "Gamer",
     points: "Orienté gaming",
     usage: "Jeux",
-    description: "PikaOS est une distribution orientée jeu vidéo offrant d'excellentes performances.",
-    forWho: "Joueurs cherchant une alternative à Windows.",
-    whyChoose: ["Pilotes pré-installés", "Optimisations gaming"],
-    limitations: ["Relativement récent"],
-    useCases: ["Jeux vidéo", "Multimédia"],
-    technical: { base: "Ubuntu", packageManager: "apt", releaseModel: "rolling", difficulty: "Intermédiaire" }
+    description: "Focalisée sur les performances de jeu, elle inclut tous les patchs et drivers nécessaires dès l'installation.",
+    forWho: "Joueurs voulant brancher leur manette et jouer sur Steam sans configurer Linux.",
+    whyChoose: [
+      "Drivers GPU pré-installés",
+      "Noyau optimisé basse latence",
+      "Outils de jeux intégrés (Wine/Steam)"
+    ],
+    limitations: [
+      "Design visuel très marqué",
+      "Dédié uniquement à la performance"
+    ],
+    useCases: [
+      "Station gaming principale",
+      "Console PC de salon",
+      "Usage multimédia performant"
+    ],
+    technical: {
+      base: "Ubuntu",
+      packageManager: "apt",
+      releaseModel: "rolling",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "ReactOS",
@@ -1255,12 +2808,28 @@ export const rawData: RawDistro[] = [
     audience: "Curieux",
     points: "Clone Windows",
     usage: "Expérimentation",
-    description: "ReactOS est un système d'exploitation libre compatible avec les logiciels et pilotes Windows.",
-    forWho: "Utilisateurs voulant faire tourner des logiciels Windows nativement sans Windows.",
-    whyChoose: ["Compatibilité Windows", "Léger"],
-    limitations: ["En alpha/beta depuis longtemps", "Non recommandé pour un usage quotidien"],
-    useCases: ["Logiciels Windows legacy", "Expérimentation"],
-    technical: { base: "NT-like", packageManager: "ReactOS App Manager", releaseModel: "alpha", difficulty: "Expert" }
+    description: "Le projet fou de réécrire Windows de zéro pour faire tourner les logiciels et drivers Windows nativement.",
+    forWho: "Curieux et développeurs système voulant un Windows open-source pour des logiciels legacy.",
+    whyChoose: [
+      "Compatibilité Windows native",
+      "Système ultra-léger et rapide",
+      "Open-source sans code Microsoft"
+    ],
+    limitations: [
+      "Encore en stade Alpha (instable)",
+      "Hardware moderne peu supporté"
+    ],
+    useCases: [
+      "Exécuter des logiciels Windows anciens",
+      "Expérimentation en Virtualbox",
+      "Tests de compatibilité drivers"
+    ],
+    technical: {
+      base: "Indépendante (Windows-compatible)",
+      packageManager: "ReactOS App Manager",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "Redox OS",
@@ -1268,12 +2837,28 @@ export const rawData: RawDistro[] = [
     audience: "Expert",
     points: "Écrit en Rust",
     usage: "Expérimentation",
-    description: "Redox est un système d'exploitation de type Unix écrit en Rust, axé sur la sécurité.",
-    forWho: "Développeurs et curieux de Rust et des micro-noyaux.",
-    whyChoose: ["Sécurité mémoire (Rust)", "Micro-noyau"],
-    limitations: ["Pilotes limités", "Stade expérimental"],
-    useCases: ["Recherche OS", "Expérimentation"],
-    technical: { base: "Redox", packageManager: "pkg", releaseModel: "rolling", difficulty: "Expert" }
+    description: "Système d'exploitation de type Unix écrit entièrement en Rust pour une sécurité et une robustesse maximales au niveau mémoire.",
+    forWho: "Enthousiastes du langage Rust et chercheurs en sécurité informatique.",
+    whyChoose: [
+      "Sécurité mémoire native (Rust)",
+      "Architecture micro-noyau moderne",
+      "Performances potentielles élevées"
+    ],
+    limitations: [
+      "Pas encore prêt pour un usage pro",
+      "Peu de pilotes disponibles"
+    ],
+    useCases: [
+      "Recherche en sécurité système",
+      "Apprentissage du système d'exploitation",
+      "Expérimentation en Rust"
+    ],
+    technical: {
+      base: "Indépendante (Micro-noyau Rust)",
+      packageManager: "pkg",
+      releaseModel: "rolling",
+      difficulty: "Expert"
+    }
   },
   {
     distro: "VanillaOS",
@@ -1281,12 +2866,28 @@ export const rawData: RawDistro[] = [
     audience: "Intermédiaire",
     points: "Immutable, GNOME pur",
     usage: "Desktop moderne",
-    description: "VanillaOS offre une expérience GNOME pure avec un modèle immuable.",
-    forWho: "Utilisateurs cherchant un système stable avec les dernières technologies de conteneurisation.",
-    whyChoose: ["Immutable (ABRoot)", "GNOME Vanilla"],
-    limitations: ["Nécessite de s'adapter au modèle immuable"],
-    useCases: ["Développement", "Bureau quotidien stable"],
-    technical: { base: "Debian", packageManager: "apx", releaseModel: "stable", difficulty: "Intermédiaire" }
+    description: "Un bureau GNOME pur et immuable utilisant 'Apx' pour installer des applications Debian, Fedora ou Arch.",
+    forWho: "Utilisateurs voulant un système indestructible utilisant les meilleures technologies de demain.",
+    whyChoose: [
+      "Cœur du système incassable",
+      "Installe apps de n'importe quelle distro",
+      "Look GNOME pur magnifique"
+    ],
+    limitations: [
+      "Concept complexe à assimiler",
+      "Demande de la place disque pour les containers"
+    ],
+    useCases: [
+      "Usage desktop stable pro",
+      "Développement isolé",
+      "Station Web et Média design"
+    ],
+    technical: {
+      base: "Debian / Ubuntu",
+      packageManager: "apx",
+      releaseModel: "immutable",
+      difficulty: "Intermédiaire"
+    }
   },
   {
     distro: "Voyager Live",
@@ -1294,11 +2895,27 @@ export const rawData: RawDistro[] = [
     audience: "Débutant",
     points: "Esthétique soignée",
     usage: "Desktop",
-    description: "Voyager Live est une distribution française basée sur Xubuntu/GNOME offrant beaucoup de personnalisations.",
-    forWho: "Utilisateurs cherchant un système très esthétique et prêt à l'emploi.",
-    whyChoose: ["Hautement personnalisé", "Scripts et widgets inclus"],
-    limitations: ["Peut sembler surchargé"],
-    useCases: ["Bureau personnel"],
-    technical: { base: "Ubuntu/Debian", packageManager: "apt", releaseModel: "stable", difficulty: "Débutant" }
+    description: "Une création française reconnue pour ses scripts d'automatisation et sa personnalisation graphique sublime dès le départ.",
+    forWho: "Utilisateurs cherchant un Linux prêt à l'emploi avec une âme artistique et des gadgets intégrés.",
+    whyChoose: [
+      "Look magnifique out of the box",
+      "Scripts de configuration ultra-pratiques",
+      "Base robuste Ubuntu ou Debian"
+    ],
+    limitations: [
+      "Interface parfois trop chargée",
+      "Demande un peu de RAM pour les widgets"
+    ],
+    useCases: [
+      "Poste de bureau personnel stylé",
+      "Station multimédia complète",
+      "Usage quotidien confortable"
+    ],
+    technical: {
+      base: "Ubuntu / Debian",
+      packageManager: "apt",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   }
 ];
