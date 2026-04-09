@@ -1,13 +1,17 @@
-# 🐧 DistroSentinel
+<div align="center">
+  <img src="public/logo.png" alt="DistroSentinel Logo" width="250" />
+</div>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF.svg)](https://vitejs.dev/)
-[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED.svg)](https://www.docker.com/)
+<h1 align="center">DistroSentinel</h1>
+
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.0-blue.svg" alt="TypeScript"></a>
+  <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-6.0-646CFF.svg" alt="Vite"></a>
+  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-Enabled-2496ED.svg" alt="Docker"></a>
+</p>
 
 **DistroSentinel** est une plateforme moderne et performante conçue pour explorer, filtrer et choisir la distribution Linux idéale. Développée avec une architecture de niveau **Staff+**, elle transforme un simple catalogue en un produit industriel scalable, sécurisé et ultra-rapide.
-
-![DistroSentinel Hero](distrosentinel_hero_1775716877847.png)
 
 ---
 
