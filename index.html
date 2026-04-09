@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DistroGuide – Catalogue Linux (FULL + améliorations)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+  <aside class="sidebar" aria-label="Filtres et options">
+    <div class="brand">
+      <h1><i class="fab fa-linux"></i> DistroGuide</h1>
+      <div class="brand-actions">
+        <button class="icon-btn" id="themeToggle" title="Mode sombre/clair" aria-label="Basculer le thème"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <button class="icon-btn" id="exportJson" title="Exporter JSON" aria-label="Exporter JSON"><i class="fa-solid fa-file-code"></i></button>
+        <button class="icon-btn" id="exportCsv" title="Exporter CSV" aria-label="Exporter CSV"><i class="fa-solid fa-file-csv"></i></button>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Recherche (tolérante) : ex. 'ub st' → Ubuntu Studio" aria-label="Rechercher une distribution">
+    </div>
+
+    <div class="controls-row">
+      <select class="select" id="sortSelect" aria-label="Tri">
+        <option value="relevance">Tri : pertinence</option>
+        <option value="name">Tri : nom</option>
+        <option value="level">Tri : niveau</option>
+        <option value="family">Tri : famille</option>
+      </select>
+
+      <select class="select" id="exportScope" aria-label="Scope export">
+        <option value="filtered">Export : filtré</option>
+        <option value="all">Export : tout</option>
+      </select>
+    </div>
+
+    <label class="toggle" title="Afficher uniquement tes favoris">
+      <input type="checkbox" id="favOnly">
+      <span>⭐ Favoris uniquement</span>
+    </label>
+
+    <label class="toggle" title="Match AND sur les tags sélectionnés (sinon OR)">
+      <input type="checkbox" id="matchAllTags">
+      <span>Tags : matcher TOUS</span>
+    </label>
+
+    <div class="filter-group">
+      <div class="filter-title">Famille</div>
+      <div class="btn-group" id="familyFilters">
+        <button class="filter-btn active" data-filter="all" type="button">Toutes</button>
+        <button class="filter-btn" data-filter="Debian" type="button">Debian</button>
+        <button class="filter-btn" data-filter="Arch" type="button">Arch</button>
+        <button class="filter-btn" data-filter="RPM" type="button">RPM</button>
+        <button class="filter-btn" data-filter="BSD" type="button">BSD</button>
+        <button class="filter-btn" data-filter="Indep" type="button">Indép.</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Niveau</div>
+      <div class="btn-group" id="levelFilters">
+        <button class="filter-btn active" data-filter="all" type="button">Tous</button>
+        <button class="filter-btn" data-filter="Débutant" type="button">Débutant</button>
+        <button class="filter-btn" data-filter="Intermédiaire" type="button">Intermédiaire</button>
+        <button class="filter-btn" data-filter="Expert" type="button">Expert</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Usage (multi-sélection)</div>
+      <div class="btn-group" id="usageFilters">
+        <button class="filter-btn" data-tag="Gaming" type="button"><i class="fa-solid fa-gamepad"></i> Gaming</button>
+        <button class="filter-btn" data-tag="Serveur" type="button"><i class="fa-solid fa-server"></i> Serveur</button>
+        <button class="filter-btn" data-tag="Sécurité" type="button"><i class="fa-solid fa-shield-halved"></i> Sécurité</button>
+        <button class="filter-btn" data-tag="Léger" type="button"><i class="fa-solid fa-feather"></i> Léger</button>
+        <button class="filter-btn" data-tag="Création" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i> Création</button>
+        <button class="filter-btn" data-tag="Éducation" type="button"><i class="fa-solid fa-graduation-cap"></i> Éducation</button>
+        <button class="filter-btn" data-tag="Immutable" type="button"><i class="fa-solid fa-snowflake"></i> Immutable</button>
+        <button class="filter-btn" data-tag="Embarqué" type="button"><i class="fa-solid fa-microchip"></i> Embarqué</button>
+        <button class="filter-btn" data-tag="Performance" type="button"><i class="fa-solid fa-gauge-high"></i> Perf</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Vue</div>
+      <div class="btn-group" id="modeFilters">
+        <button class="filter-btn active" data-mode="all" type="button">Catalogue</button>
+        <button class="filter-btn" data-mode="pro" type="button">Pro</button>
+        <button class="filter-btn" data-mode="pedago" type="button">Pédago</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Raccourcis</div>
+      <div class="pill" style="line-height:1.45">
+        <strong>/</strong> focus recherche • <strong>Esc</strong> fermer session • ⭐ bouton sur chaque carte
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-title">Note</div>
+      <div class="pill" style="line-height:1.45">
+        Les liens “ISO” pointent vers la page officielle (robuste). Les liens directs changent trop souvent.
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="top-bar">
+      <h2 id="currentView">Toutes les distributions</h2>
+      <div class="stats">
+        <span class="pill" id="resultCount">Chargement…</span>
+        <span class="pill" id="activeFilters">Filtres: aucun</span>
+      </div>
+    </div>
+
+    <div class="grid" id="gridContainer" aria-live="polite"></div>
+  </main>
+
+  <!-- Modal session (iframe) -->
+  <div class="modal" id="sessionModal" aria-hidden="true" role="dialog" aria-label="Session de test en ligne">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">
+          <i class="fa-solid fa-flask" style="color:var(--distrosea)"></i>
+          <span id="modalName">Session</span>
+          <small id="modalHint"></small>
+        </div>
+        <div class="modal-actions">
+          <a class="btn btn-secondary" id="modalOpenNew" target="_blank" rel="noopener">
+            <i class="fa-solid fa-up-right-from-square"></i> Ouvrir
+          </a>
+          <button class="btn btn-secondary" id="modalClose" type="button">
+            <i class="fa-solid fa-xmark"></i> Fermer
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe id="sessionFrame" title="Session DistroSea" referrerpolicy="no-referrer"></iframe>
+      </div>
+      <div class="modal-hint">
+        Si l’iframe est bloquée (CSP/X-Frame-Options), utilise “Ouvrir”.
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
