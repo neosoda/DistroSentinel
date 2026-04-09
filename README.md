@@ -85,4 +85,4 @@ Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à
 
 ---
 
-*Signé par l'équipe Staff+ du projet DistroSentinel.*
+*Créé par neosoda.*
