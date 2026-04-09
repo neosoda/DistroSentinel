@@ -104,6 +104,70 @@ export function classifyMode(d: RawDistro): ViewMode {
   return "all";
 }
 
+export function getPackageManager(base: string): string {
+  const b = String(base || "").toLowerCase();
+  if (b.includes("debian") || b.includes("ubuntu") || b.includes("mint")) return "APT (dpkg)";
+  if (b.includes("arch") || b.includes("manjaro")) return "Pacman";
+  if (b.includes("rhel") || b.includes("fedora") || b.includes("centos") || b.includes("alma") || b.includes("rocky")) return "DNF / YUM (rpm)";
+  if (b.includes("suse") || b.includes("tumbleweed")) return "Zypper (rpm)";
+  if (b.includes("alpine")) return "APK";
+  if (b.includes("gentoo")) return "Portage";
+  if (b.includes("void")) return "XBPS";
+  if (b.includes("nixos")) return "Nix";
+  return "Spécifique / Variable";
+}
+
+export function getReleaseModel(base: string, name: string): string {
+  const n = String(name || "").toLowerCase();
+  const b = String(base || "").toLowerCase();
+  if (n.includes("arch") || n.includes("manjaro") || n.includes("tumbleweed") || n.includes("void") || n.includes("gentoo") || b.includes("arch")) return "Rolling Release (Mises à jour continues)";
+  if (n.includes("fedora") || n.includes("ubuntu")) return "Fixed Release (Cycle régulier, ex: 6 mois)";
+  if (n.includes("debian") || n.includes("rhel") || n.includes("almalinux") || n.includes("rocky") || n.includes("mint")) return "LTS / Point Release (Orienté stabilité long terme)";
+  return "Standard (Versions périodiques)";
+}
+
+export function generateFiche(d: RawDistro, family: string, level: string, strengths: string[], weakness: string): string {
+  const pkgManager = getPackageManager(d.base);
+  const releaseModel = getReleaseModel(d.base, d.distro);
+  
+  let philo = "Pragmatique et polyvalente";
+  if (family === "Arch") philo = "KISS (Keep It Simple, Stupid) et flexibilité maximale";
+  if (family === "Debian") philo = "Logiciel libre, universalité et stabilité réputée";
+  if (family === "RPM") philo = "Standardisation professionnelle et innovation mesurée";
+  if (family === "BSD") philo = "Système complet cohésif et ingénierie rigoureuse";
+  if (String(d.distro || "").toLowerCase().includes("nixos")) philo = "Configuration déclarative pure et environnements immutables";
+  
+  const diffTexte = level === "Débutant" 
+    ? "Facile d'accès. L'installation graphique et la configuration par défaut permettent un usage immédiat sans ligne de commande." 
+    : level === "Expert" 
+      ? "Exigeante. Requiert une bonne connaissance de la ligne de commande, voire une configuration et installation 100% manuelles." 
+      : "Modérée. Des bases sous Linux aident, mais le système propose des outils semi-automatisés et une bonne documentation.";
+
+  return \`### 🧠 Présentation rapide
+\${d.distro} est une distribution basée sur \${d.base || "indépendante"}. Elle est conçue autour d'un objectif de \${d.points || 'stabilité et de performance'}.
+
+### 🎯 Pour qui ?
+Ce système s'adresse idéalement à : **\${d.audience}**.
+
+### 💡 Pourquoi la choisir ?
+\${strengths.map(s => \`- \${s}\`).join("\\n")}
+
+### ⚠️ À savoir
+\${weakness}
+
+### 🧪 Cas d’usage typiques
+\${d.usage.split(',').map(u => \`- \${u.trim()}\`).join("\\n")}
+
+### ⚙️ Niveau technique
+**\${level}**: \${diffTexte}
+
+### 🧬 ADN technique
+- **Base** : \${d.base || 'Indépendante'}
+- **Gestionnaire de paquets** : \${pkgManager}
+- **Modèle release** : \${releaseModel}
+- **Philosophie** : \${philo}\`;
+}
+
 export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
   const byName = new Map<string, RawDistro>();
   rawData.forEach(d => byName.set(d.distro, d));
@@ -113,20 +177,23 @@ export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
     const family = classifyFamily(d.base);
     const level = classifyLevel(d.audience);
     const tags = inferTags(d);
+    const distroStrengths = genStrengths(d, family, level, tags);
+    const distroWeakness = genWeakness(d, family, level, tags);
     
     return {
       ...d,
       family,
       level,
       tags,
-      strengths: genStrengths(d, family, level, tags),
-      weakness: genWeakness(d, family, level, tags),
+      strengths: distroStrengths,
+      weakness: distroWeakness,
       mode: classifyMode(d),
       fallbackColor: getFallbackColor(d.distro),
       initials: String(d.distro || "??").substring(0, 2).toUpperCase(),
       logoUrl: getLogoUrl(d.distro),
       distroSeaUrl: distroSeaUrl(d.distro),
-      downloadLink: downloadMap[d.distro] || `https://www.google.com/search?q=download+iso+x86_64+${encodeURIComponent(d.distro)}`
+      downloadLink: downloadMap[d.distro] || `https://www.google.com/search?q=download+iso+x86_64+${encodeURIComponent(d.distro)}`,
+      fiche: generateFiche(d, family, level, distroStrengths, distroWeakness)
     };
   });
 }

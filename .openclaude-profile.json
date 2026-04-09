@@ -1,0 +1,9 @@
+{
+  "profile": "openai",
+  "env": {
+    "OPENAI_BASE_URL": "http://10.212.134.6:1234/v1",
+    "OPENAI_MODEL": "google/gemma-4-26b-a4b",
+    "OPENAI_API_KEY": "aa"
+  },
+  "createdAt": "2026-04-09T08:04:41.999Z"
+}
