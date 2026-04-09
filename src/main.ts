@@ -1,13 +1,13 @@
 import { bindAllEvents } from "./ui/events";
 import { bindExportEvents } from "./utils/export";
 import { enrichData } from "./domain/enrichment";
-import { rawData } from "./data/rawDistros";
+import { enrichedDistros } from "./data/rawDistros";
 import { renderGrid, showSkeleton } from "./ui/render";
 import { appStore } from "./store/state";
 import "../style.css"; // Imported for Vite
 
 // Boot Process
-const distrosObj = enrichData(rawData);
+const distrosObj = enrichData(enrichedDistros as any);
 
 // Initialize UI binding
 bindAllEvents();

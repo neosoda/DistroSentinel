@@ -17,7 +17,7 @@ export type EnrichedDistro = {
   };
 };
 
-export const rawData: EnrichedDistro[] = [
+export const enrichedDistros: EnrichedDistro[] = [
   {
     distro: "ThinLinc",
     base: "RHEL/CentOS",
