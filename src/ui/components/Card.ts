@@ -62,7 +62,7 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
         </a>
 
         <button class="btn btn-try" type="button" data-try="${escapeHtml(d.distroSeaUrl)}" data-name="${escapeHtml(d.distro)}"
-          title="Tester en ligne (mode session)">
+          title="Tester en ligne (Nouvel onglet)">
           <i class="fas fa-flask"></i> Essayer (Web)
         </button>
       </div>
