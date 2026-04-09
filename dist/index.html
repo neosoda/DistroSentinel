@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DistroGuide – Catalogue Linux (FULL + améliorations)</title>
+  <title>DistroSentinel – L'éclaireur de vos distributions Linux</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-  <script type="module" crossorigin src="/assets/index-Di3VkRFW.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CytnDOBV.css">
+  <script type="module" crossorigin src="/assets/index-CtSaoRvA.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DBquNBUz.css">
 </head>
 
 <body>
   <aside class="sidebar" aria-label="Filtres et options">
     <div class="brand">
-      <h1><i class="fab fa-linux"></i> DistroGuide</h1>
+      <div class="brand-logo">
+        <img src="/logo.png" alt="DistroSentinel Logo" class="main-logo">
+      </div>
       <div class="brand-actions">
         <button class="icon-btn" id="themeToggle" title="Mode sombre/clair" aria-label="Basculer le thème"><i class="fa-solid fa-circle-half-stroke"></i></button>
         <button class="icon-btn" id="exportJson" title="Exporter JSON" aria-label="Exporter JSON"><i class="fa-solid fa-file-code"></i></button>
@@ -123,33 +125,6 @@
 
     <div class="grid" id="gridContainer" aria-live="polite"></div>
   </main>
-
-  <!-- Modal session (iframe) -->
-  <div class="modal" id="sessionModal" aria-hidden="true" role="dialog" aria-label="Session de test en ligne">
-    <div class="modal-card">
-      <div class="modal-head">
-        <div class="modal-title">
-          <i class="fa-solid fa-flask" style="color:var(--distrosea)"></i>
-          <span id="modalName">Session</span>
-          <small id="modalHint"></small>
-        </div>
-        <div class="modal-actions">
-          <a class="btn btn-secondary" id="modalOpenNew" target="_blank" rel="noopener">
-            <i class="fa-solid fa-up-right-from-square"></i> Ouvrir
-          </a>
-          <button class="btn btn-secondary" id="modalClose" type="button">
-            <i class="fa-solid fa-xmark"></i> Fermer
-          </button>
-        </div>
-      </div>
-      <div class="modal-body">
-        <iframe id="sessionFrame" title="Session DistroSea" referrerpolicy="no-referrer"></iframe>
-      </div>
-      <div class="modal-hint">
-        Si l’iframe est bloquée (CSP/X-Frame-Options), utilise “Ouvrir”.
-      </div>
-    </div>
-  </div>
 
 </body>
 </html>
