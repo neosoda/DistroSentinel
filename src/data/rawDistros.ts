@@ -1,6 +1,6 @@
-import { EnrichedDistro } from "../types";
+import { RawDistro } from "../types";
 
-export const enrichedData: EnrichedDistro[] = [
+export const rawData: RawDistro[] = [
   {
     distro: "ThinLinc",
     base: "RHEL/CentOS",
