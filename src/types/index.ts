@@ -6,6 +6,17 @@ export interface RawDistro {
   audience: string;
   points: string;
   usage: string;
+  description?: string;
+  forWho?: string;
+  whyChoose?: string[];
+  limitations?: string[];
+  useCases?: string[];
+  technical?: {
+    base: string;
+    packageManager: string;
+    releaseModel: string;
+    difficulty: Difficulty | string;
+  };
 }
 
 export interface EnrichedDistro {

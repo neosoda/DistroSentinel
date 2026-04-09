@@ -127,8 +127,8 @@ export function getReleaseModel(base: string, name: string): string {
 }
 
 export function generateFiche(d: RawDistro, family: string, level: string, strengths: string[], weakness: string): string {
-  const pkgManager = getPackageManager(d.base);
-  const releaseModel = getReleaseModel(d.base, d.distro);
+  const pkgManager = d.technical?.packageManager || getPackageManager(d.base);
+  const releaseModel = d.technical?.releaseModel || getReleaseModel(d.base, d.distro);
   
   let philo = "Pragmatique et polyvalente";
   if (family === "Arch") philo = "KISS (Keep It Simple, Stupid) et flexibilité maximale";
@@ -141,30 +141,34 @@ export function generateFiche(d: RawDistro, family: string, level: string, stren
     ? "Facile d'accès. L'installation graphique et la configuration par défaut permettent un usage immédiat sans ligne de commande." 
     : level === "Expert" 
       ? "Exigeante. Requiert une bonne connaissance de la ligne de commande, voire une configuration et installation 100% manuelles." 
-      : "Modérée. Des bases sous Linux aident, mais le système propose des outils semi-automatisés et une bonne documentation.";
+      : "Modérée. Des bases sous Linux aident, mais le système propose des outils semi-automatisés et une documentation solide.";
+
+  const whyChooseList = d.whyChoose && d.whyChoose.length > 0 ? d.whyChoose : strengths;
+  const limitationsList = d.limitations && d.limitations.length > 0 ? d.limitations : [weakness];
+  const useCasesList = d.useCases && d.useCases.length > 0 ? d.useCases : d.usage.split(',').map(u => u.trim());
 
   return `### 🧠 Présentation rapide
-${d.distro} est une distribution basée sur ${d.base || "indépendante"}. Elle est conçue autour d'un objectif de ${d.points || 'stabilité et de performance'}.
+${d.description || `${d.distro} est une distribution basée sur ${d.base || "indépendante"}. Elle est conçue autour d'un objectif clair : ${d.points || 'stabilité et de performance'}.`}
 
 ### 🎯 Pour qui ?
-Ce système s'adresse idéalement à : **${d.audience}**.
+${d.forWho || `Ce système s'adresse idéalement au public suivant : **${d.audience}**.`}
 
 ### 💡 Pourquoi la choisir ?
-${strengths.map(s => `- ${s}`).join("\n")}
+${whyChooseList.map(s => `- ${s}`).join("\n")}
 
-### ⚠️ À savoir
-${weakness}
+### ⚠️ À savoir (Limites)
+${limitationsList.map(l => `- ${l}`).join("\n")}
 
 ### 🧪 Cas d’usage typiques
-${d.usage.split(',').map(u => `- ${u.trim()}`).join("\n")}
+${useCasesList.map(u => `- ${u}`).join("\n")}
 
 ### ⚙️ Niveau technique
-**${level}**: ${diffTexte}
+- **${d.technical?.difficulty || level}** : ${diffTexte}
 
 ### 🧬 ADN technique
-- **Base** : ${d.base || 'Indépendante'}
+- **Base système** : ${d.technical?.base || d.base || 'Indépendante'}
 - **Gestionnaire de paquets** : ${pkgManager}
-- **Modèle release** : ${releaseModel}
+- **Modèle de publication** : ${releaseModel}
 - **Philosophie** : ${philo}`;
 }
 
