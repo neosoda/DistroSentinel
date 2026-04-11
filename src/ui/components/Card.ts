@@ -24,7 +24,7 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
 
         <button class="fav-btn ${isFav ? "active" : ""}" type="button" data-fav="${escapeHtml(d.distro)}"
           aria-label="${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}" title="Favori">
-          <i class="fa-solid fa-star"></i>
+          <i class="${isFav ? "fa-solid" : "fa-regular"} fa-star"></i>
         </button>
       </div>
 
@@ -43,13 +43,13 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
 
         <div class="analysis-grid">
           <div class="point pros">
-            <h4><i class="fas fa-plus-circle"></i> Fort</h4>
+            <h4><i class="fas fa-plus-circle"></i> Points forts</h4>
             <ul class="bullets">
               ${strong || `<li>${escapeHtml(d.points)}</li>`}
             </ul>
           </div>
           <div class="point cons">
-            <h4><i class="fas fa-minus-circle"></i> Faible</h4>
+            <h4><i class="fas fa-minus-circle"></i> Point faible</h4>
             <strong>${escapeHtml(d.weakness)}</strong>
           </div>
         </div>
@@ -63,16 +63,15 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
 
         <button class="btn btn-try" type="button" data-try="${escapeHtml(d.distroSeaUrl)}" data-name="${escapeHtml(d.distro)}"
           title="Tester en ligne (Nouvel onglet)">
-          <i class="fas fa-flask"></i> Essayer (Web)
+          <i class="fas fa-desktop"></i> Essayer
         </button>
       </div>
     `;
 }
 
 export function createCardDOM(d: EnrichedDistro, isFav: boolean): HTMLElement {
-  const card = document.createElement("div");
+  const card = document.createElement("article");
   card.className = "card";
-  card.setAttribute("role", "article");
   card.innerHTML = createCardHTML(d, isFav);
   return card;
 }

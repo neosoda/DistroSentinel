@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DistroSentinel – L'éclaireur de vos distributions Linux</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <link rel="stylesheet" href="/style.css">
-
 </head>
 
 <body>
@@ -17,39 +15,45 @@
         <img src="/logo.png" alt="DistroSentinel Logo" class="main-logo">
       </div>
       <div class="brand-actions">
-        <button class="icon-btn" id="themeToggle" title="Mode sombre/clair" aria-label="Basculer le thème"><i class="fa-solid fa-circle-half-stroke"></i></button>
-        <button class="icon-btn" id="exportJson" title="Exporter JSON" aria-label="Exporter JSON"><i class="fa-solid fa-file-code"></i></button>
-        <button class="icon-btn" id="exportCsv" title="Exporter CSV" aria-label="Exporter CSV"><i class="fa-solid fa-file-csv"></i></button>
+        <button class="icon-btn" id="themeToggle" title="Mode sombre/clair" aria-label="Basculer le thème">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+        <button class="icon-btn" id="exportJson" title="Exporter JSON" aria-label="Exporter JSON">
+          <i class="fa-solid fa-file-code"></i>
+        </button>
+        <button class="icon-btn" id="exportCsv" title="Exporter CSV" aria-label="Exporter CSV">
+          <i class="fa-solid fa-file-csv"></i>
+        </button>
       </div>
     </div>
 
     <div class="search-container">
       <i class="fas fa-search search-icon"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="Recherche (tolérante) : ex. 'ub st' → Ubuntu Studio" aria-label="Rechercher une distribution">
+      <input type="text" id="searchInput" class="search-input" placeholder="Recherche (ex. 'Ubuntu')" aria-label="Rechercher une distribution">
     </div>
 
     <div class="controls-row">
       <select class="select" id="sortSelect" aria-label="Tri">
-        <option value="relevance">Tri : pertinence</option>
-        <option value="name">Tri : nom</option>
-        <option value="level">Tri : niveau</option>
-        <option value="family">Tri : famille</option>
+        <option value="relevance">Tri : Pertinence</option>
+        <option value="name">Tri : Nom (A-Z)</option>
+        <option value="level">Tri : Niveau de difficulté</option>
+        <option value="family">Tri : Famille</option>
       </select>
 
       <select class="select" id="exportScope" aria-label="Scope export">
-        <option value="filtered">Export : filtré</option>
-        <option value="all">Export : tout</option>
+        <option value="filtered">Export : Filtré</option>
+        <option value="all">Export : Tout</option>
       </select>
     </div>
 
     <label class="toggle" title="Afficher uniquement tes favoris">
       <input type="checkbox" id="favOnly">
-      <span>⭐ Favoris uniquement</span>
+      Favoris uniquement
     </label>
 
     <label class="toggle" title="Match AND sur les tags sélectionnés (sinon OR)">
       <input type="checkbox" id="matchAllTags">
-      <span>Tags : matcher TOUS</span>
+      Matcher TOUS les tags sélectionnés
     </label>
 
     <div class="filter-group">
@@ -75,7 +79,7 @@
     </div>
 
     <div class="filter-group">
-      <div class="filter-title">Usage (multi-sélection)</div>
+      <div class="filter-title">Usage</div>
       <div class="btn-group" id="usageFilters">
         <button class="filter-btn" data-tag="Gaming" type="button"><i class="fa-solid fa-gamepad"></i> Gaming</button>
         <button class="filter-btn" data-tag="Serveur" type="button"><i class="fa-solid fa-server"></i> Serveur</button>
@@ -90,34 +94,21 @@
     </div>
 
     <div class="filter-group">
-      <div class="filter-title">Vue</div>
+      <div class="filter-title">Vue catalogue</div>
       <div class="btn-group" id="modeFilters">
-        <button class="filter-btn active" data-mode="all" type="button">Catalogue</button>
-        <button class="filter-btn" data-mode="pro" type="button">Pro</button>
-        <button class="filter-btn" data-mode="pedago" type="button">Pédago</button>
+        <button class="filter-btn active" data-mode="all" type="button">Standard</button>
+        <button class="filter-btn" data-mode="pro" type="button">IT Pro</button>
+        <button class="filter-btn" data-mode="pedago" type="button">Éducation</button>
       </div>
     </div>
 
-    <div class="filter-group">
-      <div class="filter-title">Raccourcis</div>
-      <div class="pill" style="line-height:1.45">
-        <strong>/</strong> focus recherche • <strong>Esc</strong> fermer session • ⭐ bouton sur chaque carte
-      </div>
-    </div>
-
-    <div class="filter-group">
-      <div class="filter-title">Note</div>
-      <div class="pill" style="line-height:1.45">
-        Les liens “ISO” pointent vers la page officielle (robuste). Les liens directs changent trop souvent.
-      </div>
-    </div>
   </aside>
 
   <main class="main-content">
     <div class="top-bar">
       <h2 id="currentView">Toutes les distributions</h2>
       <div class="stats">
-        <span class="pill" id="resultCount">Chargement…</span>
+        <span class="pill" id="resultCount">Chargement...</span>
         <span class="pill" id="activeFilters">Filtres: aucun</span>
       </div>
     </div>
@@ -125,6 +116,7 @@
     <div class="grid" id="gridContainer" aria-live="polite"></div>
   </main>
 
+  <!-- Script entry point -->
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
