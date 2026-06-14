@@ -91,7 +91,8 @@ export const downloadMap: Record<string, string> = {
   "Raspberry Pi OS":"https://www.raspberrypi.com/software/",
   "Ubuntu Server":"https://ubuntu.com/download/server",
   "KaOS":"https://kaosx.us/pages/download/",
-  "LXLE":"https://lxle.net/download/"
+  "LXLE":"https://lxle.net/download/",
+  "GLF OS":"https://glfos.org/#download"
 };
 
 export const logoSlugs: Record<string, string> = {
