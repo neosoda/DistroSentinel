@@ -2917,5 +2917,34 @@ export const enrichedDistros: EnrichedDistro[] = [
       releaseModel: "stable",
       difficulty: "Débutant"
     }
+  },
+  {
+    distro: "GLF OS",
+    base: "NixOS",
+    audience: "Gamer / Débutant / Pro",
+    points: "Distribution Linux basée sur NixOS, optimisée pour le gaming. Steam, pilotes et outils prêts à l'emploi.",
+    usage: "Gaming / Desktop",
+    description: "GLF OS est une distribution Linux basée sur NixOS, optimisée pour le gaming. Steam, pilotes et outils prêts à l'emploi dès le premier démarrage.",
+    forWho: "Pour les joueurs et utilisateurs cherchant une expérience prête à l'emploi, du débutant au créateur de contenu.",
+    whyChoose: [
+      "Optimisé pour le jeu (Steam, pilotes pré-installés, support manettes)",
+      "Solide et stable grâce à sa base NixOS (restauration facile)",
+      "Prêt à l'emploi sans utiliser le terminal"
+    ],
+    limitations: [
+      "Base NixOS peut demander un temps d'adaptation pour les configurations très avancées",
+      "Principalement axée sur le gaming"
+    ],
+    useCases: [
+      "PC Gaming sous Linux",
+      "Bureautique et création de contenu",
+      "Console de salon"
+    ],
+    technical: {
+      base: "NixOS",
+      packageManager: "nix",
+      releaseModel: "stable",
+      difficulty: "Débutant"
+    }
   }
 ];
