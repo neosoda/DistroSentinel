@@ -51,6 +51,7 @@ export const downloadMap: Record<string, string> = {
   "Pop!_OS":"https://pop.system76.com/",
   "Porteus":"https://porteus.org/downloads.php",
   "PrimTux":"https://primtux.fr/telecharger/",
+  "Proton OS":"https://www.protonos.org/download",
   "Puppy Linux":"https://puppylinux.com/download/",
   "PureOS":"https://www.pureos.net/download/",
   "Q4OS":"https://q4os.org/downloads.html",

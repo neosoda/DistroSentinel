@@ -1527,6 +1527,35 @@ export const enrichedDistros: EnrichedDistro[] = [
     }
   },
   {
+    distro: "Proton OS",
+    base: "Debian",
+    audience: "Pro/Débutant",
+    points: "Sans télémétrie, sécurisé et familier pour les utilisateurs de Windows",
+    usage: "Postes de travail/PME",
+    description: "Proton OS est une distribution basée sur Debian 13, conçue pour offrir aux petites entreprises un poste de travail moderne, respectueux de la vie privée et facile à adopter depuis Windows.",
+    forWho: "Pour les petites entreprises et les particuliers qui recherchent un système stable, sans télémétrie et familier pour remplacer Windows.",
+    whyChoose: [
+      "Aucune télémétrie ni publicité ciblée en arrière-plan",
+      "Pare-feu actif et mises à jour de sécurité automatiques",
+      "Interface familière et prise en charge d'applications Windows via Winboat"
+    ],
+    limitations: [
+      "Distribution récente avec une communauté encore limitée",
+      "La compatibilité des applications Windows via Winboat n'est pas universelle"
+    ],
+    useCases: [
+      "Postes bureautiques de petites entreprises",
+      "Migration progressive depuis Windows",
+      "Ordinateur personnel axé sur la confidentialité"
+    ],
+    technical: {
+      base: "Debian 13",
+      packageManager: "apt",
+      releaseModel: "stable / LTS",
+      difficulty: "Débutant"
+    }
+  },
+  {
     distro: "Puppy Linux",
     base: "Indépendante",
     audience: "Débutant",
