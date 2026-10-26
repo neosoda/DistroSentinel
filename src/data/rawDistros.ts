@@ -20,11 +20,11 @@ export type EnrichedDistro = {
 export const enrichedDistros: EnrichedDistro[] = [
   {
     distro: "ThinLinc",
-    base: "RHEL/CentOS",
+    base: "Multi-distribution",
     audience: "Pro",
     points: "Accès distant Linux sécurisé, jusqu’à 10 utilisateurs gratuits",
     usage: "VDI/Bureaux distants",
-    description: "ThinLinc est basée sur RHEL/CentOS. Elle sert surtout pour vdi/bureaux distants.",
+    description: "ThinLinc est une solution de bureau à distance (Cendio) qui s'installe sur un serveur Linux existant (RHEL et dérivés, Ubuntu, Debian, SUSE). Elle sert surtout pour vdi/bureaux distants.",
     forWho: "Pour pro qui veulent accès distant linux sécurisé, jusqu’à 10 utilisateurs gratuits.",
     whyChoose: [
       "Excellente réactivité graphique",
@@ -41,8 +41,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Infrastructure VDI"
     ],
     technical: {
-      base: "Red Hat Enterprise Linux / CentOS",
-      packageManager: "dnf",
+      base: "Logiciel serveur multi-distributions (RHEL/dérivés, Ubuntu, Debian, SUSE)",
+      packageManager: "rpm / deb selon la distribution hôte",
       releaseModel: "stable / LTS",
       difficulty: "Avancé"
     }
@@ -101,7 +101,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Indépendante",
       packageManager: "apk",
-      releaseModel: "rolling",
+      releaseModel: "stable semestrielle (2 ans de support) + branche edge rolling",
       difficulty: "Avancé"
     }
   },
@@ -225,9 +225,9 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "ArcoLinux",
     base: "Arch",
     audience: "Apprenant",
-    points: "Distribution pédagogique Arch",
+    points: "Projet arrêté (juillet 2025) — ex-distribution pédagogique Arch",
     usage: "Apprentissage",
-    description: "ArcoLinux est basée sur Arch. Elle sert surtout pour apprentissage.",
+    description: "ArcoLinux était une distribution pédagogique basée sur Arch. Son fondateur a mis fin au projet en 2025 (ISO, outils et infrastructure arrêtés au 1er juillet 2025) ; seuls les dépôts GitHub et les tutoriels restent consultables.",
     forWho: "Pour apprenant qui veulent distribution pédagogique arch.",
     whyChoose: [
       "Progression pédagogique structurée",
@@ -235,8 +235,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Accès aux dépôts AUR"
     ],
     limitations: [
-      "Peut paraître complexe au premier abord",
-      "Nombreuses versions pouvant dérouter"
+      "Projet arrêté : plus d'ISO ni de mises à jour spécifiques depuis juillet 2025",
+      "Migration conseillée vers Arch Linux ou EndeavourOS"
     ],
     useCases: [
       "Apprentissage des systèmes Linux",
@@ -246,7 +246,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Arch Linux",
       packageManager: "pacman",
-      releaseModel: "rolling",
+      releaseModel: "rolling (projet arrêté en 2025)",
       difficulty: "Intermédiaire"
     }
   },
@@ -283,7 +283,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "Bazzite",
     base: "Fedora",
     audience: "Gamer",
-    points: "Optimisé gaming, SteamOS-like",
+    points: "Optimisé gaming, SteamOS-like, image immuable Fedora Atomic",
     usage: "Jeux",
     description: "Bazzite est basée sur Fedora. Elle sert surtout pour jeux.",
     forWho: "Pour gamer qui veulent optimisé gaming, steamos-like.",
@@ -302,9 +302,9 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Home-cinéma multimédia"
     ],
     technical: {
-      base: "Fedora",
-      packageManager: "dnf",
-      releaseModel: "release régulière",
+      base: "Fedora Atomic (Universal Blue)",
+      packageManager: "rpm-ostree / Flatpak / Distrobox",
+      releaseModel: "immutable (images suivant Fedora)",
       difficulty: "Intermédiaire"
     }
   },
@@ -361,8 +361,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Arch Linux",
-      packageManager: "pacman",
-      releaseModel: "rolling",
+      packageManager: "system.yaml + conteneurs (pacman, apt, dnf…)",
+      releaseModel: "immutable / rolling",
       difficulty: "Avancé"
     }
   },
@@ -370,10 +370,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "Bodhi Linux",
     base: "Ubuntu",
     audience: "Débutant",
-    points: "Très léger, Enlightenment",
+    points: "Très léger, bureau Moksha (fork d'Enlightenment)",
     usage: "PC faibles",
     description: "Bodhi Linux est basée sur Ubuntu. Elle sert surtout pour pc faibles.",
-    forWho: "Pour débutant qui veulent très léger, enlightenment.",
+    forWho: "Pour débutant qui veulent très léger, bureau moksha.",
     whyChoose: [
       "Consommation de ressources minimale",
       "Environnement de bureau unique et beau",
@@ -478,7 +478,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Red Hat Enterprise Linux",
       packageManager: "dnf",
-      releaseModel: "rolling",
+      releaseModel: "livraison continue (amont de RHEL)",
       difficulty: "Intermédiaire"
     }
   },
@@ -546,7 +546,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Débutant",
     points: "Interface moderne et soignée",
     usage: "Desktop grand public",
-    description: "Deepin est basée sur Debian. Elle sert surtout pour desktop grand public.",
+    description: "Deepin est historiquement basée sur Debian ; depuis deepin 23 elle s'appuie sur son propre dépôt amont indépendant. Elle sert surtout pour desktop grand public.",
     forWho: "Pour débutant qui veulent interface moderne et soignée.",
     whyChoose: [
       "L'une des plus belles interfaces graphiques",
@@ -563,8 +563,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Ordinateur personnel esthétique"
     ],
     technical: {
-      base: "Debian",
-      packageManager: "apt",
+      base: "Indépendante (héritage Debian, dépôt amont propre depuis deepin 23)",
+      packageManager: "apt + Linyaps (Linglong)",
       releaseModel: "stable",
       difficulty: "Débutant"
     }
@@ -854,7 +854,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Indépendante",
-      packageManager: "emerge",
+      packageManager: "Portage (emerge)",
       releaseModel: "rolling source-based",
       difficulty: "Expert"
     }
@@ -884,7 +884,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Indépendante (BeOS-like)",
       packageManager: "pkgman",
-      releaseModel: "rolling",
+      releaseModel: "bêta R1 + nightly",
       difficulty: "Expert"
     }
   },
@@ -892,9 +892,9 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "HoloISO",
     base: "Arch",
     audience: "Gamer",
-    points: "Clone SteamOS",
+    points: "Projet arrêté (EOL) — ex-clone SteamOS pour PC",
     usage: "Console PC",
-    description: "HoloISO est basée sur Arch. Elle sert surtout pour console pc.",
+    description: "HoloISO était une reconstruction de SteamOS 3 basée sur Arch pour PC classiques. Le projet original a été déclaré en fin de vie et ses dépôts archivés (holoiso-eol) ; Bazzite est l'alternative maintenue la plus courante.",
     forWho: "Pour gamer qui veulent clone steamos.",
     whyChoose: [
       "Interface SteamOS console native",
@@ -902,8 +902,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Base Arch très moderne"
     ],
     limitations: [
-      "Compatible surtout avec les GPU AMD",
-      "Stabilité inégale sur certains matériels"
+      "Projet en fin de vie : dépôts archivés, plus de mises à jour",
+      "Alternatives maintenues : Bazzite ou SteamOS officiel"
     ],
     useCases: [
       "PC Gaming de salon",
@@ -913,7 +913,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Arch Linux",
       packageManager: "pacman",
-      releaseModel: "rolling",
+      releaseModel: "rolling (projet en fin de vie)",
       difficulty: "Intermédiaire"
     }
   },
@@ -931,8 +931,9 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Bureau fluide et personnalisable"
     ],
     limitations: [
-      "Nigthly builds parfois instables",
-      "Orientée exclusivement vers KDE"
+      "Builds de développement parfois instables",
+      "Orientée exclusivement vers KDE",
+      "Avenir incertain : KDE développe KDE Linux comme système de référence"
     ],
     useCases: [
       "Travail desktop moderne",
@@ -1144,7 +1145,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Mandriva (Indépendante)",
-      packageManager: "dnf",
+      packageManager: "urpmi / dnf",
       releaseModel: "stable",
       difficulty: "Intermédiaire"
     }
@@ -1211,10 +1212,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "Nitrux",
     base: "Debian",
     audience: "Intermédiaire",
-    points: "Immutable, AppImage",
+    points: "Immutable, sans systemd (OpenRC), AppImage/Flatpak",
     usage: "Desktop moderne",
-    description: "Nitrux est basée sur Debian. Elle sert surtout pour desktop moderne.",
-    forWho: "Pour intermédiaire qui veulent immutable, appimage.",
+    description: "Nitrux est basée sur Debian mais n'expose plus de gestionnaire de paquets classique : racine immuable, OpenRC à la place de systemd, applications via AppImage, Flatpak et conteneurs. Elle sert surtout pour desktop moderne.",
+    forWho: "Pour intermédiaire qui veulent un système immuable sans systemd orienté AppImage.",
     whyChoose: [
       "Interface futuriste et soignée",
       "Cœur du système immuable sûr",
@@ -1231,8 +1232,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Debian",
-      packageManager: "apt + appimage",
-      releaseModel: "immutable / hybride",
+      packageManager: "AppImage / Flatpak / Distrobox (pas d'apt côté utilisateur)",
+      releaseModel: "immutable (mises à jour atomiques)",
       difficulty: "Intermédiaire"
     }
   },
@@ -1261,7 +1262,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Indépendante",
       packageManager: "nix",
-      releaseModel: "immutable",
+      releaseModel: "stable semestrielle (YY.05 / YY.11) + unstable rolling, déclarative",
       difficulty: "Expert"
     }
   },
@@ -1319,7 +1320,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Illumos (Solaris-like)",
       packageManager: "pkg",
-      releaseModel: "stable",
+      releaseModel: "rolling (Hipster) + instantanés semestriels",
       difficulty: "Expert"
     }
   },
@@ -1348,7 +1349,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Mandriva (Indépendante)",
       packageManager: "dnf",
-      releaseModel: "stable",
+      releaseModel: "Rock (version fixe) / ROME (rolling)",
       difficulty: "Intermédiaire"
     }
   },
@@ -1443,10 +1444,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "Pop!_OS",
     base: "Ubuntu",
     audience: "Dev/Gamer",
-    points: "Optimisé GPU et workflow",
+    points: "Bureau COSMIC (Rust), optimisé GPU et workflow",
     usage: "Workstation",
-    description: "Pop!_OS est basée sur Ubuntu. Elle sert surtout pour workstation.",
-    forWho: "Pour dev/gamer qui veulent optimisé gpu et workflow.",
+    description: "Pop!_OS est basée sur Ubuntu LTS (24.04) et utilise depuis décembre 2025 le bureau COSMIC développé en Rust par System76. Elle sert surtout pour workstation.",
+    forWho: "Pour dev/gamer qui veulent un poste optimisé GPU avec le bureau COSMIC.",
     whyChoose: [
       "Gestionnaire de fenêtres tiling inclus",
       "Version avec drivers NVIDIA pré-packagés",
@@ -1464,7 +1465,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Ubuntu",
       packageManager: "apt",
-      releaseModel: "stable",
+      releaseModel: "stable (suit Ubuntu LTS)",
       difficulty: "Intermédiaire"
     }
   },
@@ -1764,7 +1765,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Live rapide",
     usage: "USB boot",
-    description: "Slax est basée sur Debian. Elle sert surtout pour usb boot.",
+    description: "Slax est un système live modulaire principalement basé sur Debian (une édition Slackware existe aussi). Elle sert surtout pour usb boot.",
     forWho: "Pour avancé qui veulent live rapide.",
     whyChoose: [
       "Prend très peu de place sur USB",
@@ -1782,7 +1783,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Debian",
-      packageManager: "slackpkg",
+      packageManager: "apt (édition Debian) / slackpkg (édition Slackware)",
       releaseModel: "stable",
       difficulty: "Avancé"
     }
@@ -2149,8 +2150,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Grande maturité logicielle"
     ],
     limitations: [
-      "Look qui peut paraître ancien",
-      "Moins spectaculaire que GNOME 40+"
+      "Pas d'ISO officielle pour Ubuntu 26.04 LTS (reprise du projet par une nouvelle équipe)",
+      "Look qui peut paraître ancien"
     ],
     useCases: [
       "Usage professionnel stable",
@@ -2344,7 +2345,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     audience: "Avancé",
     points: "Sécurité offensive + desktop utilisable (tooling + privacy)",
     usage: "Sécurité",
-    description: "Parrot OS est basée sur Debian. Elle sert surtout pour sécurité.",
+    description: "Parrot OS est basée sur Debian stable (Debian 13 depuis Parrot 7, bureau KDE Plasma par défaut). Elle sert surtout pour sécurité.",
     forWho: "Pour avancé qui veulent sécurité offensive + desktop utilisable (tooling + privacy).",
     whyChoose: [
       "Outils de sécurité complets",
@@ -2353,7 +2354,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     limitations: [
       "Configuration complexe parfois",
-      "Dépôts moins axés stabilité"
+      "Outils de sécurité inutiles pour un usage bureautique"
     ],
     useCases: [
       "Développement sécurisé",
@@ -2363,7 +2364,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Debian",
       packageManager: "apt",
-      releaseModel: "rolling",
+      releaseModel: "stable (base Debian stable, versions ponctuelles)",
       difficulty: "Avancé"
     }
   },
@@ -2458,9 +2459,9 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "Clear Linux",
     base: "Indépendante",
     audience: "Avancé",
-    points: "Optimisations performance CPU (stack pensée perf)",
+    points: "Projet arrêté par Intel (juillet 2025) — ex-distribution optimisée performance CPU",
     usage: "Performance",
-    description: "Clear Linux est une distribution indépendante. Elle sert surtout pour performance.",
+    description: "Clear Linux était une distribution indépendante d'Intel axée sur la performance. Intel y a mis fin le 18 juillet 2025 : plus aucun correctif de sécurité, dépôts archivés en lecture seule.",
     forWho: "Pour avancé qui veulent optimisations performance cpu (stack pensée perf).",
     whyChoose: [
       "Performance CPU sans égal",
@@ -2468,8 +2469,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Zéro logiciel inutile"
     ],
     limitations: [
-      "Support matériel non-Intel en retrait",
-      "Dépôts d'applications limités"
+      "Projet arrêté : aucune mise à jour de sécurité depuis juillet 2025",
+      "Dépôts archivés, migration vers une distribution maintenue indispensable"
     ],
     useCases: [
       "Calcul scientifique et Big Data",
@@ -2479,7 +2480,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Indépendante",
       packageManager: "swupd",
-      releaseModel: "immutable",
+      releaseModel: "rolling (projet arrêté en 2025)",
       difficulty: "Avancé"
     }
   },
@@ -2497,7 +2498,7 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Workflow basé sur les conteneurs"
     ],
     limitations: [
-      "Gestion logicielle complexe (Dnf)",
+      "Gestion logicielle différente (rpm-ostree, Flatpak, Toolbx)",
       "Incompatible avec de vieux paradigmes"
     ],
     useCases: [
@@ -2507,8 +2508,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Fedora",
-      packageManager: "dnf",
-      releaseModel: "immutable",
+      packageManager: "rpm-ostree / Flatpak (dnf dans Toolbx)",
+      releaseModel: "immutable (suit les versions Fedora)",
       difficulty: "Avancé"
     }
   },
@@ -2690,10 +2691,10 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "KaOS",
     base: "Indépendante",
     audience: "Intermédiaire",
-    points: "KDE-first (sélection resserrée), rolling contrôlée",
+    points: "Qt-first sans GTK, Niri + Noctalia, sans systemd, rolling contrôlée",
     usage: "Desktop",
-    description: "KaOS est une distribution indépendante. Elle sert surtout pour desktop.",
-    forWho: "Pour intermédiaire qui veulent kde-first (sélection resserrée), rolling contrôlée.",
+    description: "KaOS est une distribution indépendante centrée sur Qt. En 2026 elle a abandonné KDE Plasma et systemd au profit du compositeur Niri, du shell Noctalia et de l'init Dinit. Elle sert surtout pour desktop.",
+    forWho: "Pour intermédiaire qui veulent un desktop Qt cohérent, sans GTK ni systemd, en rolling contrôlée.",
     whyChoose: [
       "Optimisation Qt exemplaire",
       "Mises à jour rolling réfléchies",
@@ -2701,7 +2702,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     limitations: [
       "Pas de support des apps GTK/Gnome",
-      "Logithèque volontairement réduite"
+      "Logithèque volontairement réduite",
+      "Bureau Niri (tiling défilant) déroutant pour les habitués de Plasma"
     ],
     useCases: [
       "Poste desktop Qt pur",
@@ -2719,9 +2721,9 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "LXLE",
     base: "Ubuntu",
     audience: "Débutant",
-    points: "Orientée vieux PC (très léger)",
+    points: "Projet inactif — orientée vieux PC (très léger), dernière version 2022",
     usage: "PC anciens",
-    description: "LXLE est basée sur Ubuntu. Elle sert surtout pour pc anciens.",
+    description: "LXLE est une distribution légère basée sur Ubuntu destinée aux PC anciens. Aucune nouvelle version n'est parue depuis LXLE Focal (Ubuntu 20.04, 2022), dont le support standard est terminé.",
     forWho: "Pour débutant qui veulent orientée vieux pc (très léger).",
     whyChoose: [
       "Faible poids sur le processeur",
@@ -2729,8 +2731,8 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Scripts de maintenance automatiques"
     ],
     limitations: [
-      "Dépôts logiciels parfois anciens",
-      "Look visuel classique basique"
+      "Projet inactif : dernière version en 2022 (base Ubuntu 20.04 hors support standard)",
+      "Dépôts logiciels anciens"
     ],
     useCases: [
       "Ressusciter un vieux PC portable",
@@ -2740,7 +2742,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Ubuntu",
       packageManager: "apt",
-      releaseModel: "stable",
+      releaseModel: "stable (inactif depuis 2022)",
       difficulty: "Débutant"
     }
   },
@@ -2748,9 +2750,9 @@ export const enrichedDistros: EnrichedDistro[] = [
     distro: "AerynOS",
     base: "Indépendante",
     audience: "Avancé",
-    points: "Distribution indépendante",
+    points: "Distribution indépendante (ex-Serpent OS), mises à jour atomiques via moss",
     usage: "Usage général",
-    description: "AerynOS est une distribution indépendante. Elle sert surtout pour usage général.",
+    description: "AerynOS (anciennement Serpent OS) est une distribution indépendante en phase alpha, avec gestionnaire de paquets moss et mises à jour atomiques. Elle sert surtout pour usage général.",
     forWho: "Pour avancé qui veulent distribution indépendante.",
     whyChoose: [
       "Conception originale et fluide",
@@ -2768,23 +2770,23 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Indépendante",
-      packageManager: "spécifique",
-      releaseModel: "rolling",
+      packageManager: "moss",
+      releaseModel: "rolling (alpha)",
       difficulty: "Intermédiaire"
     }
   },
   {
     distro: "pearOS",
-    base: "Ubuntu",
+    base: "Arch",
     audience: "Débutant",
-    points: "Clone macOS",
+    points: "Interface inspirée de macOS sur base Arch",
     usage: "Desktop",
-    description: "pearOS est basée sur Ubuntu. Elle sert surtout pour desktop.",
-    forWho: "Pour débutant qui veulent clone macos.",
+    description: "pearOS est basée sur Arch Linux (édition NiceC0re) avec un bureau KDE Plasma fortement personnalisé façon macOS. Elle sert surtout pour desktop.",
+    forWho: "Pour débutant qui veulent une interface inspirée de macOS.",
     whyChoose: [
       "Beauté visuelle proche de Mac",
       "Ergonomie simple et intuitive",
-      "Grande compatibilité Ubuntu"
+      "Accès aux dépôts Arch et à l'AUR"
     ],
     limitations: [
       "Maintenance parfois irrégulière",
@@ -2796,19 +2798,19 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Navigation Web stylée"
     ],
     technical: {
-      base: "Ubuntu",
-      packageManager: "apt",
-      releaseModel: "stable",
+      base: "Arch Linux",
+      packageManager: "pacman",
+      releaseModel: "rolling",
       difficulty: "Débutant"
     }
   },
   {
     distro: "PikaOS",
-    base: "Ubuntu",
+    base: "Debian",
     audience: "Gamer",
     points: "Orienté gaming",
     usage: "Jeux",
-    description: "PikaOS est basée sur Ubuntu. Elle sert surtout pour jeux.",
+    description: "PikaOS est basée sur Debian (sid) depuis PikaOS 4, après avoir quitté Ubuntu. Elle sert surtout pour jeux.",
     forWho: "Pour gamer qui veulent orienté gaming.",
     whyChoose: [
       "Drivers GPU pré-installés",
@@ -2825,7 +2827,7 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Usage multimédia performant"
     ],
     technical: {
-      base: "Ubuntu",
+      base: "Debian (sid)",
       packageManager: "apt",
       releaseModel: "rolling",
       difficulty: "Intermédiaire"
@@ -2855,8 +2857,8 @@ export const enrichedDistros: EnrichedDistro[] = [
     ],
     technical: {
       base: "Indépendante (Windows-compatible)",
-      packageManager: "ReactOS App Manager",
-      releaseModel: "rolling",
+      packageManager: "RAPPS (gestionnaire d'applications ReactOS)",
+      releaseModel: "alpha (versions ponctuelles + nightly)",
       difficulty: "Expert"
     }
   },
@@ -2891,11 +2893,11 @@ export const enrichedDistros: EnrichedDistro[] = [
   },
   {
     distro: "VanillaOS",
-    base: "Debian/Ubuntu",
+    base: "Debian",
     audience: "Intermédiaire",
     points: "Immutable, GNOME pur",
     usage: "Desktop moderne",
-    description: "VanillaOS est basée sur Debian/Ubuntu. Elle sert surtout pour desktop moderne.",
+    description: "VanillaOS est basée sur Debian depuis Vanilla OS 2 « Orchid » (auparavant Ubuntu). Système immuable avec mises à jour atomiques ABRoot. Elle sert surtout pour desktop moderne.",
     forWho: "Pour intermédiaire qui veulent immutable, gnome pur.",
     whyChoose: [
       "Cœur du système incassable",
@@ -2912,9 +2914,9 @@ export const enrichedDistros: EnrichedDistro[] = [
       "Station Web et Média design"
     ],
     technical: {
-      base: "Debian / Ubuntu",
-      packageManager: "apx",
-      releaseModel: "immutable",
+      base: "Debian",
+      packageManager: "apx (conteneurs) + ABRoot",
+      releaseModel: "immutable (images OCI atomiques)",
       difficulty: "Intermédiaire"
     }
   },
