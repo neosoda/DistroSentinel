@@ -2364,7 +2364,7 @@ export const enrichedDistros: EnrichedDistro[] = [
     technical: {
       base: "Debian",
       packageManager: "apt",
-      releaseModel: "stable (base Debian stable, versions ponctuelles)",
+      releaseModel: "rolling",
       difficulty: "Avancé"
     }
   },
