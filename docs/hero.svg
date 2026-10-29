@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">DistroSentinel — Explore the Linux universe</title>
+  <desc id="desc">A dark indigo banner with a glowing compass, layered distribution cards and a bold DistroSentinel heading.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#090D1B"/><stop offset=".48" stop-color="#10152B"/><stop offset="1" stop-color="#121837"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9AA7FF"/><stop offset=".55" stop-color="#7474FB"/><stop offset="1" stop-color="#4B46D8"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#222A50"/><stop offset="1" stop-color="#131B35"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#6366F1" stop-opacity=".30"/><stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#8791FF" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
+    <filter id="shadow" x="-30%" y="-40%" width="180%" height="200%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#070915" flood-opacity=".6"/>
+    </filter>
+    <clipPath id="frame"><rect x="1" y="1" width="1198" height="378" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="380" fill="url(#bg)"/>
+    <rect width="1200" height="380" fill="url(#grid)"/>
+    <ellipse cx="948" cy="198" rx="380" ry="320" fill="url(#glow)"/>
+    <circle cx="1009" cy="173" r="252" fill="none" stroke="#7375DF" stroke-opacity=".13"/>
+    <circle cx="1009" cy="173" r="191" fill="none" stroke="#8991F9" stroke-opacity=".13" stroke-dasharray="5 11"/>
+    <circle cx="1009" cy="173" r="135" fill="none" stroke="#A2A7FF" stroke-opacity=".12"/>
+    <path d="M0 337C189 280 341 405 529 345S930 283 1200 332" fill="none" stroke="#8F99FF" stroke-opacity=".12" stroke-width="2"/>
+    <path d="M0 352C189 295 341 420 529 360S930 298 1200 347" fill="none" stroke="#8F99FF" stroke-opacity=".07"/>
+    <rect x="59" y="71" width="57" height="57" rx="16" fill="#161D39" stroke="#6973BC" stroke-opacity=".65"/>
+    <circle cx="87.5" cy="99.5" r="18" fill="none" stroke="#A0A8FF" stroke-width="1.7"/>
+    <path d="M96 91L91 105L79 109L84 95Z" fill="url(#accent)" stroke="#C3C8FF" stroke-width="1.1" stroke-linejoin="round"/>
+    <circle cx="87.5" cy="99.5" r="2.3" fill="#ECEFFF"/>
+    <text x="132" y="106" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="#B4BDFD">DISCOVER YOUR NEXT OS</text>
+    <text x="59" y="203" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="64" font-weight="800" letter-spacing="-2.7" fill="#F4F5FF">Distro<tspan fill="#A0A5FF">Sentinel</tspan></text>
+    <text x="61" y="249" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#C1C7E1">L'éclaireur des distributions Linux.</text>
+    <text x="61" y="282" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" fill="#929DBD">Explorez. Comparez. Trouvez votre système idéal.</text>
+    <rect x="60" y="309" width="126" height="31" rx="15.5" fill="#6A69EB" fill-opacity=".2" stroke="#7D80F8" stroke-opacity=".65"/>
+    <circle cx="77" cy="324.5" r="4" fill="#9FE2D5"/>
+    <text x="89" y="330" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#D6D9FF">100+ fiches</text>
+    <rect x="195" y="309" width="131" height="31" rx="15.5" fill="#6A69EB" fill-opacity=".12" stroke="#7D80F8" stroke-opacity=".35"/>
+    <text x="213" y="330" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#C3CBFF">Open source</text>
+
+    <g transform="translate(750 51)" filter="url(#shadow)">
+      <rect x="31" y="16" width="285" height="266" rx="23" fill="#111830" stroke="#465184" stroke-opacity=".42" transform="rotate(8 173 149)"/>
+      <rect x="0" y="25" width="300" height="252" rx="22" fill="url(#surface)" stroke="#7B85CC" stroke-opacity=".55"/>
+      <rect x="0" y="25" width="300" height="49" rx="22" fill="#232D53"/>
+      <path d="M0 54V74H300V54" fill="#232D53"/>
+      <circle cx="24" cy="49" r="4" fill="#A9ADFF"/><circle cx="40" cy="49" r="4" fill="#7379B9"/><circle cx="56" cy="49" r="4" fill="#7379B9"/>
+      <rect x="201" y="42" width="73" height="14" rx="7" fill="#373E6A"/>
+      <g transform="translate(22 93)">
+        <rect width="256" height="49" rx="11" fill="#2B355D" stroke="#7C8AFF" stroke-opacity=".28"/>
+        <circle cx="25" cy="24.5" r="12" fill="#A0A5FF"/><path d="M19 28L25 17L31 28Z" fill="#242B55"/>
+        <text x="47" y="20" fill="#F5F5FF" font-size="14" font-weight="700" font-family="Inter,Segoe UI,Arial,sans-serif">Arch Linux</text>
+        <text x="47" y="35" fill="#A4B1D6" font-size="10.5" font-family="Inter,Segoe UI,Arial,sans-serif">Flexibilité · Rolling release</text>
+        <circle cx="232" cy="25" r="4" fill="#8DE0BE"/>
+      </g>
+      <g transform="translate(22 150)">
+        <rect width="256" height="49" rx="11" fill="#242D50" stroke="#7C8AFF" stroke-opacity=".17"/>
+        <circle cx="25" cy="24.5" r="12" fill="#7ABBEF"/><path d="M22 15V35M28 15V35M18 25H32" stroke="#182641" stroke-width="1.6"/>
+        <text x="47" y="20" fill="#F5F5FF" font-size="14" font-weight="700" font-family="Inter,Segoe UI,Arial,sans-serif">Debian</text>
+        <text x="47" y="35" fill="#A4B1D6" font-size="10.5" font-family="Inter,Segoe UI,Arial,sans-serif">Stabilité · Polyvalence</text>
+        <circle cx="232" cy="25" r="4" fill="#8DE0BE"/>
+      </g>
+      <g transform="translate(22 207)">
+        <rect width="256" height="49" rx="11" fill="#242D50" stroke="#7C8AFF" stroke-opacity=".17"/>
+        <circle cx="25" cy="24.5" r="12" fill="#C3A0FF"/><path d="M18 26L25 17L32 26L25 33Z" fill="#283057"/>
+        <text x="47" y="20" fill="#F5F5FF" font-size="14" font-weight="700" font-family="Inter,Segoe UI,Arial,sans-serif">Fedora</text>
+        <text x="47" y="35" fill="#A4B1D6" font-size="10.5" font-family="Inter,Segoe UI,Arial,sans-serif">Innovation · Workstation</text>
+        <circle cx="232" cy="25" r="4" fill="#8DE0BE"/>
+      </g>
+    </g>
+    <circle cx="717" cy="111" r="6" fill="#B1B6FF" opacity=".8"/><circle cx="1113" cy="301" r="5" fill="#9BE2DC" opacity=".6"/>
+  </g>
+  <rect x="1" y="1" width="1198" height="378" rx="24" fill="none" stroke="#777AC1" stroke-opacity=".32" stroke-width="2"/>
+</svg>
