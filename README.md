@@ -18,7 +18,7 @@ Un explorateur de distributions Linux, BSD et systèmes apparentés, pour décou
 
 <br />
 
-[**Découvrir les fonctionnalités**](#-ce-que-vous-pouvez-faire) · [**Démarrer**](#-démarrage-rapide) · [**Déployer**](#-déploiement-docker) · [**Contribuer**](#-contribuer)
+[**🌍 Essayer DistroSentinel en ligne**](https://distro.techsentinel.fr/) · [**Découvrir les fonctionnalités**](#-ce-que-vous-pouvez-faire) · [**Démarrer**](#-démarrage-rapide) · [**Déployer**](#-déploiement-docker) · [**Contribuer**](#-contribuer)
 
 </div>
 
@@ -50,6 +50,14 @@ Chaque fiche met en perspective les **points forts**, les **limites**, les **usa
 > **Vous découvrez Linux ?** Commencez par le niveau *Débutant* et les usages qui vous intéressent. **Vous gérez une infrastructure ?** Essayez la vue *IT Pro* et les filtres *Serveur* ou *Sécurité*.
 
 ---
+
+## Questions fréquentes
+
+**Quelle distribution Linux choisir pour débuter ?** Filtrez le catalogue par niveau **Débutant**, puis par usage (bureautique, serveur, gaming ou matériel léger) pour comparer les compromis.
+
+**Peut-on essayer une distribution depuis le navigateur ?** Certaines fiches proposent un accès à la recherche correspondante sur DistroSea, selon la disponibilité de ce service tiers.
+
+**Faut-il installer DistroSentinel ?** Non pour la [version web](https://distro.techsentinel.fr/) ; le projet peut aussi être exécuté localement ou déployé avec Docker.
 
 ## 🧪 Pour tous les profils
 
