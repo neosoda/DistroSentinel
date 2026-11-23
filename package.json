@@ -6,8 +6,9 @@
     "dev": "vite",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
+    "validate:catalogue": "node --experimental-strip-types scripts/validate-catalogue.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "check": "npm run typecheck && npm test && npm run build",
+    "check": "npm run typecheck && npm run validate:catalogue && npm test && npm run build",
     "preview": "vite preview"
   },
   "keywords": [],
