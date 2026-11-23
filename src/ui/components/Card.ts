@@ -62,8 +62,11 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
         </a>` : `<span class="btn btn-download" aria-label="Lien de téléchargement non disponible">Lien indisponible</span>`}
 
         <button class="btn btn-try" type="button" data-try="${escapeHtml(d.distroSeaUrl)}" data-name="${escapeHtml(d.distro)}"
-          title="Tester en ligne (Nouvel onglet)">
+          title="Rechercher cette distribution sur DistroSea (nouvel onglet)">
           <i class="fas fa-desktop"></i> Essayer
+        </button>
+        <button class="btn btn-compare" type="button" data-compare="${escapeHtml(d.distro)}" aria-pressed="false">
+          <i class="fas fa-code-compare" aria-hidden="true"></i> Comparer
         </button>
       </div>
     `;

@@ -1,4 +1,5 @@
 import { bindAllEvents } from "./ui/events";
+import { bindDecisionTools, syncCompareUI } from "./ui/decision";
 import { bindExportEvents } from "./utils/export";
 import { enrichData } from "./domain/enrichment";
 import { enrichedDistros } from "./data/rawDistros";
@@ -12,10 +13,12 @@ const distrosObj = enrichData(enrichedDistros);
 // Initialize UI binding
 bindAllEvents();
 bindExportEvents(distrosObj);
+bindDecisionTools(distrosObj);
 
 // Connect UI to Global state Reactivity
 appStore.subscribe(() => {
     renderGrid(distrosObj);
+    syncCompareUI();
 });
 
 // Setup event delegation for dynamically created elements
@@ -40,4 +43,7 @@ document.addEventListener("click", (e) => {
 
 // Initial Render
 showSkeleton(10);
-requestAnimationFrame(() => setTimeout(() => renderGrid(distrosObj), 80));
+requestAnimationFrame(() => setTimeout(() => {
+    renderGrid(distrosObj);
+    syncCompareUI();
+}, 80));

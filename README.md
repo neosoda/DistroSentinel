@@ -34,6 +34,9 @@ Chaque fiche met en perspective les **points forts**, les **limites**, les **usa
 
 ### 🎯 Ce que vous pouvez faire
 
+**Nouveau :** un comparateur de 2 à 4 systèmes, et un assistant de recommandation local et explicable (expérience, usage, priorité). Les tags et niveaux sont inférés ; confirmez les données critiques auprès des projets officiels.
+
+
 | | Fonctionnalité | À quoi ça sert |
 | :--: | --- | --- |
 | 🔎 | **Recherche intelligente** | Retrouvez une distribution avec une recherche tolérante, portant aussi sur ses caractéristiques et usages. |

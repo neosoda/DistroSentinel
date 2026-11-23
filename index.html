@@ -111,6 +111,26 @@
   </aside>
 
   <main class="main-content">
+    <section class="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-copy">
+        <span class="welcome-eyebrow"><i class="fa-solid fa-compass" aria-hidden="true"></i> TROUVEZ VOTRE ENVIRONNEMENT</span>
+        <h1 id="welcomeTitle">Le bon système. <span>Pour vos besoins.</span></h1>
+        <p>Plus qu'un catalogue : explorez les différences, trouvez votre distribution et comparez les compromis, sans jargon inutile.</p>
+        <div class="welcome-actions">
+          <button type="button" id="openAdvisor" class="action-primary"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Quel Linux pour moi ?</button>
+          <button type="button" id="openCompare" class="action-secondary" disabled>Comparer <span id="compareCount">0/4</span></button>
+        </div>
+        <p class="welcome-hint">Sélectionnez 2 à 4 fiches avec « Comparer » pour créer un face-à-face. Les recommandations sont calculées localement, sans IA ni compte.</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <span class="orbit orbit-one"></span>
+        <span class="orbit orbit-two"></span>
+        <span class="orbit-center"><i class="fa-brands fa-linux"></i></span>
+        <span class="orbit-mark one"><i class="fa-solid fa-terminal"></i></span>
+        <span class="orbit-mark two"><i class="fa-solid fa-server"></i></span>
+        <span class="orbit-mark three"><i class="fa-solid fa-shield-halved"></i></span>
+      </div>
+    </section>
     <div class="top-bar">
       <h2 id="currentView">Toutes les distributions</h2>
       <div class="stats">
@@ -120,7 +140,54 @@
     </div>
 
     <div class="grid" id="gridContainer" aria-live="polite"></div>
+    <p class="catalogue-note">Les familles, niveaux et tags peuvent être estimés à partir des descriptions : vérifiez les caractéristiques et versions sur les sites officiels avant de choisir.</p>
   </main>
+
+  <dialog id="compareDialog" class="tool-dialog compare-dialog" aria-labelledby="compareTitle">
+    <header class="tool-head">
+      <div><span class="tool-kicker">FACE À FACE</span><h2 id="compareTitle">Comparer les distributions</h2></div>
+      <button type="button" class="tool-close" data-close-dialog aria-label="Fermer le comparateur"><i class="fa-solid fa-xmark"></i></button>
+    </header>
+    <div id="compareContent"></div>
+  </dialog>
+
+  <dialog id="advisorDialog" class="tool-dialog advisor-dialog" aria-labelledby="advisorTitle">
+    <header class="tool-head">
+      <div><span class="tool-kicker">VOTRE PARCOURS</span><h2 id="advisorTitle">Quel Linux pour moi ?</h2></div>
+      <button type="button" class="tool-close" data-close-dialog aria-label="Fermer l'assistant"><i class="fa-solid fa-xmark"></i></button>
+    </header>
+    <p class="tool-intro">Trois choix pour trouver des systèmes adaptés. Le classement s'appuie sur les données du catalogue et indique ses critères.</p>
+    <form id="advisorForm" class="advisor-form">
+      <label>Votre expérience avec Linux
+        <select name="experience" required>
+          <option value="Débutant">Je débute</option>
+          <option value="Intermédiaire">Je connais les bases</option>
+          <option value="Expert">Je suis à l'aise</option>
+        </select>
+      </label>
+      <label>Votre usage principal
+        <select name="usage" required>
+          <option value="Bureau">Bureautique et quotidien</option>
+          <option value="Gaming">Jeux vidéo</option>
+          <option value="Serveur">Serveur / homelab</option>
+          <option value="Sécurité">Cybersécurité</option>
+          <option value="Léger">PC peu puissant</option>
+          <option value="Création">Création de contenu</option>
+          <option value="Éducation">Apprentissage / éducation</option>
+        </select>
+      </label>
+      <label>Votre priorité
+        <select name="priority" required>
+          <option value="any">Un bon équilibre</option>
+          <option value="stable">Stabilité et versions éprouvées</option>
+          <option value="current">Logiciels et versions récents</option>
+        </select>
+      </label>
+      <button type="submit" class="action-primary">Voir mes propositions</button>
+    </form>
+    <div id="advisorResults" aria-live="polite"></div>
+  </dialog>
+  <div id="statusMessage" class="sr-only" role="status" aria-live="polite"></div>
 
   <!-- Script entry point -->
   <script type="module" src="/src/main.ts"></script>
