@@ -36,6 +36,8 @@ Chaque fiche met en perspective les **points forts**, les **limites**, les **usa
 
 **Nouveau :** un comparateur de 2 à 4 systèmes, et un assistant de recommandation local et explicable (expérience, usage, priorité). Les tags et niveaux sont inférés ; confirmez les données critiques auprès des projets officiels.
 
+**Qualité :** `npm run check` exécute le typage, la validation des données, les tests unitaires et le build. `npm run validate:catalogue` contrôle les doublons, champs requis et URLs du catalogue sans requêtes réseau.
+
 
 | | Fonctionnalité | À quoi ça sert |
 | :--: | --- | --- |
