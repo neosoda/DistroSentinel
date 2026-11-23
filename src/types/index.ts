@@ -38,18 +38,18 @@ export interface EnrichedDistro {
   };
 
   // Generated UI and enrichment fields from domain logic
-  family?: string;
-  level?: string;
-  tags?: string[];
-  strengths?: string[];
-  weakness?: string;
-  mode?: string;
-  fallbackColor?: string;
-  initials?: string;
-  logoUrl?: string;
-  distroSeaUrl?: string;
-  downloadLink?: string;
-  fiche?: string;
+  family: Family;
+  level: Level;
+  tags: string[];
+  strengths: string[];
+  weakness: string;
+  mode: ViewMode;
+  fallbackColor: string;
+  initials: string;
+  logoUrl: string;
+  distroSeaUrl: string;
+  downloadLink: string;
+  fiche: string;
 }
 
 export type Family = "Debian" | "RPM" | "Arch" | "BSD" | "Indep" | "all";

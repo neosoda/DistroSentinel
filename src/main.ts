@@ -7,7 +7,7 @@ import { appStore } from "./store/state";
 import "../style.css"; // Imported for Vite
 
 // Boot Process
-const distrosObj = enrichData(enrichedDistros as any);
+const distrosObj = enrichData(enrichedDistros);
 
 // Initialize UI binding
 bindAllEvents();
@@ -18,14 +18,6 @@ appStore.subscribe(() => {
     renderGrid(distrosObj);
 });
 
-// Modal System Handling
-const modal = document.getElementById("sessionModal") as HTMLElement;
-const modalClose = document.getElementById("modalClose") as HTMLElement;
-const modalName = document.getElementById("modalName") as HTMLElement;
-const modalHint = document.getElementById("modalHint") as HTMLElement;
-const modalOpenNew = document.getElementById("modalOpenNew") as HTMLAnchorElement;
-const sessionFrame = document.getElementById("sessionFrame") as HTMLIFrameElement;
-
 // Setup event delegation for dynamically created elements
 document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
@@ -33,7 +25,10 @@ document.addEventListener("click", (e) => {
     if (tryBtn) {
         // DistroSea blocks iframes via X-Frame-Options: Deny. 
         // Staff+ Decision: Direct external link for better reliability and security.
-        window.open(tryBtn.dataset.try!, '_blank', 'noopener,noreferrer');
+        const url = tryBtn.dataset.try;
+        if (url?.startsWith('https://distrosea.com/')) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
         return;
     }
     const favBtn = target.closest("button[data-fav]") as HTMLButtonElement | null;

@@ -1,23 +1,6 @@
-export type EnrichedDistro = {
-  distro: string;
-  base: string;
-  audience: string;
-  points: string;
-  usage: string;
-  description: string;
-  forWho: string;
-  whyChoose: string[];
-  limitations: string[];
-  useCases: string[];
-  technical: {
-    base: string;
-    packageManager: string;
-    releaseModel: string;
-    difficulty: string;
-  };
-};
+import type { RawDistro } from "../types/index.ts";
 
-export const enrichedDistros: EnrichedDistro[] = [
+export const enrichedDistros: RawDistro[] = [
   {
     distro: "ThinLinc",
     base: "Multi-distribution",

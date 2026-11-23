@@ -236,7 +236,7 @@ Les suggestions, corrections de fiches, améliorations d'accessibilité et contr
 [![Open an issue](https://img.shields.io/badge/Signaler_un_problème-ouvrir_une_issue-30386A?style=for-the-badge&logo=github&logoColor=white)](https://github.com/neosoda/DistroSentinel/issues/new)
 [![Pull requests](https://img.shields.io/badge/Proposer_une_amélioration-pull_request-6366F1?style=for-the-badge&logo=git&logoColor=white)](https://github.com/neosoda/DistroSentinel/pulls)
 
-**Licence :** le [`package.json`](package.json) déclare **ISC**. Aucun fichier `LICENSE` distinct n'est actuellement présent dans le dépôt.
+**Licence :** [ISC](LICENSE), conforme au [`package.json`](package.json).
 
 ---
 

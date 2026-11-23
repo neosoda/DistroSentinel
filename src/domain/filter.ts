@@ -1,5 +1,5 @@
-import { EnrichedDistro, AppState } from "../types";
-import { fuzzyScore } from "../utils/helpers";
+import type { EnrichedDistro, AppState } from "../types/index.ts";
+import { fuzzyScore } from "../utils/helpers.ts";
 
 function computeHaystack(d: EnrichedDistro): string {
   return [

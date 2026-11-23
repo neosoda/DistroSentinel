@@ -1,5 +1,5 @@
-import { RawDistro, EnrichedDistro, Family, Level, ViewMode } from "../types";
-import { logoSlugs, downloadMap, colorMap } from "../data/constants";
+import type { RawDistro, EnrichedDistro, Family, Level, ViewMode } from "../types/index.ts";
+import { logoSlugs, downloadMap, colorMap } from "../data/constants.ts";
 
 export function getLogoUrl(name: string): string {
   let slug = logoSlugs[name];
@@ -186,6 +186,12 @@ export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
     
     return {
       ...d,
+      description: d.description ?? "",
+      forWho: d.forWho ?? "",
+      whyChoose: d.whyChoose ?? [],
+      limitations: d.limitations ?? [],
+      useCases: d.useCases ?? [],
+      technical: d.technical ?? { base: d.base, packageManager: "Non renseigné", releaseModel: "Non renseigné", difficulty: "Non renseigné" },
       family,
       level,
       tags,
@@ -196,7 +202,7 @@ export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
       initials: String(d.distro || "??").substring(0, 2).toUpperCase(),
       logoUrl: getLogoUrl(d.distro),
       distroSeaUrl: distroSeaUrl(d.distro),
-      downloadLink: downloadMap[d.distro] || `https://www.google.com/search?q=download+iso+x86_64+${encodeURIComponent(d.distro)}`,
+      downloadLink: downloadMap[d.distro] || "",
       fiche: generateFiche(d, family, level, distroStrengths, distroWeakness)
     };
   });
