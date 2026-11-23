@@ -1,6 +1,7 @@
 export function fuzzyScore(hay: string, needle: string): number {
-  hay = hay.toLowerCase();
-  needle = needle.toLowerCase().trim();
+  const normalize = (text: string) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr");
+  hay = normalize(hay);
+  needle = normalize(needle).trim();
   if (!needle) return 1;
 
   let h = 0, n = 0, score = 0, streak = 0;
@@ -22,7 +23,7 @@ export function fuzzyScore(hay: string, needle: string): number {
   return Math.max(1, score);
 }
 
-export function debounce<T extends (...args: any[]) => any>(fn: T, ms: number) {
+export function debounce<T extends (...args: never[]) => unknown>(fn: T, ms: number) {
   let t: ReturnType<typeof setTimeout>;
   return (...args: Parameters<T>) => {
     clearTimeout(t);

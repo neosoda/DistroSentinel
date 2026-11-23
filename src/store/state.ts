@@ -6,6 +6,20 @@ const LS = {
 };
 
 type Listener = () => void;
+
+function getSavedFavorites(): Set<string> {
+  try {
+    const saved: unknown = JSON.parse(localStorage.getItem(LS.favs) || "[]");
+    return new Set(Array.isArray(saved) ? saved.filter((value): value is string => typeof value === "string") : []);
+  } catch {
+    return new Set<string>();
+  }
+}
+
+function savePreference(key: string, value: string): void {
+  try { localStorage.setItem(key, value); } catch { /* Stockage indisponible */ }
+}
+
 class Store {
   private state: AppState;
   private listeners: Set<Listener> = new Set();
@@ -20,7 +34,7 @@ class Store {
       sort: "relevance",
       favOnly: false,
       matchAllTags: false,
-      favorites: new Set<string>(JSON.parse(localStorage.getItem(LS.favs) || "[]"))
+      favorites: getSavedFavorites()
     };
   }
 
@@ -41,7 +55,7 @@ class Store {
       newFavs.add(distroName);
     }
     this.state.favorites = newFavs;
-    localStorage.setItem(LS.favs, JSON.stringify(Array.from(newFavs)));
+    savePreference(LS.favs, JSON.stringify(Array.from(newFavs)));
     this.notify();
   }
 
@@ -66,11 +80,11 @@ class Store {
   }
 
   getTheme(): string {
-    return localStorage.getItem(LS.theme) || "dark";
+    try { return localStorage.getItem(LS.theme) === "light" ? "light" : "dark"; } catch { return "dark"; }
   }
 
   setTheme(mode: string) {
-    localStorage.setItem(LS.theme, mode);
+    savePreference(LS.theme, mode);
   }
 }
 

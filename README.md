@@ -34,6 +34,11 @@ Chaque fiche met en perspective les **points forts**, les **limites**, les **usa
 
 ### 🎯 Ce que vous pouvez faire
 
+**Nouveau :** un comparateur de 2 à 4 systèmes, et un assistant de recommandation local et explicable (expérience, usage, priorité). Les tags et niveaux sont inférés ; confirmez les données critiques auprès des projets officiels.
+
+**Qualité :** `npm run check` exécute le typage, la validation des données, les tests unitaires et le build. `npm run validate:catalogue` contrôle les doublons, champs requis et URLs du catalogue sans requêtes réseau.
+
+
 | | Fonctionnalité | À quoi ça sert |
 | :--: | --- | --- |
 | 🔎 | **Recherche intelligente** | Retrouvez une distribution avec une recherche tolérante, portant aussi sur ses caractéristiques et usages. |
@@ -236,7 +241,7 @@ Les suggestions, corrections de fiches, améliorations d'accessibilité et contr
 [![Open an issue](https://img.shields.io/badge/Signaler_un_problème-ouvrir_une_issue-30386A?style=for-the-badge&logo=github&logoColor=white)](https://github.com/neosoda/DistroSentinel/issues/new)
 [![Pull requests](https://img.shields.io/badge/Proposer_une_amélioration-pull_request-6366F1?style=for-the-badge&logo=git&logoColor=white)](https://github.com/neosoda/DistroSentinel/pulls)
 
-**Licence :** le [`package.json`](package.json) déclare **ISC**. Aucun fichier `LICENSE` distinct n'est actuellement présent dans le dépôt.
+**Licence :** [ISC](LICENSE), conforme au [`package.json`](package.json).
 
 ---
 

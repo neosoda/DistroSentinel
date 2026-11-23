@@ -9,7 +9,7 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
       <div class="card-header">
         <div class="logo-wrapper" aria-hidden="true">
           <img loading="lazy" src="${escapeHtml(d.logoUrl)}" class="logo-img" alt="${escapeHtml(d.distro)}"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               >
           <div class="avatar-fallback" style="background:${escapeHtml(d.fallbackColor)}">${escapeHtml(d.initials)}</div>
         </div>
 
@@ -56,14 +56,17 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
       </div>
 
       <div class="card-footer">
-        <a href="${escapeHtml(d.downloadLink)}" target="_blank" rel="noopener" class="btn btn-download"
-          title="Téléchargement (x64) – page officielle / releases">
-          <i class="fas fa-download"></i> Télécharger ISO
-        </a>
+        ${d.downloadLink ? `<a href="${escapeHtml(d.downloadLink)}" target="_blank" rel="noopener noreferrer" class="btn btn-download"
+          title="Consulter la page de téléchargement ou les ressources du projet">
+          <i class="fas fa-download"></i> Télécharger / site
+        </a>` : `<span class="btn btn-download" aria-label="Lien de téléchargement non disponible">Lien indisponible</span>`}
 
         <button class="btn btn-try" type="button" data-try="${escapeHtml(d.distroSeaUrl)}" data-name="${escapeHtml(d.distro)}"
-          title="Tester en ligne (Nouvel onglet)">
+          title="Rechercher cette distribution sur DistroSea (nouvel onglet)">
           <i class="fas fa-desktop"></i> Essayer
+        </button>
+        <button class="btn btn-compare" type="button" data-compare="${escapeHtml(d.distro)}" aria-pressed="false">
+          <i class="fas fa-code-compare" aria-hidden="true"></i> Comparer
         </button>
       </div>
     `;
@@ -73,5 +76,11 @@ export function createCardDOM(d: EnrichedDistro, isFav: boolean): HTMLElement {
   const card = document.createElement("article");
   card.className = "card";
   card.innerHTML = createCardHTML(d, isFav);
+  const logo = card.querySelector<HTMLImageElement>(".logo-img");
+  logo?.addEventListener("error", () => {
+    logo.style.display = "none";
+    const fallback = logo.nextElementSibling as HTMLElement | null;
+    if (fallback) fallback.style.display = "flex";
+  });
   return card;
 }

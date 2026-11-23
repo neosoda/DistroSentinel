@@ -1,5 +1,5 @@
-import { RawDistro, EnrichedDistro, Family, Level, ViewMode } from "../types";
-import { logoSlugs, downloadMap, colorMap } from "../data/constants";
+import type { RawDistro, EnrichedDistro, Family, Level, ViewMode } from "../types/index.ts";
+import { logoSlugs, downloadMap, colorMap } from "../data/constants.ts";
 
 export function getLogoUrl(name: string): string {
   let slug = logoSlugs[name];
@@ -52,47 +52,13 @@ export function inferTags(d: RawDistro): string[] {
   return Array.from(tags);
 }
 
-export function genStrengths(d: RawDistro, family: string, level: string, tags: string[]): string[] {
-  const out: string[] = [];
-  if (d.points) out.push(d.points);
-
-  const name = String(d.distro || "").toLowerCase();
-
-  if (family === "Debian") out.push("Stabilité + dépôts énormes");
-  if (family === "RPM") out.push("Bon fit entreprise / serveur");
-  if (family === "Arch") out.push("Paquets récents + flexibilité");
-  if (family === "BSD") out.push("Robustesse + réseau/FS");
-
-  if (tags.includes("Immutable")) out.push("MAJ atomiques / rollback plus simple");
-  if (tags.includes("Embarqué")) out.push("Footprint faible, orienté appliance");
-  if (tags.includes("Sécurité")) out.push("Orientation sécurité (outillage ou durcissement)");
-  if (tags.includes("Gaming")) out.push("Optimisations desktop/gaming");
-  if (tags.includes("Performance")) out.push("Optimisations performance (stack ciblée)");
-
-  if (level === "Débutant") out.push("Prise en main rapide");
-  if (level === "Expert") out.push("Contrôle fin (au prix du temps)");
-
-  if (name.includes("nixos")) out.push("Déclaratif: infra reproductible");
-  if (name.includes("qubes")) out.push("Compartimentation forte (VM)");
-
-  return Array.from(new Set(out)).slice(0, 3);
+// Only show statements curated in the catalogue; never infer strengths from family alone.
+export function genStrengths(d: RawDistro, _family: string, _level: string, _tags: string[]): string[] {
+  const values = [...(d.whyChoose ?? []), d.points].map(x => x.trim()).filter(Boolean);
+  return Array.from(new Set(values)).slice(0, 3);
 }
-
-export function genWeakness(d: RawDistro, family: string, level: string, tags: string[]): string {
-  const name = String(d.distro || "").toLowerCase();
-
-  if (name.includes("qubes")) return "Exigeant en ressources + workflow particulier";
-  if (name.includes("tails")) return "Confort limité hors anonymat (sessions éphémères)";
-  if (tags.includes("Immutable")) return "Paradigme différent (containers/flatpak), friction initiale";
-  if (tags.includes("Embarqué")) return "Pas orienté desktop; build/flash/target-specific";
-  if (tags.includes("Sécurité") && (name.includes("kali") || name.includes("parrot"))) return "Pas un OS 'quotidien' standard (outillage + modèle d’usage)";
-
-  if (family === "Arch") return "Rolling: MAJ fréquentes, risque de casse si négligé";
-  if (family === "Debian" && !name.includes("siduction")) return "Paquets souvent plus anciens";
-  if (family === "RPM" && (String(d.base || "").toLowerCase().includes("rhel") || String(d.base || "").toLowerCase().includes("centos"))) return "Nouveautés plus lentes (orienté stabilité)";
-  if (level === "Expert") return "Courbe d’apprentissage élevée";
-  if (level === "Débutant") return "Moins de contrôle fin / choix imposés";
-  return "Compromis standard (selon besoins)";
+export function genWeakness(d: RawDistro, _family: string, _level: string, _tags: string[]): string {
+  return d.limitations?.find(x => x.trim()) || "Non renseigné";
 }
 
 export function classifyMode(d: RawDistro): ViewMode {
@@ -104,72 +70,31 @@ export function classifyMode(d: RawDistro): ViewMode {
   return "all";
 }
 
-export function getPackageManager(base: string): string {
-  const b = String(base || "").toLowerCase();
-  if (b.includes("debian") || b.includes("ubuntu") || b.includes("mint")) return "APT (dpkg)";
-  if (b.includes("arch") || b.includes("manjaro")) return "Pacman";
-  if (b.includes("rhel") || b.includes("fedora") || b.includes("centos") || b.includes("alma") || b.includes("rocky")) return "DNF / YUM (rpm)";
-  if (b.includes("suse") || b.includes("tumbleweed")) return "Zypper (rpm)";
-  if (b.includes("alpine")) return "APK";
-  if (b.includes("gentoo")) return "Portage";
-  if (b.includes("void")) return "XBPS";
-  if (b.includes("nixos")) return "Nix";
-  return "Spécifique / Variable";
-}
+export function generateFiche(d: RawDistro, _family: string, level: string, strengths: string[], weakness: string): string {
+  const whyChoose = d.whyChoose?.length ? d.whyChoose : strengths;
+  const limitations = d.limitations?.length ? d.limitations : [weakness];
+  const useCases = d.useCases?.length ? d.useCases : d.usage.split(",").map(x => x.trim());
+  return `### Présentation
+${d.description || "Non renseigné"}
 
-export function getReleaseModel(base: string, name: string): string {
-  const n = String(name || "").toLowerCase();
-  const b = String(base || "").toLowerCase();
-  if (n.includes("arch") || n.includes("manjaro") || n.includes("tumbleweed") || n.includes("void") || n.includes("gentoo") || b.includes("arch")) return "Rolling Release (Mises à jour continues)";
-  if (n.includes("fedora") || n.includes("ubuntu")) return "Fixed Release (Cycle régulier, ex: 6 mois)";
-  if (n.includes("debian") || n.includes("rhel") || n.includes("almalinux") || n.includes("rocky") || n.includes("mint")) return "LTS / Point Release (Orienté stabilité long terme)";
-  return "Standard (Versions périodiques)";
-}
+### Pour qui ?
+${d.forWho || d.audience}
 
-export function generateFiche(d: RawDistro, family: string, level: string, strengths: string[], weakness: string): string {
-  const pkgManager = d.technical?.packageManager || getPackageManager(d.base);
-  const releaseModel = d.technical?.releaseModel || getReleaseModel(d.base, d.distro);
-  
-  let philo = "Pragmatique et polyvalente";
-  if (family === "Arch") philo = "KISS (Keep It Simple, Stupid) et flexibilité maximale";
-  if (family === "Debian") philo = "Logiciel libre, universalité et stabilité réputée";
-  if (family === "RPM") philo = "Standardisation professionnelle et innovation mesurée";
-  if (family === "BSD") philo = "Système complet cohésif et ingénierie rigoureuse";
-  if (String(d.distro || "").toLowerCase().includes("nixos")) philo = "Configuration déclarative pure et environnements immutables";
-  
-  const diffTexte = level === "Débutant" 
-    ? "Facile d'accès. L'installation graphique et la configuration par défaut permettent un usage immédiat sans ligne de commande." 
-    : level === "Expert" 
-      ? "Exigeante. Requiert une bonne connaissance de la ligne de commande, voire une configuration et installation 100% manuelles." 
-      : "Modérée. Des bases sous Linux aident, mais le système propose des outils semi-automatisés et une documentation solide.";
+### Pourquoi le choisir ?
+${whyChoose.map(x => `- ${x}`).join("\n")}
 
-  const whyChooseList = d.whyChoose && d.whyChoose.length > 0 ? d.whyChoose : strengths;
-  const limitationsList = d.limitations && d.limitations.length > 0 ? d.limitations : [weakness];
-  const useCasesList = d.useCases && d.useCases.length > 0 ? d.useCases : d.usage.split(',').map(u => u.trim());
+### Limites
+${limitations.map(x => `- ${x}`).join("\n")}
 
-  return `### 🧠 Présentation rapide
-${d.description || `${d.distro} est une distribution basée sur ${d.base || "indépendante"}. Elle est conçue autour d'un objectif clair : ${d.points || 'stabilité et de performance'}.`}
+### Usages
+${useCases.map(x => `- ${x}`).join("\n")}
 
-### 🎯 Pour qui ?
-${d.forWho || `Ce système s'adresse idéalement au public suivant : **${d.audience}**.`}
-
-### 💡 Pourquoi la choisir ?
-${whyChooseList.map(s => `- ${s}`).join("\n")}
-
-### ⚠️ À savoir (Limites)
-${limitationsList.map(l => `- ${l}`).join("\n")}
-
-### 🧪 Cas d’usage typiques
-${useCasesList.map(u => `- ${u}`).join("\n")}
-
-### ⚙️ Niveau technique
-- **${d.technical?.difficulty || level}** : ${diffTexte}
-
-### 🧬 ADN technique
-- **Base système** : ${d.technical?.base || d.base || 'Indépendante'}
-- **Gestionnaire de paquets** : ${pkgManager}
-- **Modèle de publication** : ${releaseModel}
-- **Philosophie** : ${philo}`;
+### Informations techniques
+- **Base** : ${d.technical?.base || d.base || "Non renseigné"}
+- **Gestionnaire de paquets** : ${d.technical?.packageManager || "Non renseigné"}
+- **Publication** : ${d.technical?.releaseModel || "Non renseigné"}
+- **Difficulté déclarée** : ${d.technical?.difficulty || "Non renseigné"}
+- **Difficulté estimée** : ${level} (heuristique, à vérifier)`;
 }
 
 export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
@@ -186,6 +111,12 @@ export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
     
     return {
       ...d,
+      description: d.description ?? "",
+      forWho: d.forWho ?? "",
+      whyChoose: d.whyChoose ?? [],
+      limitations: d.limitations ?? [],
+      useCases: d.useCases ?? [],
+      technical: d.technical ?? { base: d.base, packageManager: "Non renseigné", releaseModel: "Non renseigné", difficulty: "Non renseigné" },
       family,
       level,
       tags,
@@ -196,7 +127,7 @@ export function enrichData(rawData: RawDistro[]): EnrichedDistro[] {
       initials: String(d.distro || "??").substring(0, 2).toUpperCase(),
       logoUrl: getLogoUrl(d.distro),
       distroSeaUrl: distroSeaUrl(d.distro),
-      downloadLink: downloadMap[d.distro] || `https://www.google.com/search?q=download+iso+x86_64+${encodeURIComponent(d.distro)}`,
+      downloadLink: downloadMap[d.distro] || "",
       fiche: generateFiche(d, family, level, distroStrengths, distroWeakness)
     };
   });
