@@ -80,7 +80,7 @@ class Store {
   }
 
   getTheme(): string {
-    try { return localStorage.getItem(LS.theme) === "light" ? "light" : "dark"; } catch { return "dark"; }
+    try { return localStorage.getItem(LS.theme) === "dark" ? "dark" : "light"; } catch { return "light"; }
   }
 
   setTheme(mode: string) {
