@@ -2,6 +2,7 @@ import type { EnrichedDistro } from "../types/index.ts";
 import { rankDistros } from "../domain/recommend.ts";
 import type { AdvisorPreferences } from "../domain/recommend.ts";
 import { escapeHtml } from "../utils/helpers.ts";
+import { animateFeedback } from "./motion";
 
 const selected = new Set<string>();
 let catalogue: EnrichedDistro[] = [];
@@ -101,6 +102,7 @@ export function bindDecisionTools(distros: EnrichedDistro[]): void {
       else if (selected.size < 4) selected.add(name);
       else { announce("Maximum de quatre distributions pour comparer."); return; }
       syncCompareUI();
+      animateFeedback(compare.querySelector(".ui-icon"));
       announce(selected.size + " distribution(s) sélectionnée(s).");
     }
     const close = target.closest<HTMLButtonElement>("[data-close-dialog]");

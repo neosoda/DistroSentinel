@@ -5,7 +5,9 @@ import { enrichData } from "./domain/enrichment";
 import { enrichedDistros } from "./data/rawDistros";
 import { renderGrid, showSkeleton, bindCatalogueView } from "./ui/render";
 import { appStore } from "./store/state";
-import "../style.css"; // Imported for Vite
+import { bindMotion } from "./ui/motion";
+import "../style.css";
+import "../motion.css"; // Imported for Vite
 
 // Boot Process
 const distrosObj = enrichData(enrichedDistros);
@@ -15,6 +17,7 @@ bindAllEvents();
 bindCatalogueView();
 bindExportEvents(distrosObj);
 bindDecisionTools(distrosObj);
+bindMotion();
 
 // Connect UI to Global state Reactivity
 appStore.subscribe(() => {
