@@ -1,0 +1,88 @@
+/* Sentinel Motion — V15 premium interaction layer.
+   Motion is action-driven, bounded and independent of third-party libraries. */
+:root{
+  --motion-ease:cubic-bezier(.22,1,.36,1);
+  --motion-fast:150ms;--motion-normal:260ms;--motion-slow:520ms;
+}
+body{--nav-width:198px;--nav-highlight:#f0eaff;--nav-ink:#362957;--nav-muted:#c8bde6;--nav-accent:#b7a8ff}
+.dashboard-shell{grid-template-columns:var(--nav-width) minmax(0,1fr);gap:18px}
+.dashboard-shell.nav-compact{--nav-width:72px}
+.nav-rail{isolation:isolate;overflow:visible;align-items:stretch;gap:6px;padding:15px 10px;border:1px solid #ffffff1c;background:linear-gradient(150deg,#51447c 0%,#362959 39%,#221b43 82%);box-shadow:0 16px 40px #20153c29,inset 0 1px 0 #ffffff26;min-height:455px}
+.nav-rail::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at 25% 0%,#d8c6ff29,transparent 60%);pointer-events:none;z-index:-1}
+.rail-brand{position:relative;z-index:1;display:flex;align-items:center;justify-content:flex-start;gap:9px;width:100%;height:56px;padding:8px;margin:0 0 16px;font-size:24px;flex-shrink:0;white-space:nowrap}
+.rail-brand>.ui-icon{width:31px;height:31px;padding:5px;box-sizing:content-box;background:linear-gradient(150deg,#b3a2ed33,#e9dbff12);border:1px solid #ffffff22;border-radius:12px;transition:transform var(--motion-normal) var(--motion-ease)}
+.rail-brand:hover>.ui-icon{transform:rotate(-7deg) scale(1.06)}
+.rail-wordmark{font-size:13px;font-weight:800;letter-spacing:-.35px;line-height:1.3}
+.rail-wordmark>span{color:#d6c4fc}
+.rail-wordmark small{display:block;color:#c7bada;font-weight:400;font-size:10px;letter-spacing:.1px;margin-top:2px}
+.rail-label{writing-mode:horizontal-tb;transform:none;text-transform:uppercase;color:var(--nav-muted);letter-spacing:1.5px;font-weight:600;font-size:9px;padding:5px 10px;margin:0 0 4px;line-height:1.4}
+.rail-secondary{margin-top:6px}
+.rail-link,.nav-collapse{position:relative;z-index:1;width:100%;height:46px;display:flex;align-items:center;justify-content:flex-start;gap:12px;padding:0 12px;border:0;border-radius:12px;background:transparent;color:var(--nav-muted);box-shadow:none;font-size:17px;cursor:pointer;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:color var(--motion-fast),transform var(--motion-fast) var(--motion-ease)}
+.nav-text{font-size:12px;font-weight:600;line-height:1.2}
+.rail-link>.ui-icon,.nav-collapse>.ui-icon{transition:transform var(--motion-normal) var(--motion-ease)}
+.rail-link:hover:not(:disabled),.nav-collapse:hover{background:#ffffff12;color:#fff}
+.rail-link:hover:not(:disabled)>.ui-icon{transform:translateY(-2px) scale(1.12)}
+.rail-link:active:not(:disabled),.nav-collapse:active{transform:scale(.96)}
+.rail-link.rail-current,.rail-link.rail-current:hover{color:var(--nav-ink);background:transparent;box-shadow:none}
+.rail-link[aria-pressed=true]:not(.rail-current){color:#f1eaff;background:#ffffff12;box-shadow:none}
+.rail-current::after{display:none}
+.rail-link:disabled{opacity:.46}
+.rail-link:focus-visible,.nav-collapse:focus-visible,.rail-brand:focus-visible{outline:2px solid #eee4ff;outline-offset:2px}
+.nav-indicator{position:absolute;top:0;left:0;z-index:0;pointer-events:none;border-radius:12px;opacity:0;transform:translate3d(var(--indicator-x,0px),var(--indicator-y,0px),0);background:linear-gradient(120deg,#f7f3ff,#e2d7fa 68%,#f7edff);box-shadow:0 6px 18px #170c3a35,inset 0 1px 0 #fff,inset 3px 0 0 #b6a0eb}
+.nav-indicator.is-ready{opacity:1}
+.nav-rail.motion-ready .nav-indicator{transition:transform 360ms var(--motion-ease),opacity var(--motion-fast)}
+.nav-collapse{color:#c8bde6;border-top:1px solid #ffffff1a;border-radius:8px;margin-top:5px;font-size:13px}
+.nav-collapse>.ui-icon{transform:rotate(180deg)}
+.nav-compact .nav-collapse>.ui-icon{transform:rotate(0)}
+.nav-compact .rail-brand{justify-content:center;padding:0}
+.nav-compact .rail-wordmark,.nav-compact .nav-text,.nav-compact .rail-label{display:none}
+.nav-compact .rail-link,.nav-compact .nav-collapse{justify-content:center;padding:0}
+@media(max-width:1199px){.dashboard-shell{--nav-width:72px}.nav-collapse{display:none}}
+/* One signature reveal: the Linux constellation, not every dashboard section. */
+.welcome{--hero-light:#b4a1e5;isolation:isolate}
+.welcome::after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;opacity:.6;background:radial-gradient(ellipse at 86% 45%,#b7a5e338,transparent 43%);transition:opacity var(--motion-slow) var(--motion-ease)}
+.welcome:hover::after{opacity:1}
+body:not(.light) .welcome::after{background:radial-gradient(ellipse at 86% 45%,#b6a0fc28,transparent 44%)}
+body.motion-ready .welcome-art{animation:constellation-arrive 700ms var(--motion-ease) both}
+@keyframes constellation-arrive{from{opacity:.25;transform:translateX(18px) scale(.93)}to{opacity:1;transform:translateX(0) scale(1)}}
+.orbit,.orbit-mark,.orbit-center{transition:transform var(--motion-slow) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease)}
+.welcome:hover .orbit-one{transform:scale(1.06)}.welcome:hover .orbit-two{transform:scale(1.035)}
+.welcome:hover .orbit-center{transform:translateY(-4px) rotate(-4deg);box-shadow:0 20px 48px #4d3b8b66}
+.welcome:hover .orbit-mark.one{transform:translate(-3px,-5px)}
+.welcome:hover .orbit-mark.two{transform:translate(5px,0)}
+.welcome:hover .orbit-mark.three{transform:translate(-3px,5px)}
+.action-primary{position:relative;isolation:isolate;overflow:hidden;transition:transform var(--motion-fast) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease)}
+.action-primary::after{content:"";position:absolute;inset:-50% -70%;z-index:-1;pointer-events:none;background:linear-gradient(105deg,transparent 40%,#ffffff24 50%,transparent 60%);transform:translateX(-65%);transition:transform 600ms var(--motion-ease)}
+.action-primary:hover:not(:disabled)::after{transform:translateX(65%)}
+.action-primary:hover:not(:disabled){box-shadow:0 8px 22px #5946a044;transform:translateY(-1px)}
+.action-primary:active:not(:disabled){transform:scale(.975)}
+.metric{position:relative;overflow:hidden;transition:transform var(--motion-normal) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease)}
+.metric strong{display:block;font-variant-numeric:tabular-nums;transform-origin:left center}
+.metric-icon{transition:transform var(--motion-normal) var(--motion-ease)}
+@media(hover:hover) and (pointer:fine){.metric:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}.metric:hover .metric-icon{transform:scale(1.08) rotate(-5deg)}}
+.view-switch button,.row-fav,.row-detail,.page-controls button,.tray-item,.action-secondary,.tool-close,.reset-btn{transition:transform var(--motion-fast) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease),border-color var(--motion-fast)}
+.view-switch button:active,.row-fav:active,.row-detail:active,.page-controls button:active,.tray-item:active,.action-secondary:active,.tool-close:active,.reset-btn:active{transform:scale(.96)}
+.catalogue-table tbody tr{transition:background-color 130ms ease}
+.catalogue-table tbody tr:focus-within{background:var(--bg-surface-hover)}
+.card{transition:transform var(--motion-normal) var(--motion-ease),box-shadow var(--motion-normal) var(--motion-ease)}
+.card:focus-within{box-shadow:var(--shadow-md)}
+.tool-dialog[open]{animation:sentinel-dialog-in 300ms var(--motion-ease) both}
+.tool-dialog[open]::backdrop{animation:sentinel-backdrop-in 220ms ease both}
+@keyframes sentinel-dialog-in{from{opacity:.4;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes sentinel-backdrop-in{from{opacity:0}to{opacity:1}}
+.filter-details[open]>.filter-content{animation:sentinel-filter-in 220ms var(--motion-ease) both}
+@keyframes sentinel-filter-in{from{opacity:.65;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.compare-tray:not([hidden]){animation:sentinel-filter-in 220ms var(--motion-ease) both}
+@media(max-width:600px){
+ .dashboard-shell{display:block;--nav-width:auto}
+ .nav-rail{position:relative;top:auto;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;padding:7px;min-height:0;height:auto;align-items:center;border-radius:15px}
+ .rail-brand,.rail-label,.rail-spacer,.nav-collapse{display:none!important}
+ .rail-link{flex-direction:column;justify-content:center;gap:4px;padding:4px 0;min-width:0;width:100%;height:48px;font-size:17px;border-radius:10px}
+ .rail-link .nav-text{display:block;font-size:clamp(9px,2.55vw,10px);letter-spacing:-.25px}
+ .nav-indicator{border-radius:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;animation-delay:0ms!important;scroll-behavior:auto!important}
+ .rail-link:hover>.ui-icon,.rail-brand:hover>.ui-icon,.metric:hover,.metric:hover .metric-icon,.welcome:hover .orbit,.welcome:hover .orbit-mark,.welcome:hover .orbit-center,.card:hover,.action-primary:hover:not(:disabled){transform:none!important}
+ .action-primary::after{display:none}
+}

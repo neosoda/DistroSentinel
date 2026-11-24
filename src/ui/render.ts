@@ -4,6 +4,7 @@ import { createCardDOM } from "./components/Card";
 import { EnrichedDistro } from "../types";
 import { escapeHtml } from "../utils/helpers";
 import { syncCompareUI } from "./decision";
+import { animateCatalogue, animateFeedback } from "./motion";
 
 const grid = document.getElementById("gridContainer") as HTMLElement;
 const countDiv = document.getElementById("resultCount") as HTMLElement;
@@ -93,10 +94,14 @@ export function renderGrid(distrosObj: EnrichedDistro[]) {
 
   const state = appStore.State;
   const filtered = getFilteredAndSortedData(distrosObj, state);
-  document.getElementById("metricTotal")!.textContent = String(distrosObj.length);
-  document.getElementById("metricFamilies")!.textContent = String(new Set(distrosObj.map(d => d.family)).size);
-  document.getElementById("metricFavorites")!.textContent = String(distrosObj.filter(d => state.favorites.has(d.distro)).length);
-  document.getElementById("metricResults")!.textContent = String(filtered.length);
+  const metrics = { metricTotal: distrosObj.length, metricFamilies: new Set(distrosObj.map(d => d.family)).size, metricFavorites: distrosObj.filter(d => state.favorites.has(d.distro)).length, metricResults: filtered.length };
+  Object.entries(metrics).forEach(([id,value]) => {
+    const element = document.getElementById(id)!;
+    if (element.textContent !== String(value)) {
+      element.textContent = String(value);
+      animateFeedback(element, "reveal");
+    }
+  });
   countDiv.textContent = `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}`;
 
   const signature = JSON.stringify([state.search,state.family,state.level,[...state.tags],state.mode,state.sort,state.favOnly,state.matchAllTags]);
@@ -135,6 +140,7 @@ export function renderGrid(distrosObj: EnrichedDistro[]) {
         <h3>Aucune distribution trouvée</h3><p>Essayez une autre recherche ou réinitialisez les filtres.</p>
         <button type="button" class="reset-btn" data-reset-filters>Réinitialiser les filtres</button>
       </div>`;
+    animateCatalogue(grid, view + ":" + signature + ":empty");
     return;
   }
 
@@ -160,4 +166,5 @@ export function renderGrid(distrosObj: EnrichedDistro[]) {
     Array.from(grid.querySelectorAll<HTMLButtonElement>("button")).find(b => b.dataset[focusKey] === focusName)?.focus({preventScroll:true});
   }
   syncCompareUI();
+  animateCatalogue(grid, view + ":" + signature + ":" + page + ":" + JSON.stringify(visible.map(d => d.distro)));
 }
