@@ -14,16 +14,26 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="light">
+  <div class="dashboard-shell">
+    <nav class="nav-rail" aria-label="Navigation principale">
+      <a class="rail-brand" href="#welcomeTitle" aria-label="DistroSentinel"><i class="fa-brands fa-linux" aria-hidden="true"></i></a>
+      <span class="rail-label">EXPLORER</span>
+      <a class="rail-link rail-current" href="#catalogue" title="Catalogue" aria-label="Catalogue"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></a>
+      <button class="rail-link" id="railAdvisor" title="Assistant" aria-label="Assistant"><i class="fa-solid fa-compass" aria-hidden="true"></i></button>
+      <button class="rail-link" id="railFavorites" title="Favoris" aria-label="Favoris" aria-pressed="false"><i class="fa-regular fa-star" aria-hidden="true"></i></button>
+      <button class="rail-link" id="railCompare" title="Comparer" aria-label="Comparer" disabled><i class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+      <span class="rail-spacer"></span>
+      <button class="rail-link" id="themeToggle" title="Mode sombre/clair" aria-label="Basculer le thème"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
+      <a class="rail-link" href="https://github.com/neosoda/DistroSentinel" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+    </nav>
+    <div class="dashboard-content">
+      <header class="dashboard-topbar"><div class="breadcrumb"><strong>DISTROSENTINEL</strong><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>Catalogue</span></div><span class="local-label"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Exploration locale</span></header>
+      <div class="workspace">
   <aside class="sidebar" aria-label="Filtres et options">
     <div class="brand">
-      <div class="brand-logo">
-        <img src="/logo.png" alt="DistroSentinel Logo" class="main-logo">
-      </div>
+      <div class="brand-logo"><i class="fa-solid fa-sliders" aria-hidden="true"></i> <strong>Filtres</strong></div>
       <div class="brand-actions">
-        <button class="icon-btn" id="themeToggle" title="Mode sombre/clair" aria-label="Basculer le thème">
-          <i class="fa-solid fa-circle-half-stroke"></i>
-        </button>
         <button class="icon-btn" id="exportJson" title="Exporter JSON" aria-label="Exporter JSON">
           <i class="fa-solid fa-file-code"></i>
         </button>
@@ -33,6 +43,7 @@
       </div>
     </div>
 
+    <details class="filter-details" open><summary>Affiner la recherche</summary><div class="filter-content">
     <div class="search-container">
       <i class="fas fa-search search-icon"></i>
       <input type="text" id="searchInput" class="search-input" placeholder="Recherche (ex. 'Ubuntu')" aria-label="Rechercher une distribution">
@@ -108,6 +119,8 @@
       </div>
     </div>
 
+    <button type="button" class="reset-btn" id="resetFilters"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Réinitialiser les filtres</button>
+    </div></details>
   </aside>
 
   <main class="main-content">
@@ -131,7 +144,13 @@
         <span class="orbit-mark three"><i class="fa-solid fa-shield-halved"></i></span>
       </div>
     </section>
-    <div class="top-bar">
+    <section class="overview-metrics" aria-label="Indicateurs du catalogue">
+      <div class="metric"><span class="metric-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span><strong id="metricTotal">—</strong><span>Distributions</span></div>
+      <div class="metric"><span class="metric-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span><strong id="metricFamilies">—</strong><span>Familles</span></div>
+      <div class="metric"><span class="metric-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><strong id="metricFavorites">—</strong><span>Favoris</span></div>
+      <div class="metric"><span class="metric-icon"><i class="fa-solid fa-filter" aria-hidden="true"></i></span><strong id="metricResults">—</strong><span>Résultats filtrés</span></div>
+    </section>
+    <div class="top-bar" id="catalogue">
       <h2 id="currentView">Toutes les distributions</h2>
       <div class="stats">
         <span class="pill" id="resultCount">Chargement...</span>
@@ -142,6 +161,7 @@
     <div class="grid" id="gridContainer" aria-live="polite"></div>
     <p class="catalogue-note">Les familles, niveaux et tags peuvent être estimés à partir des descriptions : vérifiez les caractéristiques et versions sur les sites officiels avant de choisir.</p>
   </main>
+  </div></div></div>
 
   <dialog id="compareDialog" class="tool-dialog compare-dialog" aria-labelledby="compareTitle">
     <header class="tool-head">

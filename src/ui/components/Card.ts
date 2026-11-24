@@ -23,7 +23,7 @@ export function createCardHTML(d: EnrichedDistro, isFav: boolean): string {
         </div>
 
         <button class="fav-btn ${isFav ? "active" : ""}" type="button" data-fav="${escapeHtml(d.distro)}"
-          aria-label="${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}" title="Favori">
+          aria-label="${isFav ? "Retirer des favoris" : "Ajouter aux favoris"}" aria-pressed="${isFav}" title="Favori">
           <i class="${isFav ? "fa-solid" : "fa-regular"} fa-star"></i>
         </button>
       </div>

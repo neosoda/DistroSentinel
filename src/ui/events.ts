@@ -85,6 +85,43 @@ export function bindAllEvents() {
     });
   }
 
+  const railFavorites = document.getElementById("railFavorites");
+  railFavorites?.addEventListener("click", () => {
+    favOnlyCb.checked = !favOnlyCb.checked;
+    favOnlyCb.dispatchEvent(new Event("change"));
+    document.getElementById("catalogue")?.scrollIntoView({ block: "start" });
+  });
+  document.getElementById("railAdvisor")?.addEventListener("click", () => document.getElementById("openAdvisor")?.click());
+  document.getElementById("railCompare")?.addEventListener("click", () => document.getElementById("openCompare")?.click());
+  const compareButton = document.getElementById("openCompare") as HTMLButtonElement;
+  const railCompare = document.getElementById("railCompare") as HTMLButtonElement;
+  const syncCompare = () => { railCompare.disabled = compareButton.disabled; };
+  new MutationObserver(syncCompare).observe(compareButton, { attributes: true, attributeFilter: ["disabled"] });
+  syncCompare();
+  function syncFilterControls() {
+    const state = appStore.State;
+    document.querySelectorAll<HTMLButtonElement>(".filter-btn").forEach(b => {
+      const selected = b.dataset.tag !== undefined ? state.tags.has(b.dataset.tag)
+        : b.dataset.mode !== undefined ? b.dataset.mode === state.mode
+        : b.closest("#familyFilters") ? b.dataset.filter === state.family : b.dataset.filter === state.level;
+      b.classList.toggle("active", selected);
+      b.setAttribute("aria-pressed", String(selected));
+    });
+    railFavorites?.setAttribute("aria-pressed", String(state.favOnly));
+  }
+  appStore.subscribe(syncFilterControls);
+  syncFilterControls();
+  const resetFilters = () => {
+    searchInput.value = "";
+    sortSelect.value = "relevance";
+    favOnlyCb.checked = false;
+    matchAllTagsCb.checked = false;
+    appStore.update({ search: "", family: "all", level: "all", tags: new Set<string>(), mode: "all", sort: "relevance", favOnly: false, matchAllTags: false });
+  };
+  document.getElementById("resetFilters")?.addEventListener("click", resetFilters);
+  document.addEventListener("click", event => {
+    if ((event.target as HTMLElement).closest("[data-reset-filters]")) resetFilters();
+  });
   const themeToggle = document.getElementById("themeToggle");
   if(themeToggle) {
     themeToggle.addEventListener("click", () => {

@@ -35,7 +35,7 @@ function activeFiltersText(): string {
   if (state.level !== "all") parts.push(`Niveau=${state.level}`);
   if (state.tags.size) parts.push(`Tags=${Array.from(state.tags).join("+")}${state.matchAllTags ? "(AND)" : "(OR)"}`);
   if (state.favOnly) parts.push(`Favoris`);
-  parts.push(`Tri=${state.sort}`);
+  if (state.sort !== "relevance") parts.push(`Tri=${state.sort}`);
   return parts.length ? `Filtres: ${parts.join(" • ")}` : "Filtres: aucun";
 }
 
@@ -45,15 +45,20 @@ export function renderGrid(distrosObj: EnrichedDistro[]) {
 
   const state = appStore.State;
   const filtered = getFilteredAndSortedData(distrosObj, state);
+  document.getElementById("metricTotal")!.textContent = String(distrosObj.length);
+  document.getElementById("metricFamilies")!.textContent = String(new Set(distrosObj.map(d => d.family)).size);
+  document.getElementById("metricFavorites")!.textContent = String(distrosObj.filter(d => state.favorites.has(d.distro)).length);
+  document.getElementById("metricResults")!.textContent = String(filtered.length);
   countDiv.textContent = `${filtered.length} résultat${filtered.length > 1 ? "s" : ""}`;
 
   grid.innerHTML = "";
 
   if (!filtered.length) {
     grid.innerHTML = `
-      <div style="grid-column:1/-1; text-align:center; padding: 4rem; color:var(--text-muted);">
-        <i class="fas fa-ghost fa-3x"></i><br><br>
-        Aucune distribution trouvée.
+      <div class="empty-catalogue">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <h3>Aucune distribution trouvée</h3><p>Essayez une autre recherche ou réinitialisez les filtres.</p>
+        <button type="button" class="reset-btn" data-reset-filters>Réinitialiser les filtres</button>
       </div>`;
     return;
   }
