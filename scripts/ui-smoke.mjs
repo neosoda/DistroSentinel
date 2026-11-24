@@ -58,6 +58,13 @@ try {
   assert.equal(await page.locator('#gridContainer .card').count(), 12);
   await page.locator('#themeToggle').click();
   assert.equal(await page.locator('body').evaluate(el => el.classList.contains('light')), false);
+  const dark = await page.locator('#gridContainer .card').first().evaluate(el => {
+    const card = getComputedStyle(el);
+    const input = getComputedStyle(document.querySelector('#searchInput'));
+    return [card.backgroundColor,input.backgroundColor,card.color];
+  });
+  assert.deepEqual(dark,['rgb(48, 41, 72)','rgb(48, 41, 72)','rgb(245, 241, 255)'], 'dark surfaces and text must switch immediately');
+  await page.evaluate(() => window.scrollTo(0,0));
   await page.screenshot({ path: 'ui-screenshots/desktop-dark-cards.png' });
   await page.locator('#openAdvisor').click();
   await page.locator('#advisorForm button[type=submit]').click();

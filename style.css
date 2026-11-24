@@ -767,3 +767,11 @@ body:not(.light) .row-fav.active{color:#ffd170}
 .fav-btn.active .icon-star,.row-fav.active .icon-star,.rail-link[aria-pressed=true] .icon-star{fill:currentColor}
 .rail-link{position:relative}.rail-current::after{content:"";position:absolute;right:-13px;top:15px;width:4px;height:15px;background:#bcb1ed;border-radius:3px}
 @media(max-width:600px){.rail-current::after{right:auto;top:auto;bottom:-6px;width:15px;height:3px}}
+
+/* Theme changes must apply atomically: no light cards with dark-mode text during the transition. */
+body{color-scheme:dark}body.light{color-scheme:light}
+.card,.search-input,.select,.toggle input,.filter-btn,.btn,.icon-btn,.fav-btn{transition-property:transform,box-shadow;transition-duration:150ms}
+.card-info h2{color:var(--text-main);white-space:normal;padding-right:0;overflow-wrap:anywhere}
+body:not(.light) .card,body:not(.light) .card-footer,body:not(.light) .search-input,body:not(.light) .select,body:not(.light) .toggle input:not(:checked),body:not(.light) .filter-btn:not(.active),body:not(.light) .btn-try{background-color:var(--bg-surface);color:var(--text-main)}
+body:not(.light) .filter-btn:not(.active){color:var(--text-muted)}
+@media(prefers-reduced-motion:reduce){.card,.search-input,.select,.toggle input,.filter-btn,.btn,.icon-btn,.fav-btn{transition-duration:.01ms}}
