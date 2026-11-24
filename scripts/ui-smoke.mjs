@@ -89,6 +89,11 @@ try {
   await page.evaluate(() => window.scrollTo(0,0));
   await page.screenshot({ path: 'ui-screenshots/tablet-dark-cards.png', animations: 'disabled' });
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.waitForFunction(() => {
+    const a = document.querySelector('.rail-current')?.getBoundingClientRect();
+    const b = document.querySelector('.nav-indicator')?.getBoundingClientRect();
+    return a && b && Math.abs(a.x-b.x) < 1 && Math.abs(a.y-b.y) < 1 && Math.abs(a.width-b.width) < 1 && Math.abs(a.height-b.height) < 1;
+  }, { timeout: 3000 });
   await page.evaluate(() => window.scrollTo(0,0));
   await page.screenshot({ path: 'ui-screenshots/mobile-dark-cards.png', animations: 'disabled' });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'mobile page overflow');
