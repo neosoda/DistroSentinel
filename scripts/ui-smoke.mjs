@@ -20,6 +20,7 @@ try {
   await page.route('**/*', route => route.request().url().startsWith('http://127.0.0.1:4173') ? route.continue() : route.abort());
   await page.goto('http://127.0.0.1:4173', { waitUntil: 'domcontentloaded' });
   await page.locator('.catalogue-table tbody tr').first().waitFor();
+  assert.ok(await page.locator('.rail-link .ui-icon').first().evaluate(el => el.getBBox().width > 0), 'inline navigation icons visible offline');
   const total = Number(await page.locator('#metricTotal').textContent());
   assert.ok(total > 12);
   assert.equal(await page.locator('.catalogue-table tbody tr').count(), 12);
@@ -43,6 +44,11 @@ try {
   await page.locator('#detailDialog [data-close-dialog]').click();
   await page.locator('#railFavorites').click();
   assert.equal(await page.locator('#metricResults').textContent(), '1');
+  await page.locator('.catalogue-table [data-detail]').first().click();
+  await page.locator('#detailDialog [data-fav]').click();
+  assert.equal(await page.locator('#detailDialog [data-fav]').getAttribute('aria-pressed'), 'false');
+  await page.locator('#detailDialog [data-close-dialog]').click();
+  await page.locator('.empty-catalogue').waitFor();
   await page.locator('#railFavorites').click();
   await page.locator('#searchInput').fill('zzzz-not-a-distribution-zzzz');
   await page.locator('.empty-catalogue').waitFor();
@@ -58,6 +64,7 @@ try {
   assert.ok(await page.locator('#advisorResults .recommend-card').count() > 0);
   await page.locator('#advisorDialog [data-close-dialog]').click();
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.evaluate(() => window.scrollTo(0,0));
   await page.screenshot({ path: 'ui-screenshots/mobile-dark-cards.png' });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'mobile page overflow');
   await page.locator('#viewList').click();

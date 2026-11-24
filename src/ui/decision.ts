@@ -17,7 +17,7 @@ export function syncCompareUI(): void {
     const active = selected.has(button.dataset.compare || "");
     button.setAttribute("aria-pressed", String(active));
     button.classList.toggle("selected", active);
-    button.innerHTML = active ? '<i class="fas fa-check" aria-hidden="true"></i> Sélectionnée' : '<i class="fas fa-code-compare" aria-hidden="true"></i> Comparer';
+    button.innerHTML = active ? '<svg class="ui-icon icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-check"></use></svg> Sélectionnée' : '<svg class="ui-icon icon-code-compare" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-code-compare"></use></svg> Comparer';
   });
   const count = $("compareCount");
   if (count) count.textContent = selected.size + "/4";

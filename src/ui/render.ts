@@ -64,7 +64,7 @@ function listRow(d: EnrichedDistro, favorite: boolean) {
     <td><span class="badge family">${escapeHtml(d.family)}</span></td>
     <td><span class="level-chip">${escapeHtml(d.level)}</span></td>
     <td class="usage-cell">${escapeHtml(d.usage)}</td>
-    <td><div class="list-actions"><button type="button" class="row-fav ${favorite ? "active" : ""}" data-fav="${name}" aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"} : ${name}" aria-pressed="${favorite}"><i class="${favorite ? "fa-solid" : "fa-regular"} fa-star" aria-hidden="true"></i></button><button class="btn btn-compare" data-compare="${name}" aria-pressed="false" type="button">Comparer</button><button class="row-detail" data-detail="${name}" aria-label="Voir la fiche de ${name}" type="button"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button></div></td>
+    <td><div class="list-actions"><button type="button" class="row-fav ${favorite ? "active" : ""}" data-fav="${name}" aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"} : ${name}" aria-pressed="${favorite}"><svg class="ui-icon icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg></button><button class="btn btn-compare" data-compare="${name}" aria-pressed="false" type="button">Comparer</button><button class="row-detail" data-detail="${name}" aria-label="Voir la fiche de ${name}" type="button"><svg class="ui-icon icon-arrow-up-right-from-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right-from-square"></use></svg></button></div></td>
   </tr>`;
 }
 export function bindCatalogueView() {
@@ -117,10 +117,21 @@ export function renderGrid(distrosObj: EnrichedDistro[]) {
   const focusName = focusKey ? focused?.dataset[focusKey] : undefined;
   grid.innerHTML = "";
 
+  const detail = document.getElementById("detailDialog") as HTMLDialogElement;
+  if (detail.open) {
+    detail.querySelectorAll<HTMLButtonElement>("[data-fav]").forEach(button => {
+      const active = state.favorites.has(button.dataset.fav || "");
+      button.classList.toggle("active",active);
+      button.setAttribute("aria-pressed",String(active));
+      button.setAttribute("aria-label",active ? "Retirer des favoris" : "Ajouter aux favoris");
+      button.innerHTML = '<svg class="ui-icon icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>';
+    });
+  }
+
   if (!filtered.length) {
     grid.innerHTML = `
       <div class="empty-catalogue">
-        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <svg class="ui-icon icon-magnifying-glass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-magnifying-glass"></use></svg>
         <h3>Aucune distribution trouvée</h3><p>Essayez une autre recherche ou réinitialisez les filtres.</p>
         <button type="button" class="reset-btn" data-reset-filters>Réinitialiser les filtres</button>
       </div>`;
@@ -147,16 +158,6 @@ export function renderGrid(distrosObj: EnrichedDistro[]) {
   }
   if (focusKey && focusName) {
     Array.from(grid.querySelectorAll<HTMLButtonElement>("button")).find(b => b.dataset[focusKey] === focusName)?.focus({preventScroll:true});
-  }
-  const detail = document.getElementById("detailDialog") as HTMLDialogElement;
-  if (detail.open) {
-    detail.querySelectorAll<HTMLButtonElement>("[data-fav]").forEach(button => {
-      const active = state.favorites.has(button.dataset.fav || "");
-      button.classList.toggle("active",active);
-      button.setAttribute("aria-pressed",String(active));
-      button.setAttribute("aria-label",active ? "Retirer des favoris" : "Ajouter aux favoris");
-      button.innerHTML = '<i class="' + (active ? "fa-solid" : "fa-regular") + ' fa-star"></i>';
-    });
   }
   syncCompareUI();
 }
