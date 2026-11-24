@@ -150,7 +150,8 @@
       <div class="metric"><span class="metric-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span><strong id="metricFavorites">—</strong><span>Favoris</span></div>
       <div class="metric"><span class="metric-icon"><i class="fa-solid fa-filter" aria-hidden="true"></i></span><strong id="metricResults">—</strong><span>Résultats filtrés</span></div>
     </section>
-    <div class="top-bar" id="catalogue">
+    <section class="catalogue-panel" id="catalogue" aria-labelledby="currentView">
+    <div class="top-bar">
       <h2 id="currentView">Toutes les distributions</h2>
       <div class="stats">
         <span class="pill" id="resultCount">Chargement...</span>
@@ -158,11 +159,16 @@
       </div>
     </div>
 
+    <div class="catalogue-toolbar"><span>Présentation du catalogue</span><div class="view-switch" role="group" aria-label="Présentation"><button type="button" id="viewList" aria-pressed="true"><i class="fa-solid fa-list" aria-hidden="true"></i> Liste</button><button type="button" id="viewCards" aria-pressed="false"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i> Cartes</button></div></div>
+    <div id="compareTray" class="compare-tray" hidden></div>
     <div class="grid" id="gridContainer" aria-live="polite"></div>
+    <div class="pagination"><span id="pageSummary" aria-live="polite"></span><div class="page-controls"><button type="button" id="prevPage" aria-label="Page précédente">‹</button><span id="pageNumber"></span><button type="button" id="nextPage" aria-label="Page suivante">›</button></div></div>
+    </section>
     <p class="catalogue-note">Les familles, niveaux et tags peuvent être estimés à partir des descriptions : vérifiez les caractéristiques et versions sur les sites officiels avant de choisir.</p>
   </main>
   </div></div></div>
 
+  <dialog id="detailDialog" class="tool-dialog detail-dialog" aria-labelledby="detailTitle"><header class="tool-head"><div><span class="tool-kicker">FICHE DISTRIBUTION</span><h2 id="detailTitle">Détails</h2></div><button type="button" class="tool-close" data-close-dialog aria-label="Fermer la fiche"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></header><div id="detailContent"></div></dialog>
   <dialog id="compareDialog" class="tool-dialog compare-dialog" aria-labelledby="compareTitle">
     <header class="tool-head">
       <div><span class="tool-kicker">FACE À FACE</span><h2 id="compareTitle">Comparer les distributions</h2></div>
@@ -206,6 +212,7 @@
       <button type="submit" class="action-primary">Voir mes propositions</button>
     </form>
     <div id="advisorResults" aria-live="polite"></div>
+    <button type="button" id="advisorCompare" class="action-secondary" disabled>Ouvrir la comparaison</button>
   </dialog>
   <div id="statusMessage" class="sr-only" role="status" aria-live="polite"></div>
 

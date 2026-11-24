@@ -23,6 +23,13 @@ export function syncCompareUI(): void {
   if (count) count.textContent = selected.size + "/4";
   const open = $<HTMLButtonElement>("openCompare");
   if (open) open.disabled = selected.size < 2;
+  const advisor = $<HTMLButtonElement>("advisorCompare");
+  if (advisor) advisor.disabled = selected.size < 2;
+  const tray = $("compareTray");
+  if (tray) {
+    tray.hidden = selected.size === 0;
+    tray.innerHTML = selected.size ? '<strong>Comparaison · ' + selected.size + '/4</strong><div class="tray-items">' + [...selected].map(name => '<button type="button" class="tray-item" data-remove-compare="' + escapeHtml(name) + '" aria-label="Retirer ' + escapeHtml(name) + ' de la comparaison">' + escapeHtml(name) + ' ×</button>').join("") + '</div><button type="button" class="action-primary" data-open-comparison ' + (selected.size < 2 ? "disabled" : "") + '>Comparer</button>' : "";
+  }
 }
 function row(label: string, distros: EnrichedDistro[], getter: (d: EnrichedDistro) => string | undefined): string {
   return `<tr><th scope="row">${escapeHtml(label)}</th>${distros.map(d => `<td>${text(getter(d))}</td>`).join("")}</tr>`;
@@ -74,6 +81,7 @@ function showRecommendations(form: HTMLFormElement): void {
 export function bindDecisionTools(distros: EnrichedDistro[]): void {
   catalogue = distros;
   $("openCompare")?.addEventListener("click", showCompare);
+  $("advisorCompare")?.addEventListener("click", () => { $<HTMLDialogElement>("advisorDialog")?.close(); showCompare(); });
   $("openAdvisor")?.addEventListener("click", () => $<HTMLDialogElement>("advisorDialog")?.showModal());
   $<HTMLFormElement>("advisorForm")?.addEventListener("submit", event => {
     event.preventDefault();
@@ -82,6 +90,9 @@ export function bindDecisionTools(distros: EnrichedDistro[]): void {
   document.addEventListener("click", event => {
     const target = event.target;
     if (!(target instanceof Element)) return;
+    const remove = target.closest<HTMLButtonElement>("[data-remove-compare]");
+    if (remove) { selected.delete(remove.dataset.removeCompare || ""); syncCompareUI(); return; }
+    if (target.closest("[data-open-comparison]")) { showCompare(); return; }
     const compare = target.closest<HTMLButtonElement>("button[data-compare]");
     if (compare) {
       const name = compare.dataset.compare || "";

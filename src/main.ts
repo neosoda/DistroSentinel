@@ -3,7 +3,7 @@ import { bindDecisionTools, syncCompareUI } from "./ui/decision";
 import { bindExportEvents } from "./utils/export";
 import { enrichData } from "./domain/enrichment";
 import { enrichedDistros } from "./data/rawDistros";
-import { renderGrid, showSkeleton } from "./ui/render";
+import { renderGrid, showSkeleton, bindCatalogueView } from "./ui/render";
 import { appStore } from "./store/state";
 import "../style.css"; // Imported for Vite
 
@@ -12,6 +12,7 @@ const distrosObj = enrichData(enrichedDistros);
 
 // Initialize UI binding
 bindAllEvents();
+bindCatalogueView();
 bindExportEvents(distrosObj);
 bindDecisionTools(distrosObj);
 
