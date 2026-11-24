@@ -85,6 +85,8 @@ export function bindAllEvents() {
     });
   }
 
+  const filterDetails = document.querySelector<HTMLDetailsElement>(".filter-details");
+  if (filterDetails && window.matchMedia("(max-width: 980px)").matches) filterDetails.open = false;
   const railFavorites = document.getElementById("railFavorites");
   railFavorites?.addEventListener("click", () => {
     favOnlyCb.checked = !favOnlyCb.checked;
